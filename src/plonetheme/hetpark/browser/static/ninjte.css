@@ -1,0 +1,625 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+:focus {
+  outline: 0;
+}
+
+
+html,
+body {
+  font-family: 'Nunito';
+  background: #FEC930;
+}
+.gp_heading1,
+.gp_heading2,
+.gp_heading3,
+.gp_heading4,del
+.gp_heading5,
+.gp_heading6,
+.syx_pageHeading,
+.syx_articleItemList .totalPrice td,
+.syx_articleItemList .productPrice,
+.syx_productDetail .priceCartContainer .price,
+.syx_extraOptionsTable .subtotal .priceWidth,
+.syx_popupTable,
+.syx_popupTable th,
+.syx_articleItemList .productName,
+.syx_pageHeading,
+.syx_articleItemList .subTotal td,
+.syx_articleItemList,
+.syx_articleItemList .productName
+{
+  font-family: 'Nunito';
+}
+
+.syx_articleItemList .productName {
+font-weight: normal;}
+
+#MainContent_lblToPay, #MainContent_lblAmountToPay {padding-top: 0 !important;}
+
+p {
+  margin: 0 0 20px 0;
+}
+
+#MainContent_lblShowCoupons,
+.coupon,
+label {
+  text-transform: lowercase;
+}
+
+.gp_heading3,
+.gp_heading4,
+.gp_heading5,
+.gp_heading6 {
+  font-size: 1.1em;
+}
+small {
+  font-size: 1em;
+}
+
+#headerBanner a {
+  position:fixed !important;
+  left:0;
+  width:180px;
+  height:130px;
+  color:red;
+}
+
+#headerBanner a:hover {
+  color:#FFF !important;
+}
+.gp_header {
+  background: url(https://webshopnm.recreatex.be/CustomImages/FileDataHandler.ashx?path=CustomImages%2flogo_nijntje3.png) no-repeat 0 0;
+  padding: 0 180px;
+}
+.gp_header .gp_main {
+  background: none;
+  height: 130px;
+}
+.gp_header .syx_loginLang {
+  width: 200px;
+  text-align: left;
+  right: 0;
+top: 16px;
+}
+.gp_header .syx_loginLang .syx_login {
+  width: 100px;
+  text-align: left
+}
+.gp_header .syx_myProfile .syx_languageIcons {
+  color:#FFF;
+}
+.gp_header .syx_loginLang a,
+.gp_header .syx_basket .syx_articles:before {
+  color:#FFF;
+}
+#ctlBasketWidget_updBasket {
+  padding: 10px 10px 0 10px;
+}
+
+.syx_extraOptionsTable .subtotal{padding-right: 16px !important;}
+
+.syx_orderOptions .subtotal {font-size: 16px !important;}
+
+.viewpay {
+  text-transform: lowercase;
+}
+.basketpopup table td {
+  padding-bottom: 0 !important;
+}
+
+.basketpopup table tr.rgRow,
+.basketpopup table tr.rgAltRow {
+  background: #EB5B19 !important;
+  color: #FFF !important;
+  padding: 4px !important;
+}
+.basketpopup table tr.rgRow td,
+.basketpopup table tr.rgAltRow td{
+  border-bottom: 2px solid #ff8d53 !important;
+}
+.gp_header .syx_mainMenu {
+  top: 0 !important;
+}
+.gp_header .syx_mainMenu ul {
+  margin-left: 0;
+}
+.gp_header .syx_mainMenu ul li {
+  background: none !important;
+}
+.gp_header .syx_mainMenu ul li a {
+  background: none !important;
+  color: #FFF;
+  font-size: 18px;
+}
+.gp_header .syx_mainMenu ul li a:hover {
+  color: #000;
+}
+.gp_header .syx_mainMenu ul li a span {
+  text-shadow: none;
+  text-transform: lowercase;
+  padding-top: 15px;
+  display: block;
+}
+.gp_header .syx_mainMenu li a .rmText {
+  position: initial;
+}
+
+.gp_header .syx_mainMenu li a {
+border-bottom: 0;
+}
+.gp_header .syx_myProfile ul ul {
+  background: #FFF;
+}
+.gp_header .syx_myProfile ul ul li a {
+  color: #333 !important;
+}
+
+.gp_content {
+border-top: 170px solid rgba(0, 0, 0, 0);
+}
+
+.gp_content .gp_main {
+  position: relative !important;
+  background: #FFF;
+  padding: 40px;
+  margin-top: -30px;
+  overflow: hidden;
+}
+.syx_moduleSearch {
+  right: 30px;
+}
+.syx_productDetail,
+.syx_productDetail .infoContainer,
+.syx_productDetail .priceCartContainer {
+  border: none;
+}
+.syx_productDetail .infoContainer {
+  width: 100%;
+  padding-left: 0;
+}
+
+.syx_productDetail .infoContainer .image {
+  float: right;
+}
+.syx_productDetail .infoContainer .image img {
+  max-width: 450px;
+}
+.syx_productDetail .infoContainer>table {
+  max-width: 450px;
+}
+.syx_articleItemList .thumb,
+.syx_articleItemList .thumb img,
+.syx_articleItemList .thumb input[type="image"]
+ {
+  min-width: 250px ! important;
+  height: auto;
+  margin-right: 20px;
+}
+.syx_articleItemList.simpleTable tr>th,
+.syx_articleItemList.simpleTable tr>td,
+.syx_articleItemList .rgAltRow>td,
+.syx_articleItemList .rgRow>td {
+  border: none;
+  padding-bottom: 40px !important;
+}
+.syx_articleItemList .productName {
+  font-size: 1.8em;
+  line-height: 1;
+}
+/* CALENDAR */
+
+.RadCalendar_syx_datePicker_multi2 .rcTitlebar,
+.RadCalendar_syx_datePicker_multi2 .rcTitle,
+.RadCalendar_syx_datePicker_multi2 .rcWeek>*,
+.RadCalendar_syx_datePicker_multi2 .rcMain .rcRow>th {
+  text-transform: lowercase !important;
+  font-family: 'Nunito';
+  border: none !important;
+}
+.RadCalendar_syx_datePicker_multi2 .rcMain .rcCalendar.rcLastCol,
+.RadCalendar_syx_datePicker_multi2 .rcTitlebar {
+  border: none !important;
+}
+
+body .RadCalendar .rcMain .rcRow a:hover, body .RadCalendar_syx_datePicker_multi2 .rcMain .rcSelected a {
+border: none !important;
+}
+
+.RadCalendar_syx_datePicker_multi2 .rcMain .rcValidDate a {
+  text-transform: lowercase !important;
+  font-family: 'Nunito';
+  text-shadow: none;
+  color: #FFF !important;
+}
+.RadCalendar_syx_datePicker_multi2 .rcMain .rcRow>th,
+.RadCalendar .rcMain .rcRow span {
+  text-transform: lowercase !important;
+  font-family: 'Nunito';
+  text-shadow: none;
+  color: #333 !important;
+}
+.RadCalendar .rcMain .rcRow a:hover,
+.RadCalendar_syx_datePicker_multi2 .rcMain .rcSelected a {
+  background: #FFC5A8;
+  color: #eb5b19 !important;
+  border: 1px solid #FFC5A8 !important;
+  text-transform: lowercase !important;
+  font-family: 'Nunito';
+  text-shadow: none;
+}
+.RadCalendar_syx_datePicker_multi2 .rcMain .rcValidDate a {
+  background: #eb5b19;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='white', endColorstr='#d5d4d3', GradientType=0, enabled = false);
+}
+.RadCalendar .rcMain .rcRow td:not(.rcValidDate) a {
+  color: #333 !important;
+}
+.RadCalendar_syx_datePicker_multi2 {
+  border: none !important;
+  box-shadow: none;
+}
+.RadCalendar td,
+.RadCalendar th {
+  background: #f2f2f2 !important;
+}
+.RadCalendar_syx_datePicker_multi2 .rcMain {
+  border: none !important;
+}
+.syx_radioButtonList li {
+  padding-left: 2px;
+}
+.syx_articleItemList {
+  border-top: none;
+  padding-top: 30px;
+}
+.syx_articleItemList table.selectedPersonsOverview tr.rgRow td * {
+  border: none !important;
+}
+/* TICKETS */
+
+.syx_articleItemList .productName:hover {
+  text-decoration: none;
+}
+.syx_productDetail .priceCartContainer {
+  float: left;
+  max-width:200px;
+}
+.syx_productDetail .placeInCart input[type=submit] {
+  display: block;
+  float:left;
+  margin-top: 20px;
+background-image:none;
+}
+/* BUTTONS */
+
+.btn,
+.btn.gray,
+.btn.small,
+a.cancel,
+input[type=submit],
+input[type=submit].gray {
+background-image: -webkit-linear-gradient(tarant, transparant);
+background: -webkit-linear-gradient(transparant, transparant);
+  margin: 0;
+ -webkit-appearance: none !important;
+background: none !important;
+background-image: none !important;
+  background: #EB5B19 !important;
+  background-color: #EB5B19 !important;
+  border-radius: 20px;
+  color: #FFF;
+  padding: 5px 15px 7px 15px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-family: 'nunito';
+  text-transform: lowercase;
+  text-decoration: none;
+  text-shadow: none;
+}
+
+a#MainContent_btnNextStep {
+  margin-left:10px;
+}
+
+.syx_extraOptionsTable .couponTable .apply {
+  width: 140px;
+margin-left: 15px;
+}
+
+.syx_btnContainer .cancel {
+  margin-right: 0;
+}
+.btn:hover,
+input[type=submit]:hover {
+  background: #FFC5A8 !important;
+  color: #eb5b19 !important;
+  text-shadow: none;
+}
+.syx_articleItemList .btnDelete {
+  background: url(https://webshopnm.recreatex.be/CustomImages/FileDataHandler.ashx?path=CustomImages%2fdelete.png) no-repeat 0 0 !important;
+  margin-top: 13px;
+  width:30px;
+  height:30px;
+}
+.syx_articleItemList .btnDelete:hover {
+  background: url(https://webshopnm.recreatex.be/CustomImages/FileDataHandler.ashx?path=CustomImages%2fdelete.png) no-repeat 0 -50px !important;
+}
+
+
+/* FORMS */
+
+html body .RadInput .riTextBox,
+html body .RadInputMgr {
+  padding-right: 10px;
+  text-align: right;
+}
+
+#MainContent_AnonymousNaw_Nieuwsbrief {margin-right: 15px;}
+
+.gp_form fieldset input[type="text"],
+.gp_form fieldset input[type="email"],
+.gp_form fieldset input[type="url"],
+.gp_form fieldset input[type="search"],
+.gp_form fieldset input[type="password"] {
+  background: #f2f2f2;
+  border-radius: 4px;
+  border: 1px solid #f2f2f2;
+  box-shadow: none;
+  padding: 4px !important;
+  height: 30px;
+  font-family: 'Nunito';
+  font-size: .9em;
+}
+
+.syx_radioButtonList .label {
+  width: auto;
+}
+
+
+/* WINKELMANDJE */
+
+.gp_header .syx_basket {
+  min-width: 220px;
+}
+.gp_header .syx_basket {
+  background: #FF8D53;
+  color: #333 !important;
+  padding-bottom: 20px;
+}
+.basketpopup {
+  padding: 0 20px;
+}
+.syx_stepIndicator li {
+  width: 130px;
+  background: #FFC5A8;
+  margin-right: 22px;
+  font-family: 'Nunito';
+  text-shadow: none;
+  text-transform: lowercase;
+}
+.syx_stepIndicator li.current {
+  background: #EB5B19;
+}
+.syx_stepIndicator li:after {
+  content: '';
+  height: 0;
+  display: block;
+  border-color: transparent transparent transparent #FFC5A8;
+  border-width: 20px;
+  border-style: solid;
+  position: absolute;
+  top: 0;
+  left: 130px;
+}
+.syx_stepIndicator li.current:after {
+  content: '';
+  height: 0;
+  display: block;
+  border-color: transparent transparent transparent #EB5B19;
+  border-width: 20px;
+  border-style: solid;
+  position: absolute;
+  top: 0;
+  left: 130px;
+}
+
+.riCell label {
+  padding-top:5px;
+
+}
+.quantityCol span {
+  display: block;
+  padding-top:5px;
+  padding-left:15px;
+}
+
+.singlePrice span {
+  padding-top:5px;
+
+}
+
+#MainContent_AnonymousNaw_TermsAndConditions_lnkTermsAndConditions {
+  text-decoration: underline;
+}
+
+.syx_extraOptionsTable .couponTable .couponCode input{
+margin-top: 5px;
+  margin-left:10px;
+}
+
+/* DANGER ZONE */
+
+.rgHeader {
+  display: none;
+}
+
+#MainContent_trExtraKosten,
+#ctlBasketWidget_trExtraKosten
+ {
+  display:none;
+}
+#ctlAccountAndLanguage_panNotLoggedIn {
+//  display: none;
+}
+#MainContent_divInformationAndDeliveryAnonymous .gp_gridColumn8:last-child {
+  display:none;
+}
+.syx_moduleSearch {
+  display: none;
+}
+
+.subTotal {
+  display: none;
+}
+
+
+#lblVersion {
+  display: none;
+}
+.syx_sortOverview {
+  display: none;
+}
+
+#MainContent_expositionRegister1_lblParticipants {
+  display: none;
+}
+
+#MainContent_AccountOptionsCheckoutBasket_btnRegister {
+  display: none;
+}
+
+#MainContent_AccountOptionsCheckoutBasket_btnLogin {
+  display: none;
+}
+#MainContent_AccountOptions hr:last-child {
+  border-top:none;
+ }
+
+#ctl00_MainContent_ctlLoginWidget_tabMain,
+#ctl00_MainContent_ctlLoginWidget_tabMainMultipage {
+//display: none;
+  
+}
+
+.checkoutDetails {font-size: 15px !important;}
+
+@media screen and (max-width: 699px) {
+
+.syx_shoppingCartContainer .syx_articleItemList .rgMasterTable .rgRow .priceCol.fullPrice,
+.gp_content .syx_shoppingCartContainer .syx_articleItemList .rgMasterTable .rgAltRow .priceCol.fullPrice {display:none;}
+
+body .gp_header {  background-size: auto 110px !important;
+}
+.gp_header {
+  padding: 0 !important;
+  }
+
+
+.gp_content {
+border-top: 190px solid rgba(0, 0, 0, 0);
+}
+
+.RadCalendar_syx_datePicker_multi1 .rcMain .rcSelected a {
+background: #ffc5a8 !important;
+}
+
+.RadCalendar_syx_datePicker_multi1 .rcMain .rcValidDate a {
+background: #EB5B19 !important;
+text-shadow: none;
+color: #FFF;
+}
+.gp_content .gp_main {
+  padding: 10px !important;
+  }
+.gp_content .syx_shoppingCartContainer .syx_articleItemList .rgMasterTable .rgRow .priceCol.fullPrice>span, .gp_content .syx_shoppingCartContainer .syx_articleItemList .rgMasterTable .rgAltRow .priceCol.fullPrice>span {
+  top: 72px !important;
+  }
+
+.syx_productDetail .priceCartContainer {
+padding: 0 !important; }
+
+.gp_header .syx_mainMenu ul {
+  position: absolute !important;
+  left: 0 !important;
+  top: 120px !important;
+margin-left: 4px !important;
+}
+
+.gp_content .syx_shoppingCartContainer .syx_articleItemList .rgMasterTable .rgRow .quantityCol2, .gp_content .syx_shoppingCartContainer .syx_articleItemList .rgMasterTable .rgAltRow .quantityCol2 {min-width: auto !important;}
+
+.modulehtml {padding: 0 !important;}
+
+.gp_header .NoNavigationImage li {
+    height: 45px !important;
+}
+.gp_header .syx_loginLang .syx_lang {
+ display: none !important
+}
+.gp_header .syx_mainMenu ul li {
+  background: #EB5B19 !important;
+  }
+
+  .gp_header {
+    background-size: auto 160px !important;
+  }
+}
+
+img[alt=OmniKassa]
+{
+    display:none;
+}
+
+.gp_header .relativeRight {
+  float:none;
+  position: absolute;
+}
+
+
+.gp_header .syx_basket {
+  position: fixed;
+  right: auto;
+  left: 50%;
+  top: 70px;
+  margin-left: -100px;}
+
+
+@media screen and (max-width: 699px) {
+  .gp_header .relativeRight {
+    float:right;
+    position: relative;
+  }
+
+.gp_header .syx_basket {
+  position: relative;
+  margin-left: 0;
+  left: 0;
+  right: 0;
+  top: 20px;
+}
+
+body .gp_header .syx_basket {min-width: 180px !important;}
+
+}
+#MainContent_AccountOptionsCheckoutBasket_btnAnonymous{
+  display: none;
+}
+
+.RadGrid .rgRow .productName, .RadGrid .rgAltRow .productName, .RadGrid .rgRow .singlePrice, .RadGrid .rgAltRow .singlePrice {
+    padding-top: 0 !important;
+}
+.RadGrid .rgRow .fullPrice, .RadGrid .rgAltRow .fullPrice {
+padding-top: 22px !important;  
+}
+td.priceCol.singlePrice {
+  display:none;
+}
+
+#floatdiv {
+  position:relative !important;
+  margin-left: 0 !important;
+box-shadow: none !important;
+}
+
+#floatdiv span {font-size: 17px !important;}
+
+.divWithTableStructureRightSmall input[type="text"], .divWithTableStructureRightSmall input[type="password"] {background:#FFFFFF !important}

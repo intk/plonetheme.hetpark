@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title></title>
+        <style></style>
+  </head>
+
+  <body>
+    <p tal:content="here/getBody_pre | nothing" />
+
+    <table cellspacing="0" cellpadding="0" border="0" width="100%" height="100%">
+      <tr>
+          <td align="center" valign="top">
+            <table border="1" cellpadding="10" cellspacing="0" width="600">
+                <tal:block repeat="field options/wrappedFields | nothing">
+                <tr>
+                  <td align="left" valign="top" width="300" tal:content="field/fgField/widget/label" style="font-weight: 800;"></td>
+                  <td align="left" valign="top" width="300" tal:content="structure python:field.htmlValue(request)"></td>
+                </tr>
+                </tal:block>
+            </table>
+          </td>
+      <tr>
+    </table>
+
+    <p tal:content="here/getBody_post | nothing" />
+    <pre tal:content="here/getBody_footer | nothing" />
+  
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      tal:omit-tag="">
+
+  <dl tal:attributes="class string:portlet portletMailChimp portletMailChimp-${view/name}">
+
+    <dt class="portletHeader">
+      <h3 tal:content="view/name">Title of the portlet</h3>
+    </dt>
+
+    <dd class="portletItem odd">
+      <form tal:attributes="action view/endpoint_url|nothing;" id="newsletter-subscriber-form" method="get">
+        <div id="formfield-form-widgets-email">
+          <input id="form-widgets-email" name="EMAIL" class="text-widget required textline-field" value="" type="text" placeholder="Uw mailadres" tal:condition="python: getattr(context, 'language', 'nl') == 'nl'"/>
+          <input id="form-widgets-email" name="EMAIL" class="text-widget required textline-field" value="" type="text" placeholder="Email" tal:condition="python: getattr(context, 'language', 'nl') != 'nl'"/>
+        </div>
+
+        <input type="hidden" value="c04600e3ceefae8c502cbabec" name="u" tal:attributes="value view/user_id|nothing"/>
+        <input type="hidden" value="42702e9770" name="id" tal:attributes="value view/list_id|nothing"/>
+        <input type="hidden" value="1" name="group[15905][16]"/>
+
+        <div class="formControls">
+          <input id="form-buttons-subscribe" name="form.buttons.subscribe" class="submit-widget button-field context" value="Inschrijven" type="submit" tal:condition="python: getattr(context, 'language', 'nl') == 'nl'">
+          <input id="form-buttons-subscribe" name="form.buttons.subscribe" class="submit-widget button-field context" value="Subscribe" type="submit" tal:condition="python: getattr(context, 'language', 'nl') != 'nl'">
+        </div>
+
+        <div id="privacy-statement-wrapper" style="margin-top: 10px;" tal:condition="view/privacy_statement|nothing">
+          <a href="https://www.hetpark.nl/nl/over-het-museum/voorwaarden/privacy/privacyreglement_stichting_centraal_museum.pdf" target="_blank" tal:attributes="href view/privacy_statement" i18n:domain="plonetheme.hetpark" i18n:translate="privacy_statement">Privacy statement</a>
+        </div>
+
+        <div id="subscribe-result">
+          <p class="error-msg" style="display:none;" tal:condition="python: getattr(context, 'language', 'nl') != 'nl'">Could not subscribe to newsletter. Either the email is already subscribed or something else is wrong. Try again later.</p>
+          <p class="error-msg" style="display:none;" tal:condition="python: getattr(context, 'language', 'nl') == 'nl'">Aanmelden op nieuwsbrief mislukt.</p>
+          
+          <p class="success-msg" style="display:none;" tal:condition="python: getattr(context, 'language', 'nl') != 'nl'">We have to confirm your email address. In order to finish the newsletter subscription, click on the link inside the email we just send you.</p>
+          <p class="success-msg" style="display:none;" tal:condition="python: getattr(context, 'language', 'nl') == 'nl'">Bedankt voor uw aanmelding. U ontvangt een e-mail waarin uw inschrijving wordt bevestigd.</p>
+        </div>
+      </form>
+    </dd>
+  </dl>
+</html>

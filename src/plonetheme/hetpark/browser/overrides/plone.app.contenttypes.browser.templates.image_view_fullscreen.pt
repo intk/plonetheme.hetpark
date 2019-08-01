@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    i18n:domain="plone">
+<head>
+  <metal:block tal:define="dummy python:request.RESPONSE.setHeader('Content-Type', 'text/html;;charset=utf-8')" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title tal:content="context/Title">Title</title>
+  <style type="text/css" media="screen">
+
+    @font-face {
+      font-family: 'FranklinBook';
+      font-display: swap;
+      src: url('++resource++plonetheme.hetpark/ITCFranklinGothicStd-Book.eot?#iefix'),
+           url('++resource++plonetheme.hetpark/ITCFranklinGothicStd-Book.woff') format('woff'),
+           url('++resource++plonetheme.hetpark/ITCFranklinGothicStd-Book.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      background-color: white;
+      color: black;
+      font-family: 'FranklinBook', Helvetica, Arial, sans-serif;
+      font-size: 1.000m;
+      padding:0;
+      margin:0;
+    }
+    @media screen and (max-width: 768px) {
+        body {
+          font-size: 100%;
+        }
+    }
+    a {
+      color: #9d9d9d;
+      text-decoration: underline;
+      text-align:center;
+    }
+
+    p {
+      text-align: center;
+    }
+    a:hover {text-decoration:none;color: #000000;}
+    a span {
+      display:block;
+      line-height:1.5em;
+      padding:12px;
+    }
+    img {
+      border: 0;
+      display:block;
+      margin:0 auto;
+      max-width: 100%; height: auto;
+    }
+
+    span.rights {
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="content-core" tal:condition="context/@@images">
+
+    <tal:backtosite tal:condition="request/HTTP_REFERER"
+      tal:define="object_details python:context.restrictedTraverse('@@context_tools').getObjectDetails(context);
+                  rights python: object_details.get('rights', '');
+                  freeofcopyright python: object_details.get('freeofcopyright', None);">
+      <a tal:attributes="href request/HTTP_REFERER"
+          tal:condition="request/HTTP_REFERER"
+        ><span i18n:translate="label_back_to_site">Back to site</span>
+        
+      </a>
+      
+      <p tal:condition="python: getattr(context, 'language', 'nl') == 'nl'">
+
+        <tal:copyrights tal:condition="freeofcopyright">
+          <span>Niet wat u zocht?</span> <a href="/nl/beeldaanvraag" tal:attributes="href python: '/nl/beeldaanvraag?url=%s&object_number=%s&creator=%s&object_title=%s' %(object_details.get('url', ''), object_details.get('object_number', ''), object_details.get('creator', ''), object_details.get('title', ''))">Bestelformulier</a>
+        </tal:copyrights>
+
+        <tal:notcopyrights tal:condition="not:freeofcopyright">
+          <span>Gebruik voor studie of privédoeleinden. Beeldrecht is van toepassing. Aanvragen voorwaarden copyright en/of hogere resolutie:</span> <a href="/nl/beeldaanvraag" tal:attributes="href python: '/nl/beeldaanvraag?url=%s&object_number=%s&creator=%s&object_title=%s' %(object_details.get('url', ''), object_details.get('object_number', ''), object_details.get('creator', ''), object_details.get('title', ''))">Bestelformulier</a>
+        </tal:notcopyrights>
+      </p>
+
+      <p tal:condition="python: getattr(context, 'language', 'nl') == 'en'">
+        <tal:copyrights tal:condition="freeofcopyright">
+          <span>Not what you are looking for?</span> <a href="/en/orderimage" tal:attributes="href python: '/en/orderimage?url=%s&object_number=%s&creator=%s&object_title=%s' %(object_details.get('url', ''), object_details.get('object_number', ''), object_details.get('creator', ''), object_details.get('title', ''))">Order form</a>
+        </tal:copyrights>
+        <tal:notcopyrights tal:condition="not:freeofcopyright">
+          <span>Use for study or private purposes. Image copyright applies. Request conditions for copyright and / or higher resolution:</span> <a href="/en/orderimage" tal:attributes="href python: '/en/orderimage?url=%s&object_number=%s&creator=%s&object_title=%s' %(object_details.get('url', ''), object_details.get('object_number', ''), object_details.get('creator', ''), object_details.get('title', ''))">Order form</a>
+        </tal:notcopyrights>
+      </p>
+
+      <p tal:condition="rights">
+        <span tal:condition="python: getattr(context, 'language', 'nl') == 'nl'">Bij gebruik deze gegevens vermelden: </span><span class="rights"  tal:content="rights" tal:condition="python: getattr(context, 'language', 'nl') == 'nl'"></span>
+        <span tal:condition="python: getattr(context, 'language', 'nl') == 'en'">When using this information please state: </span><span class="rights" tal:condition="python: getattr(context, 'language', 'nl') == 'en'" tal:content="rights"></span>
+      </p>
+
+      <a tal:attributes="href request/HTTP_REFERER"
+          tal:condition="request/HTTP_REFERER"
+        >
+        <p><br/></p>
+        
+        <tal:imagesectionrights
+         tal:condition='not:freeofcopyright'
+         tal:define="image_obj context/@@images">
+          <img tal:replace="structure python: image_obj.tag('image', width=600, title=object_details.get('object_number', ''), alt=object_details.get('object_number', ''))"/>
+        </tal:imagesectionrights>
+
+        <tal:imagesection
+         tal:condition='freeofcopyright'
+         tal:define="image_obj context/@@images">
+          <tal:block replace="structure context/@@images/image" />
+        </tal:imagesection>
+
+        </a>
+    </tal:backtosite>
+
+    <tal:home tal:condition="not: request/HTTP_REFERER"
+        tal:define="object_details python:context.restrictedTraverse('@@context_tools').getObjectDetails(context);
+                  rights python: object_details.get('rights', '');
+                  freeofcopyright python: object_details.get('freeofcopyright', None);">
+      <a tal:attributes="href context/portal_url"
+          tal:condition="not: request/HTTP_REFERER"
+        ><span i18n:translate="label_home">Home</span>
+      </a>
+
+      <p tal:condition="python: getattr(context, 'language', 'nl') == 'nl'">
+
+        <tal:copyrights tal:condition="freeofcopyright">
+          <span>Niet wat u zocht?</span> <a href="/nl/beeldaanvraag" tal:attributes="href python: '/nl/beeldaanvraag?url=%s&object_number=%s&creator=%s&object_title=%s' %(object_details.get('url', ''), object_details.get('object_number', ''), object_details.get('creator', ''), object_details.get('title', ''))">Bestelformulier</a>
+        </tal:copyrights>
+
+        <tal:notcopyrights tal:condition="not:freeofcopyright">
+          <span>Gebruik voor studie of privédoeleinden. Beeldrecht is van toepassing. Aanvragen voorwaarden copyright en/of hogere resolutie:</span> <a href="/nl/beeldaanvraag" tal:attributes="href python: '/nl/beeldaanvraag?url=%s&object_number=%s&creator=%s&object_title=%s' %(object_details.get('url', ''), object_details.get('object_number', ''), object_details.get('creator', ''), object_details.get('title', ''))">Bestelformulier</a>
+        </tal:notcopyrights>
+      </p>
+
+      <p tal:condition="python: getattr(context, 'language', 'nl') == 'en'">
+        <tal:copyrights tal:condition="freeofcopyright">
+          <span>Not what you are looking for?</span> <a href="/en/orderimage" tal:attributes="href python: '/en/orderimage?url=%s&object_number=%s&creator=%s&object_title=%s' %(object_details.get('url', ''), object_details.get('object_number', ''), object_details.get('creator', ''), object_details.get('title', ''))">Order form</a>
+        </tal:copyrights>
+        <tal:notcopyrights tal:condition="not:freeofcopyright">
+          <span>Use for study or private purposes. Image copyright applies. Request conditions for copyright and / or higher resolution:</span> <a href="/en/orderimage" tal:attributes="href python: '/en/orderimage?url=%s&object_number=%s&creator=%s&object_title=%s' %(object_details.get('url', ''), object_details.get('object_number', ''), object_details.get('creator', ''), object_details.get('title', ''))">Order form</a>
+        </tal:notcopyrights>
+      </p>
+
+      <p tal:condition="rights">
+        <span tal:condition="python: getattr(context, 'language', 'nl') == 'nl'">Bij gebruik deze gegevens vermelden: </span><span class="rights"  tal:content="rights" tal:condition="python: getattr(context, 'language', 'nl') == 'nl'"></span>
+        <span tal:condition="python: getattr(context, 'language', 'nl') == 'en'">When using this information please state: </span><span class="rights" tal:condition="python: getattr(context, 'language', 'nl') == 'en'" tal:content="rights"></span>
+      </p>
+
+      <a tal:attributes="href context/portal_url"
+          tal:condition="not: request/HTTP_REFERER"
+        >
+        <p><br/></p>
+
+
+        <tal:imagesectionrights
+         tal:condition='not:freeofcopyright'
+         tal:define="image_obj context/@@images">
+          <img tal:replace="structure python: image_obj.tag('image', width=600, title=object_details.get('object_number', ''), alt=object_details.get('object_number', ''))"/>
+        </tal:imagesectionrights>
+
+        <tal:imagesection
+         tal:condition='freeofcopyright'
+         tal:define="image_obj context/@@images">
+          <tal:block replace="structure context/@@images/image" />
+        </tal:imagesection>
+
+      </a>
+    </tal:home>
+  </div>
+</body>
+</html>

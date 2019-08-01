@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  metal:use-macro="context/main_template/macros/master"
+  i18n:domain="eea">
+
+<body>
+  <metal:content-core fill-slot="content-core">
+    <metal:block define-macro="content-core">
+      <div tal:define="
+        folderContents folderContents | python:context.getFolderContents();
+        Batch python:modules['Products.CMFPlone'].Batch;
+        b_start python:request.get('b_start', 0);
+        batch python:isinstance(folderContents, Batch) and folderContents or Batch(folderContents, 100, int(b_start), orphan=2);">
+
+        <div class="search-results-bar-wrapper col-xs-12">
+        <span i18n:translate="batch_x_items_matching_your_criteria" i18n:domain="plone" id="results-count">
+            <strong i18n:name="number" id="search-results-number"
+                    tal:content="batch/sequence_length|string:0">234</strong>
+              items matching your search terms.
+        </span>
+        </div>
+
+      
+        <div metal:use-macro="context/batch_macros/macros/navigation" />
+
+        <div class="eea-preview-items" id="search-results-wrapper">
+
+          
+
+          <tal:entries repeat="brain batch">
+            <tal:entry tal:define="doc brain/getObject|nothing" tal:condition="python:doc is not None">
+              <tal:preview tal:condition="exists:doc/@@facetednavigation-result" tal:replace="structure doc/@@facetednavigation-result" tal:on-error="nothing"/>
+            </tal:entry>
+          </tal:entries>
+        </div>
+        <div metal:use-macro="context/batch_macros/macros/navigation" />
+      </div>
+
+    </metal:block>
+  </metal:content-core>
+</body>
+</html>

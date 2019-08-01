@@ -1,0 +1,139 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:faceted="http://namespaces.zope.org/faceted"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="plonetheme.hetpark">
+
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="overrides"
+      layer="plonetheme.hetpark.interfaces.IPlonethemeModernBaseLayer"
+      />
+
+  <!-- Publish static files -->
+  <browser:resourceDirectory
+      name="plonetheme.hetpark"
+      directory="static"
+      />
+
+  <browser:page
+        name="context_tools"
+        for="*"
+        class=".views.ContextToolsView"
+        permission="zope2.View"
+  />
+
+  <browser:page
+        name="exhibition_archive"
+        for="*"
+        class=".views.ExhibitionArchiveView"
+        permission="zope2.View"
+  />
+
+  <faceted:view
+    name="facetednavigation-results"
+    template="templates/facetednavigation_results.pt"
+    title="Faceted Navigation results"
+    permission="zope2.View"
+    />
+
+  <browser:page
+    name="facetednavigation-result"
+    for="zope.interface.Interface"
+    template="templates/facetednavigation_result.pt"
+    permission="zope2.View"
+    />
+
+  <browser:page
+        name="online_experience_view"
+        for="*"
+        template="templates/online_experience.pt"
+        class=".views.OnlineExperienceView"
+        permission="zope2.View"
+        />
+
+  <browser:menuItem
+        for="*"
+        menu="plone_displayviews"
+        title="Online experience view"
+        action="@@online_experience_view"
+        description="Shows the online experience view"
+        />
+
+  <browser:page
+        name="fullscreen_collection_view"
+        for="*"
+        template="templates/fullscreen_collection_view.pt"
+        class=".views.FullScreenCollectionView"
+        permission="zope2.View"
+        />
+
+  <browser:menuItem
+        for="*"
+        menu="plone_displayviews"
+        title="Fullscreen collection view"
+        action="@@fullscreen_collection_view"
+        description="Shows the fullscreen collection view"
+        />
+
+  <browser:page
+        name="infinite_collection_view"
+        for="*"
+        template="templates/infinite_collection_view.pt"
+        class=".views.InfiniteCollectionView"
+        permission="zope2.View"
+        />
+
+  <browser:menuItem
+        for="*"
+        menu="plone_displayviews"
+        title="Infinite Collection View"
+        action="@@infinite_collection_view"
+        description="Shows the infinite scrolling collection view"
+        />
+        
+
+  <browser:page
+        name="advancedsearch"
+        class=".advanced_search.views.AdvancedSearchView"
+        permission="zope2.View"
+        for="*"
+        template="advanced_search/templates/advanced_search.pt"
+    />
+
+  <browser:page
+        for="plone.event.interfaces.IEvent"
+        name="event_listing"
+        class=".views.CustomEventEventListing"
+        template="templates/event_listing.pt"
+        permission="zope2.View"
+        layer="..interfaces.IPlonethemeModernBaseLayer"
+        />
+
+    <browser:page
+        for="*"
+        name="event_listing"
+        class=".views.CustomEventListing"
+        template="templates/event_listing.pt"
+        permission="zope2.View"
+        layer="..interfaces.IPlonethemeModernBaseLayer"
+        />
+
+    <browser:page
+        for="*"
+        name="event_listing_ical"
+        class=".views.CustomEventListingIcal"
+        permission="zope2.View"
+        layer="..interfaces.IPlonethemeModernBaseLayer"
+        />
+
+  <subscriber
+        for="plone.dexterity.interfaces.IDexterityContainer
+        zope.lifecycleevent.interfaces.IObjectMovedEvent"
+        handler=".views.objectTranslated" />
+
+
+
+</configure>

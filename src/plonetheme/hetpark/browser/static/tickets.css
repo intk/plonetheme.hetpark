@@ -1,0 +1,526 @@
+/* Tickets styles */
+
+.gp_gridRow .syx_productDetail {
+	border: 0px !important;
+}
+
+.gp_gridRow .infoContainer {
+	width: 100%;
+	border: 0px !important;
+}
+
+.gp_gridRow .infoContainer #trDescriptionSmall {
+	display: none !important;
+}
+
+.gp_gridRow .infoContainer #trDescription {
+	display: table-row; !important;
+}
+
+.gp_gridRow .infoContainer #MainContent_ExhibitionInfo1_lnkShowLess {
+	display: none !important;
+}
+
+.gp_gridRow .infoContainer #trDescription small > br:first-child {
+	display: none !important;
+}
+
+
+.gp_heading1, .gp_heading2, .gp_heading3, .gp_heading4, .gp_heading5, .gp_heading6 {
+	font-family: 'FranklinMed',"Helvetica",Arial,Verdana,sans-serif;
+}
+
+.gp_heading3 {
+	font-size: 1.3em !important;
+}
+
+ul#MainContent_expositionRegister1_ExpositionsDateTimePicker_rblTime {
+	margin-left: 1px;
+}
+
+
+.RadInput_syx_numPicker .riSpin .riUp {
+	background-position: -1086px -541px;
+    border-bottom: 1px solid #494a51;
+}
+
+.RadInput_syx_numPicker .riSpin .riDown {
+	background-position: -1136px -489px
+}
+
+.RadInput table.riTable td {
+	vertical-align: middle;
+}
+
+
+.syx_extraOptionsTable .quantity {
+	width: 85px;
+}
+
+.syx_extraOptionsTable .price {
+	text-align: right;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding-right: 13px;
+}
+
+.syx_extraOptionsTable td {
+	padding: 5px;
+    padding-left: 0px;
+}
+
+.RadInput_syx_numPicker .riSpin a {
+	width: 37px;
+    height: 26px;
+    line-height: 26px;
+}
+
+.RadInput .riTextBox {
+	height: 53px;
+}
+
+.syx_extraOptionsTable td {
+	vertical-align: middle;
+}
+
+#MainContent_expositionRegister1_trSubTotal {
+	height: 60px;
+}
+
+.syx_orderOptions .panel {
+	padding-bottom: 20px;
+	border-bottom: 0px;
+}
+
+.btn:visited, .btn:link, .btn, input[type=submit]:visited, input[type=submit]:link, input[type=submit] {
+	vertical-align: middle;
+    padding: 6px 23px !important;
+    color: #fff;
+    background: #282931 !important;
+    text-decoration: none;
+    font-size: 14px !important;
+    font-family: inherit;
+    border-radius: 0;
+    height: 50px;
+    text-transform: none;
+    line-height: 50px;
+    border: 1px solid #282931;
+}
+
+.btn:focus, .btn:hover, input[type=submit]:focus, input[type=submit]:hover {
+	color: #000;
+    background: #fff !important;
+    border: 1px solid #282931;
+}
+
+.btn.gray, input.gray[type="submit"] { 
+	border: 1px solid #898989;
+}
+
+.btn.gray:hover, input.gray[type="submit"]:hover, .btn.gray:focus, input.gray[type="submit"]:focus { 
+	border: 1px solid #282931;
+	background: #ffffff !important;
+	color: #282931;
+}
+
+.btn:visited, .btn:link, .btn, input[type=submit]:visited, input[type=submit]:link, input[type=submit] {
+	vertical-align: middle ;
+    padding: 6px 23px !important;
+    color: #fff;
+    background: #282931;
+    text-decoration: none;
+    font-size: 14px !important;
+    font-family: inherit;
+    border-radius: 0;
+}
+
+
+.gp_gridRow .priceCartContainer {
+	display: none;
+}
+
+.gp_header .syx_myProfile ul ul {
+	background-color: #898989 !important;
+}
+
+.gp_header .syx_basket {
+	min-width: 100px !important;
+}
+
+.gp_header .syx_loginLang {
+	right: 170px !important; 
+}
+
+.RadInput_syx_numPicker {
+	padding-top: 3px;
+	padding-bottom: 3px !important;
+}
+
+.syx_extraOptionsTable .subtotal .priceWidth {
+	padding-right: 11px !important; 
+}
+
+.gp_gridRow.gp_gridFixed .gp_gridColumn12 {
+	width: 100% !important;
+}
+
+.gp_content .syx_shoppingCartContainer .syx_articleItemList .rgMasterTable .rgRow .deleteColSmall .btnDelete, .gp_content .syx_shoppingCartContainer .syx_articleItemList .rgMasterTable .rgAltRow .deleteColSmall .btnDelete,
+.gp_gridRow.gp_gridFixed .deleteCol .btnDelete, .syx_articleItemList .btnDelete {
+	background:transparent !important;
+	border: 0px !important;
+}
+
+
+#MainContent_headerBanner {
+	display: none !important;
+}
+
+/*#MainContent_divInformationAndDeliveryAnonymous table.checkoutDetails {
+	display: none !important;
+}*/
+
+#MainContent_lblTelephoneTitle,
+#MainContent_lblTelephone,
+#MainContent_lblMobileTitle,
+#MainContent_lblMobile,
+#MainContent_lblDeliveryAddressStreetTitle,
+#MainContent_lblDeliveryAddressStreet,
+#MainContent_lblDeliveryAddressHouseNumbeTitle,
+#MainContent_lblDeliveryAddressHouseNumber
+{
+display:none;
+}
+
+#MainContent_btnPayOgone, #MainContent_btnPayOmniKassa {
+	height: 64px !important;
+}
+
+img#MainContent_btnOgone,
+img#MainContent_imgOmniKassa {
+	display: none !important;
+}
+
+@media(min-width: 1200px) {
+	#btnLogo {
+		display: none !important;
+	}
+}
+
+
+#portal-logo {
+	display: none;
+}
+
+.gp_logoContainer .gp_logo {
+	left: 0px !important;
+	padding: 0px !important
+}
+
+@media(min-width: 1200px) {
+	#portal-logo {
+		display: block;
+		position: absolute;
+		width: auto;
+	    height: auto;
+	    top: 15px;
+	    margin-left: -140px;
+	    z-index: 1;
+	}
+
+	#MainContent_moduleHTML {
+		margin-left: 5px;
+	}
+}
+
+#MainContent_moduleHTML strong {
+	display: block;
+	margin-top: 15px;
+	color: #282931;
+	font-weight: 800;
+}
+
+#MainContent_moduleHTML div {
+	margin-top: 8px;
+}
+
+.RadGrid .rgHeader {
+	padding-top: 15px !important;
+    padding-bottom: 15px !important;
+}
+
+.gp_header .gp_main:before,
+.gp_header .gp_main:after {
+	display: none !important;
+}
+
+h1.syx_pageHeading span {
+	text-transform: none !important;
+}
+
+@media(max-width: 767px) {
+
+	.gp_gridRow .infoContainer table {
+		width: 90%;
+	}
+
+	.gp_gridRow .infoContainer {
+		    padding-top: 20px;
+		    padding-left: 0px;
+    		padding-right: 0px;
+	}
+	
+
+	.gp_gridRow .infoContainer .image {
+		padding-bottom: 25px;
+	}
+
+	h1.syx_pageHeading {
+		margin-left: 0px;
+	}
+
+
+	.gp_main > .gp_gridRow.gp_gridFixed {
+		padding-left:0px;
+		padding-right: 0px;
+	}
+
+	.gp_header .syx_loginLang {
+		top: 12px;
+		right: 110px !important;
+	}
+
+	.rgMasterTable {
+		margin-left: 15px;
+	}
+
+	.gp_gridRow.gp_gridFixed .gp_gridColumn16, .gp_gridRow.gp_gridFixed .rgMasterTable, .gp_gridRow.gp_gridFixed .gp_gridColumn12, .gp_gridRow.gp_gridFixed .gp_gridColumn10, .gp_gridRow.gp_gridFixed .gp_gridColumn4 {
+		margin: 0 0px !important;
+	}
+
+	.gp_main {
+		margin-left: 20px !important;
+    	margin-right: 20px !important;
+	}
+
+	.gp_content .syx_shoppingCartContainer .syx_articleItemList .rgMasterTable .rgRow .quantityCol2, .gp_content .syx_shoppingCartContainer .syx_articleItemList .rgMasterTable .rgAltRow .quantityCol2 {
+		min-width: 63px;
+	}
+
+	.syx_articleItemList+.syx_articleItemList {
+		margin-top: 0px !important;
+	}
+
+	.priceCol.singlePrice {
+		display: none !important;
+	}
+
+	td.quantityCol2 {
+		display: none !important;
+	}
+
+	.priceCol.fullPrice {
+		width: 75px !important;
+	}
+
+	.priceCol.fullPrice span.price {
+		width: auto !important;
+	    top: 30px !important;
+	    left: 0 !important;
+   	}
+
+   	.syx_articleItemList .priceColTotal {
+   		padding-right: 55px !important;
+   	}
+
+   	tr.subPrice.totalPrice {
+   		height: 80px !important;
+   	}
+
+   	tr.subPrice.totalPrice td {
+   		vertical-align: middle !important;
+   	}
+
+   	.deleteColSmall:after,
+   	.deleteColSmall:before {
+   		height: 15px !important;
+   	}
+
+   	.RadGrid .rgRow td, .RadGrid .rgAltRow td, .RadGrid .rgEditRow td, .RadGrid .rgFooter td {
+   		padding-top: 10px;
+    	padding-bottom: 10px
+   	}
+
+   	#MainContent_btnClearBasket {
+   		display: none !important;
+   	}
+
+   	#ctl00_MainContent_ProductList_ctl00__0 table {
+   		width: 180px;
+   	}
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+	.gp_gridRow .infoContainer {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	.gp_main {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+
+	.priceCol.singlePrice {
+		display: none !important;
+	}
+
+	td.quantityCol2 {
+		display: none !important;
+	}
+
+	.deleteColSmall:after,
+   	.deleteColSmall:before {
+   		height: 15px !important;
+   	}
+
+   	#MainContent_btnClearBasket {
+   		display: none !important;
+   	}
+
+   	.gp_gridRow.gp_gridFixed .gp_gridColumn16, .gp_gridRow.gp_gridFixed .rgMasterTable, .gp_gridRow.gp_gridFixed .gp_gridColumn12 {
+   		margin-left: 0px !important;
+   		margin-right: 0px !important;
+   	}
+
+   	tr.subPrice.totalPrice {
+   		height: 80px !important;
+   	}
+
+   	.divWithTableStructureRight {
+   		width: 79% !important
+   	}
+
+   	.divWithTableStructureLeft {
+   		width: 21% !important;
+   	}
+
+   	.RadGrid .rgRow td, .RadGrid .rgAltRow td, .RadGrid .rgEditRow td, .RadGrid .rgFooter td, .RadGrid .rgFilterRow td, .RadGrid .rgHeader, .RadGrid .rgResizeCol, .RadGrid .rgGroupHeader td {
+   		padding-left: 0px !important;
+   		padding-right: 0px !important;
+   	}
+
+   	.syx_articleItemList+.syx_articleItemList {
+		width: 90%;
+	}
+
+	.syx_articleItemList .totalPrice td, .syx_articleItemList .subTotal td {
+		padding-top: 20px;
+    padding-bottom: 20px;
+	}
+
+
+	.gp_logoContainer .gp_logo {
+		left: 30px !important;
+		padding: 0px !important;
+	}
+}
+
+.gp_content .gp_main {
+	z-index: 3;
+}
+
+
+
+#cookiebanner {
+	display: none !important;
+}
+
+
+@media(min-width: 1200px) {
+	.syx_productDetail .infoContainer {
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+	}
+
+	.gp_gridRow .infoContainer {
+		width: 70%;
+	}
+
+	.gp_header .syx_loginLang {
+    	right: 145px !important;
+	}
+
+	.priceCol.singlePrice {
+		display: none !important;
+	}
+
+	td.quantityCol2 {
+		display: none !important;
+	}
+
+	.deleteColSmall:after,
+   	.deleteColSmall:before {
+   		height: 15px !important;
+   	}
+
+   	#MainContent_btnClearBasket {
+   		display: none !important;
+   	}
+
+   	tr.subPrice.totalPrice {
+   		height: 80px !important;
+   	}
+
+   	.gp_main {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+
+	h1.syx_pageHeading {
+		margin-left: 5px;
+    	margin-bottom: 15px;
+    	margin-top: 50px;
+	}
+
+	#MainContent_syxCartProgress_stepAuthenticate {
+		display: none !important;
+	}
+
+	.syx_stepIndicator li.current span {
+		border-bottom: 1px solid !important;
+		text-transform: none !important;
+	}
+
+	.syx_stepIndicator li span {
+		text-transform: none !important;
+	}
+
+	.syx_articleItemList+.syx_articleItemList {
+		width: 90%;
+	}
+
+	.syx_articleItemList .totalPrice td, .syx_articleItemList .subTotal td {
+		padding-top: 20px;
+    	padding-bottom: 20px;
+	}
+}
+
+.syx_checkoutDetails > div.gp_gridColumn8:nth-child(2) {
+	display: none;
+}
+
+
+#ctlAccountAndLanguage_panNotLoggedIn {
+	display: none;
+}
+
+.syx_articleItemList .thumb {
+	width: 200px !important;
+	height: auto !important;
+}
+
+.syx_articleItemList .thumb input[type="image"] {
+	width: 100% !important;
+}
+
+

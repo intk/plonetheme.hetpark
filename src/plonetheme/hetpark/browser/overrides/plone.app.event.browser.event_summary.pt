@@ -1,0 +1,153 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      i18n:domain="plone.app.event"
+      tal:omit-tag="">
+<body tal:omit-tag="">
+
+<tal:def tal:define="data python:view.data; excludes view/excludes;
+                     is_past python: context.restrictedTraverse('@@context_tools').isEventPast(context);">
+  
+  <ul class="event summary details is_past" tal:condition="is_past">
+    <li class="event-date is_past"><strong i18n:domain="plonetheme.hetpark" i18n:translate="event_past_text">Past Exhibition</strong></li>
+  </ul>
+
+  <ul class="event summary details" summary="Event details" i18n:attributes="summary summary_event_details" tal:attributes="class python: 'event summary details' if not getattr(context, 'recurrence', None) else 'event summary details recurrence'">
+
+    <tal:cond condition="python:'title' not in excludes">
+      <li class="event-title">
+        <strong i18n:translate="event_event">Event</strong>
+        <a tal:attributes="href data/url" tal:content="data/title">title</a>
+      </li>
+    </tal:cond>
+
+    <tal:cond condition="python:'subjects' not in excludes">
+    <tal:cond condition="data/subjects">
+      <li class="event-category">
+        <strong i18n:translate="event_what">What</strong>
+        <span itemprop="eventType" tal:repeat="item data/subjects" tal:content="item" />
+      </li>
+    </tal:cond>
+    </tal:cond>
+
+    <tal:cond condition="python:'date' not in excludes"
+    >
+
+      <li class="event-date" tal:attributes="class python: 'event-date past' if is_past else 'event-date'">
+        <strong i18n:translate="event_when" class="event-date-title">When</strong>
+        <span tal:define="start_tzname data/timezone;
+                      start_utcdelta python:data.start.tzinfo.utcoffset(data.start);
+                      start_utcoffset python:(start_utcdelta.days*86400+start_utcdelta.seconds)*100/60/60;">
+          
+          <tal:date replace="structure python:view.formatted_date(context)" />
+          <span class="timezone"
+              tal:condition="start_tzname">
+            (<tal:tzname replace="start_tzname">timezone name</tal:tzname> / UTC<tal:tzoffset replace="start_utcoffset" />)
+          </span>
+        </span>
+      </li>
+    </tal:cond>
+
+    <tal:cond condition="python:'occurrences' not in excludes">
+    <tal:cond define="next_occs view/next_occurrences_today;
+                      all_occs view/num_more_occurrences"
+              condition="python:len(next_occs) > 1 or all_occs > 1">
+
+      <textarea class="pat-recurrence recurrence-widget" tal:content="python: context.recurrence" data-pat-recurrence='{"configuration": {"lang": "nl", "firstDay": 0, "readOnly": false, "ajaxContentType": "application/x-www-form-urlencoded; charset=UTF-8", "ributtonExtraClass": "allowMultiSubmit", "hasRepeatForeverButton": false, "startField": "form.widgets.IEventBasic.start"}, "language": "nl", "localization": {"add_rules": "Toevoegen", "rangeByEndDate": "Tot ", "weekdays": ["zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"], "monthlyDayOfMonth4": "monthly_day_of_month_4", "shortWeekdays": ["zo", "ma", "di", "wo", "do", "vr", "za"], "including": ", en ook ", "monthlyDayOfMonth1": "Dag", "monthlyDayOfMonth2": "van de maand", "monthlyDayOfMonth3": "maand(en)", "cancel": "Afbreken", "multipleDayOfMonth": "Dit widget ondersteunt geen meerdere dagen in maandelijkse of jaarlijkse herhalingen", "noRule": "Geen RRULE in RRULE-data", "rangeByOccurrences1Human": "eindigt na", "noEndDate": "Fout: Geen einddatum ingesteld. Stel een correcte waarde in.", "yearlyWeekdayOfMonth3": "van", "noTemplateMatch": "Geen passende herhalings-template", "rangeNoEnd": "Nooit", "except": ", behalve", "add": "Toevoegen", "save": "Opslaan", "yearlyInterval1": "Herhaal alle:", "weeklyWeekdays": "Herhaal op:", "include": "Meenemen", "bysetpos": "BYSETPOS wordt niet ondersteund", "rtemplate": {"yearly": "Jaarlijks", "mondayfriday": "Maandag en vrijdag", "monthly": "Maandelijks", "weekdays": "Dag van de week", "daily": "Dagelijks", "weekly": "Wekelijks"}, "rangeByOccurrences1": "Eindigt na ", "rangeByOccurrences2": "herhaling(en)", "yearlyWeekdayOfMonth2": " ", "yearlyInterval2": "ja(a)r(en)", "edit_rules": "Bewerken", "additionalDate": "Extra datum", "monthlyInterval1": "Herhaal alle:", "monthlyInterval2": "maand(en)", "preview": "Geselecteerde datums", "yearlyDayOfMonth1Human": "op", "remove": "Verwijderen", "recurrenceType": "Herhaalt zich:", "delete_rules": "Wissen", "noEndAfterNOccurrences": "Fout: Het \"Na N herhalingen\"-veld moet tussen 1 en 1000 liggen", "months": ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"], "shortMonths": ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"], "monthlyWeekdayOfMonth1Human": "op de", "yearlyDayOfMonth1": "Iedere", "noRepeatOn": "Fout: \"Herhaal op\"-waarde moet geselecteerd zijn", "unsupportedFeatures": "Waarschuwing: Dit Agenda-item gebruikt herhalings-functies die dit widget niet ondersteunt. De herhaling opslaan kan onbedoeld de herhaling veranderen.", "refresh": "Verversen", "shortDateFormat": "dd-mm-yy", "exclude": "Uitsluiten", "displayActivate": "Herhaalt alle ", "dailyInterval2": "dagen", "dailyInterval1": "Herhaal alle:", "yearlyRepeatOn": "Herhaal op:", "longDateFormat": "dddd mmmm dd, yyyy", "monthlyRepeatOn": "Herhaal op:", "monthlyDayOfMonth1Human": "op dag", "noRepeatEvery": "Fout: Het \"Herhaal elke\"-veld moet tussen 1 en 1000 liggen", "orderIndexes": ["eerste", "tweede", "derde", "vierde", "laatste"], "alreadyAdded": "Deze datum is al toegevoegd", "pastEndDate": "Fout: Einddatum kan niet voor startdatum liggen", "yearlyWeekdayOfMonth1": "De", "yearlyDayOfMonth2": " ", "yearlyDayOfMonth3": " ", "yearlyWeekdayOfMonth4": " ", "monthlyWeekdayOfMonth2": " ", "recurrenceStart": "Start van de herhaling", "yearlyWeekdayOfMonth1Human": "op de", "addDate": "Datum toevoegen", "title": "Herhalen", "weeklyInterval1": "Herhaal alle:", "rangeByEndDateHuman": "eindigt op ", "weeklyInterval2": "we(e)k(en)", "range": "Einde herhaling:", "weeklyWeekdaysHuman": "op: ", "monthlyWeekdayOfMonth1": "De", "displayUnactivate": "Wordt niet herhaald", "monthlyWeekdayOfMonth3": "van de maand"}}'>
+
+      </textarea>
+
+      <li class="event-dates" style="display:none;">
+        <strong i18n:translate="">
+          All dates
+        </strong>
+        <span tal:repeat="occ next_occs">
+          <tal:def define="this_is_occ python: occ.absolute_url() == context.absolute_url()">
+          <a tal:attributes="href occ/absolute_url" tal:omit-tag="this_is_occ">
+            <strong tal:omit-tag="not: this_is_occ">
+              <tal:date replace="structure python:view.formatted_date(occ)"/>
+            </strong>
+          </a>
+          </tal:def>
+        </span>
+        <!--<span tal:condition="view/num_more_occurrences">
+          <a tal:attributes="href string:${view/event_context/absolute_url}/@@event_listing"
+              tal:content="view/more_occurrences_text">
+            There are 12 more occurrences.
+          </a>
+        </span>-->
+      </li>
+    </tal:cond>
+    </tal:cond>
+
+    <tal:cond condition="python:'location' not in excludes">
+    <tal:cond condition="data/location">
+      <li class="event-location">
+        <strong i18n:translate="event_where">Where</strong>
+        <span itemprop="location" tal:content="structure data/location">Location</span>
+      </li>
+    </tal:cond>
+    </tal:cond>
+
+    <tal:cond condition="python:'contact' not in excludes">
+    <tal:cond define="mail data/contact_email; name data/contact_name;" tal:condition="python:name or mail">
+      <li class="event-contact">
+        <strong i18n:translate="contact_name">Contact Name</strong>
+        <tal:span>
+          <a class="email" tal:condition="mail" tal:attributes="href string:mailto:${mail}" tal:content="name" />
+          <span tal:condition="not:mail" tal:content="name" />
+        </tal:span>
+      </li>
+    </tal:cond>
+
+    <tal:cond condition="data/contact_phone">
+      <li class="event-tel">
+        <strong i18n:translate="contact_phone">Contact Phone</strong>
+        <span tal:content="data/contact_phone">Contact Phone</span>
+      </li>
+    </tal:cond>
+
+    <tal:cond condition="data/attendees|nothing">
+      <li class="event-attendee">
+        <strong i18n:translate="contact_attendees">Attendees</strong>
+        <span itemprop="attendee" tal:repeat="item data/attendees" tal:content="item" />
+      </li>
+    </tal:cond>
+    </tal:cond>
+
+    <tal:cond condition="python:'event_url' not in excludes">
+    <tal:cond condition="data/event_url">
+      <li class="event-url">
+        <strong i18n:translate="event_url">Web</strong>
+        <tal:span>
+          <a href="" tal:attributes="href data/event_url" i18n:translate="external_website">Visit external website</a>
+        </tal:span>
+      </li>
+    </tal:cond>
+    </tal:cond>
+
+    <tal:cond condition="python:'ical' not in excludes">
+      <li class="event-calendar">
+        <strong i18n:translate="heading_add_to_calendar">Add event to calendar</strong>
+        <tal:span tal:define="here_url context/@@plone_context_state/object_url;
+                        portal_url context/@@plone_portal_state/portal_url;">
+          <a href="#" rel="nofollow"
+             tal:attributes="href string:$here_url/ics_view"
+             title="Download this event in iCal format"
+             i18n:attributes="title title_add_to_ical;">
+            <img src="" alt="" width="14" height="14" class="icalIcon"
+                tal:attributes="src string:${portal_url}/++resource++plone.app.event/icon_export_ical.png"/>
+            <span i18n:translate="label_add_to_ical">iCal</span></a>
+        </tal:span>
+      </li>
+    </tal:cond>
+
+  </ul>
+
+</tal:def>
+
+</body>
+</html>
