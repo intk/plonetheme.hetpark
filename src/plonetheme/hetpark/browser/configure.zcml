@@ -1,7 +1,6 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
-    xmlns:faceted="http://namespaces.zope.org/faceted"
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="plonetheme.hetpark">
 
@@ -32,19 +31,19 @@
         permission="zope2.View"
   />
 
-  <faceted:view
+  <!--<faceted:view
     name="facetednavigation-results"
     template="templates/facetednavigation_results.pt"
     title="Faceted Navigation results"
     permission="zope2.View"
-    />
+    />-->
 
-  <browser:page
+  <!--<browser:page
     name="facetednavigation-result"
     for="zope.interface.Interface"
     template="templates/facetednavigation_result.pt"
     permission="zope2.View"
-    />
+    />-->
 
   <browser:page
         name="online_experience_view"

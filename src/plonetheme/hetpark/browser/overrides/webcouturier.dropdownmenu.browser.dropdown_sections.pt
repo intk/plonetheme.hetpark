@@ -76,16 +76,16 @@
 
             <div class="language-wrapper">
                     <h5 class="lang-link-nl" tal:condition="python: getattr(context, 'language', 'nl') == 'nl'">
-                        <a class="lang-link lang-link-en" href="/en/" tal:attributes="href python: view.get_language('en')">ENGLISH</a> | <a class="lang-link" href="/en/de">DEUTSCH</a>
+                        <a class="lang-link lang-link-en" href="/en/" tal:attributes="href python: view.get_language('en')">ENGLISH</a>
                     </h5>
                     <h5 class="lang-link-en" tal:condition="python: getattr(context, 'language', 'nl') == 'en'">
-                        <a class="lang-link lang-link-nl" href="/nl/" tal:attributes="href python: view.get_language('nl')">NEDERLANDS</a> | <a class="lang-link" href="/en/de">DEUTSCH</a>
+                        <a class="lang-link lang-link-nl" href="/nl/" tal:attributes="href python: view.get_language('nl')">NEDERLANDS</a>
                     </h5>
             </div>
 
             <div class="logo-nav-wrapper">
                 <a href="/">
-                    <img id="nav-logo" src="/nl/intk/images/logo-footer.svg">
+                    <img id="nav-logo" src="/intk/images/logo-footer.svg">
                 </a>    
             </div>
 
