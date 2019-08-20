@@ -239,7 +239,7 @@ msgstr "Inscriptions/markings"
 #: ../object.py
 msgid "object_association_subject"
 msgstr "Associated subject"
-p
+
 #: ../object.py
 msgid "object_association_person"
 msgstr "Associated person"

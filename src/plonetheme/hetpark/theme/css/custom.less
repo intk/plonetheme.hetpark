@@ -1220,7 +1220,7 @@ body.frontend, body#tinymce {
 	}
 
 	.event-calendar {
-		display: none;
+		/*display: none;*/
 	}
 	
 
@@ -7031,7 +7031,7 @@ body.portaltype-event .event.summary,
 body.portaltype-occurrence .event.summary {
 
 	&:not(.recurrence) {
-		display: none;
+		/*display: none;*/
 	}
 
 	&:not(.recurrence).is_past {
@@ -7277,10 +7277,15 @@ body:not(.frontend) .portlet-rrssb {
 }
 
 body.frontend.portaltype-document,
-body.frontend.portaltype-event,
 body.frontend.portaltype-news-item,
 body.frontend.portaltype-occurrence {
 	li.event-category {
+		display: none;
+	}
+}
+
+body.frontend.portaltype-event {
+	.title-container .event.summary li.event-date {
 		display: none;
 	}
 }
@@ -14053,5 +14058,33 @@ footer .sponsor-line.gutrecht img {
 footer .logo-footer img {
 	visibility: hidden !important;
 	min-height: 335px !important;
+}
+
+body.frontend div.event-prices p {
+	margin-bottom: 0px;
+}
+
+body #formfield-form-widgets-IPerformance-price span {
+	display: block;
+}
+
+body #formfield-form-widgets-IPerformance-price {
+	strong {
+		margin-top: 10px;
+	}
+}
+
+body.frontend div.event-prices span {
+	display: block;
+}
+
+body.frontend.portaltype-event {
+	.title-container .event.summary {
+		text-align: left;
+
+		strong {
+			margin-top: 10px;
+		}
+	}
 }
 
