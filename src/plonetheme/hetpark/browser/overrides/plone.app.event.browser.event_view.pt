@@ -15,7 +15,6 @@
                      is_presentation python:context_tools.hasPresentation(context);
                      ">
 
-
   <div id="presentation" tal:condition="python:is_presentation">
       <style>
       body {
