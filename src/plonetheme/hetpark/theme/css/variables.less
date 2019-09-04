@@ -1,57 +1,4 @@
-/* TODO need to be removed */
-
-@font-face {
-    font-family: 'FranklinBook';
-    src: url('/++theme++plonetheme.hetpark/fonts/ITCFranklinGothicStd-Book.eot'),
-         url('/intk/images/itcfranklingothicstd-book.woff') format('woff'),
-         url('/++theme++plonetheme.hetpark/fonts/ITCFranklinGothicStd-Book.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'FranklinDmCp';
-    src: url('/++theme++plonetheme.hetpark/fonts/ITCFranklinGothicStd-DmCp.eot'),
-         url('/intk/images/itcfranklingothicstd-dmcp.woff') format('woff'),
-         url('/++theme++plonetheme.hetpark/fonts/ITCFranklinGothicStd-DmCp.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'FranklinMed';
-    src: url('/++theme++plonetheme.hetpark/fonts/ITCFranklinGothicStd-Med.eot'),
-         url('/intk/images/itcfranklingothicstd-med.woff') format('woff'),
-         url('/++theme++plonetheme.hetpark/fonts/ITCFranklinGothicStd-Med.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-
-.FranklinBook() {
-    font-family: 'FranklinBook', Arial, sans-serif;
-}
-
-.FranklinDmCp() {
-    font-family: 'FranklinDmCp', Arial, sans-serif;
-}
-
-.FranklinMed() {
-    font-family: 'FranklinMed', Arial, sans-serif;
-}
-
-.backendFont() {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    line-height: 1.42857143;
-}
-
-
-
-/* NEW fonts */
+/* fonts */
 @font-face {
     font-family: 'FuturaBold';
     src: url('/++theme++plonetheme.hetpark/fonts/FuturaPT-Bold.eot');
@@ -79,7 +26,7 @@
     src: url('/++theme++plonetheme.hetpark/fonts/HelveticaNeue-Medium.eot');
     src: url('/++theme++plonetheme.hetpark/fonts/HelveticaNeue-Medium.eot?#iefix') format("embedded-opentype"),
          url('/++theme++plonetheme.hetpark/fonts/HelveticaNeue-Medium.woff') format("woff"),
-         url('/++theme++plonetheme.hetpark/fonts/HelveticaNeue-Medium.otf') format("opentype");
+         url('/++theme++plonetheme.hetpark/fonts/HelveticaNeue-Medium.ttf') format("truetype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -114,6 +61,11 @@
     font-family: 'HelveticaRegular', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+.backendFont() {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
 
 
 /* Colors */
@@ -138,11 +90,10 @@
 @grey-secondary-med: #4E4E4E;
 @grey-secondary-dark: #000000;
 
-
 /* TODO need to be removed */
-@brand-primary: #282931;
-@brand-primary-titles: #282931;
-@brand-primary-text: #494A51;
+@brand-primary: #B02318;
+@brand-primary-titles: #000000;
+@brand-primary-text: #000000;
 @brand-primary-lines: #EAEAEA;
 
 @gray-dark: lighten(black, 25%);

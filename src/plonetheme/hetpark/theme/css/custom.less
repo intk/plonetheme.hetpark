@@ -895,20 +895,59 @@ body:not(.frontend) {
 }
 
 .buttonField() {
-	.FranklinMed();
+	.HelveticaBold();
     margin: 0 auto;
     display: block;
     padding: 17px;
-    border: 1px solid @brand-primary-titles;
-    border-radius: 0px;
+    border: 1px solid @primary-med;
+    border-radius: 2px;
     text-transform: none;
     height: auto;
-    color: @brand-primary-titles;
+    color: @grey-light;
     letter-spacing: 0.0em;
     width: auto;
-    font-size: 17px;
-    background-color: #ffffff;
-    letter-spacing: 0.05em;
+    font-size: 18px;
+    background-color: @primary-med;
+    letter-spacing: 0.01em;
+    text-shadow: 0px 0px 0px #ffffff;
+    font-weight: 400;
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    line-height: 24px;
+
+	&:active:focus,
+	&:focus,
+	&:active {
+		background: @primary-dark;
+		color: @grey-light;
+		outline: none;
+	}
+
+	&:hover {
+		background: @primary-dark;
+		color: @grey-light;
+		box-shadow: none;
+	}
+}
+
+.buttonFieldSmall() {
+	.HelveticaBold();
+    margin: 0 auto;
+    display: block;
+    padding: 17px;
+    border: 1px solid @primary-med;
+    border-radius: 2px;
+    text-transform: none;
+    height: auto;
+    color: @grey-light;
+    letter-spacing: 0.0em;
+    width: auto;
+    font-size: 16px;
+    line-height: 24px;
+    background-color: @primary-med;
+    letter-spacing: 0.01em;
     text-shadow: 0px 0px 0px #ffffff;
     font-weight: 400;
     padding-left: 28px;
@@ -918,20 +957,60 @@ body:not(.frontend) {
 	&:active:focus,
 	&:focus,
 	&:active {
-		background: @brand-primary-titles;
-		color: #ffffff;
+		background: @primary-dark;
+		color: @grey-light;
 		outline: none;
 	}
 
 	&:hover {
-		background: @brand-primary-titles;
-		color: #ffffff;
+		background: @primary-dark;
+		color: @grey-light;
 		box-shadow: none;
 	}
 }
 
+.buttonFieldSecondary() {
+	.HelveticaBold();
+    margin: 0 auto;
+    display: block;
+    padding: 17px;
+    border: 1px solid @grey-secondary-dark;
+    border-radius: 2px;
+    text-transform: none;
+    height: auto;
+    color: @grey-secondary-dark;
+    letter-spacing: 0.0em;
+    width: auto;
+    font-size: 16px;
+    line-height: 24px;
+    background-color: @grey-light;
+    letter-spacing: 0.01em;
+    text-shadow: 0px 0px 0px @grey-light;
+    font-weight: 400;
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-bottom: 12px;
+
+	&:active:focus,
+	&:focus,
+	&:active {
+		background: @grey-light;
+		color: @secondary-dark;
+		border: 1px solid @secondary-dark;
+		outline: none;
+	}
+
+	&:hover {
+		background: @grey-light;
+		color: @secondary-med;
+		border: 1px solid @secondary-med;
+		box-shadow: none;
+	}
+}
+
+
 .inputField() {
-	.FranklinBook();
+	.HelveticaRegular();
     margin: 0 auto;
     display: block;
     padding: 16px;
@@ -939,11 +1018,11 @@ body:not(.frontend) {
     border-radius: 0px;
     height: auto;
     color: #848484;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.01em;
     width: auto;
     font-size: 16px;
     background-color: #ffffff;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.01em;
     text-shadow: 0px 0px 0px #ffffff;
     font-weight: 400;
 	border-color: none;
@@ -971,12 +1050,12 @@ body:not(.frontend) {
 .documentLayout() {
 	h1 {
 		color: @brand-primary-titles;
-		.FranklinDmCp();
-		font-size: 80px;
+		.FuturaBold();
+		font-size: 64px;
 		font-weight: 400;
 		text-transform: none;
 		letter-spacing: 0.0em;
-		line-height: 62px;
+		line-height: 72px;
 
 		@media (max-width: 768px) {
 			font-size: 50px;
@@ -984,14 +1063,14 @@ body:not(.frontend) {
 	}
 
 	div {
-		.FranklinBook();
-    	font-size: 16px;
-    	letter-spacing: 0.05em;
+		.HelveticaRegular();
+    	font-size: 20px;
+    	letter-spacing: 0.01em;
     	color: @brand-primary-text;
 	}
 
     ol li, ul li {
-    	.FranklinBook();
+    	.HelveticaRegular();
     	letter-spacing: 0.0em;
     	color: @brand-primary-text;
     	font-size: 17px;
@@ -1025,6 +1104,8 @@ body:not(.frontend) {
 		margin-top: 0px;
 		width: 100% !important;
 		max-width: 100% !important;
+		margin-top: 20px;
+		margin-bottom: 20px;
 		border: 0px;
 	}
 
@@ -1064,13 +1145,13 @@ body:not(.frontend) {
 		padding-right: 20px;
 		padding-top: 3px;
 		line-height: 32px;
-		.FranklinBook();
+		.HelveticaRegular();
 		font-size: 17px;
-		letter-spacing: 0.075em;
+		letter-spacing: 0.002em;
 		vertical-align: middle;
 		color: @brand-primary-text;
-		padding-top: 10px;
-    	padding-bottom: 5px;
+		padding-top: 12px;
+    	padding-bottom: 8px;
 
     	p {
     		padding: 0;
@@ -1089,17 +1170,7 @@ body:not(.frontend) {
 	}
 
 	table:not(.picker__table) tr:first-child td {
-		.FranklinBook();
-		text-transform: uppercase;
-		font-size: 17px;
-		line-height: 22px;
-		letter-spacing: 0.05em;
-		color: #666666;
-		vertical-align: middle;
-		padding-left: 0px;
-		padding-right: 20px;
-		padding-top: 15px;
-    	padding-bottom: 10px;
+		
 	}
 
 	@media (min-width: 1049px) {
@@ -1110,6 +1181,7 @@ body:not(.frontend) {
 
 	.table-responsive {
 		margin-top: 45px;
+		border: 0px !important;
 	}
 }
 
@@ -1164,7 +1236,7 @@ body.frontend.userrole-authenticated div#parent-fieldname-text {
 		display: block;
 
 		@media (min-width: 1200px) {
-			margin-left: -15%;
+			margin-left: 0;
 		}
 	}
 }
@@ -1191,7 +1263,7 @@ body.frontend, body#tinymce {
 		display: block;
 
 		@media (min-width: 1200px) {
-			margin-left: -30%;
+			margin-left: 0;
 		    display: block;
 		    margin-top: -45px;
 		    font-size: 15px;
@@ -1286,7 +1358,7 @@ body.frontend, body#tinymce {
 		float: none;
 
 		@media(min-width: 1200px) {
-  			padding-top: 45px;
+  			padding-top: 25px;
   		}
 	}
 
@@ -1487,16 +1559,22 @@ body.frontend, body#tinymce {
     	}
 
     	@media (min-width: 1200px) {
-    		margin-right: 17%;
+    		width: 900px;
+    		margin: 0 auto;
+    		text-align: center;
+    	}
+
+    	@media (min-width: 1200px) {
+    		
     	}
 
     	h1 {
     		color: @brand-primary-titles;
-    		.FranklinDmCp();
+    		.HelveticaBold();
     		font-size: 80px;
     		font-weight: 400;
     		text-transform: none;
-    		letter-spacing: 0.00em;
+    		letter-spacing: 0.01em;
     		line-height: 62px;
     		max-width: 100%;
 		    margin-left: auto;
@@ -1511,10 +1589,10 @@ body.frontend, body#tinymce {
     	}
 
     	.subheading {
-    		color: @brand-primary-titles;
-    		font-size: 1.650em;
+    		color: @grey-secondary-dark;
+    		font-size: 22px;
     		letter-spacing: 0.00em;
-    		line-height: 42px;
+    		line-height: 33px;
     		display: block;
     		margin-top: 15px;
     		margin-bottom: 5px;
@@ -1523,7 +1601,7 @@ body.frontend, body#tinymce {
 		    margin-right: auto;
 		    text-align: left;
 
-    		.FranklinBook();
+    		.HelveticaMedium();
 
     		&:empty {
     			margin-top: -15px;
@@ -1575,7 +1653,8 @@ body.frontend, body#tinymce {
     	}
 
     	@media (min-width: 1200px) {
-    		margin-right: 17%;
+    		width: 900px;
+    		margin: 0 auto;
     	}
 
     	@media (max-width: 768px) {
@@ -1591,106 +1670,104 @@ body.frontend, body#tinymce {
 
     /* DOCUMENT LAYOUT */
     h2 {
-    	.FranklinDmCp();
-    	font-size: 58px;
-    	line-height: 60px;
+    	.FuturaBold();
+    	font-size: 48px;
+    	line-height: 56px;
     	color: @brand-primary-titles;
-    	letter-spacing: 0.00em;
+    	letter-spacing: 0.01em;
     	font-weight: 400;
     	margin-top: 40px;
     	text-transform: none;
     	@media (max-width: 768px) {
-			font-size: 1.750em;
-			line-height: 35px;
+			
 		}
     }
 
     h3 {
-    	.FranklinDmCp();
-    	font-size: 48px;
+    	.FuturaBold();
+    	font-size: 32px;
     	color: @brand-primary-titles;
-    	letter-spacing: 0.0em;
-    	line-height: 55px;
+    	letter-spacing: 0.01em;
+    	line-height: 36px;
     	font-weight: 400;
     	margin-top: 45px;
     	text-transform: none;
     	@media (max-width: 768px) {
-			font-size: 1.400em;
-			line-height: 30px;
+			
 		}
     }
 
     h4:not(.page-header) {
-    	.FranklinMed();
-    	font-size: 25px;
-    	color: #494A51;
-    	letter-spacing: 0.0em;
-    	line-height: 32px;
+    	.FuturaBold();
+    	font-size: 24px;
+    	color: @brand-primary-text;
+    	letter-spacing: 0.01em;
+    	line-height: 28px;
     	font-weight: 400;
     	margin-top: 45px;
     	text-transform: none;
     	@media (max-width: 768px) {
-			font-size: 1.350em;
-			line-height: 32px;
+			
 		}
     }
 
     h5 {
-    	.FranklinMed();
-    	font-size: 19px;
+    	.HelveticaBold();
+    	font-size: 22px;
     	color: @brand-primary-text;
-    	letter-spacing: 0.0em;
+    	letter-spacing: 0.00em;
     	line-height: 32px;
     	font-weight: 400;
-    	margin-top: 45px;
-    	text-transform: uppercase;
+    	margin-top: 40px;
+    	text-transform: none;
     	@media (max-width: 768px) {
-			font-size: 1.000em;
+			
 		}
     }
 
     h6 {
-    	.FranklinMed();
-    	font-size: 20px;
-    	color: #494A51;
-    	letter-spacing: 0.0em;
+    	.HelveticaMedium();
+    	font-size: 18px;
+    	color: @brand-primary-text;
+    	letter-spacing: 0.00em;
     	font-weight: 400;
-    	margin-top: 45px;
-    	line-height: 30px;
+    	margin-top: 20px;
+    	line-height: 24px;
     	text-transform: none;
     	@media (max-width: 768px) {
-			font-size: 17px;
+			
 		}
     }
 
     p {
-    	.FranklinBook();
-    	font-size: 1.230em;
-    	line-height: 36px;
-    	letter-spacing: 0.0em;
+    	.HelveticaRegular();
+    	font-size: 18px;
+    	line-height: 27px;
+    	letter-spacing: 0.00em;
     	color: @brand-primary-text;
-    	margin: 8px 0;
-    	margin-bottom: 35px;
+    	margin: 14px 0;
+    	margin-bottom: 10px;
 
     	&.image-description {
-    		font-size: 0.875em;
+    		font-size: 12px;
+    		line-height: 20px;
     		color: #666666;
     		margin-top: -15px;
     	}
 
     	@media (max-width: 768px) {
-			font-size: 1.180em;
+			
 		}
     }
 
     p strong {
-    	.FranklinBook();
+    	.HelveticaRegular();
     	font-size: 1.000em;
-    	line-height: 37px;
+    	line-height: 32px;
     	color: @brand-primary-text;
     	font-weight: 800;
     	@media (max-width: 768px) {
-			font-size: 1.000em;
+			
 		}
     }
 
@@ -1702,37 +1779,41 @@ body.frontend, body#tinymce {
     	padding-left: 0px;
     	padding-top: 0px;
     	padding-bottom: 0px;
-    	margin-top: 10px;
+    	margin-top: 60px;
+    	margin-bottom: 30px;
     	margin-left: 0px;
     	margin-right: 0px;
 
     	@media(min-width: 1200px) {
-    		margin-left: -28%;
+    		
     	}
 
     	p {
-    		font-size: 48px;
-    		line-height: 49px;
+    		font-size: 28px;
+    		line-height: 36px;
     		font-style: normal;
     		font-weight: 400;
     		padding-bottom: 0px;
-    		margin-bottom: 18px;
-    		padding-top: 15px;
+    		margin-bottom: 0px;
+    		padding-top: 0px;
     		text-align: left;
-    		color: @brand-primary-titles;
-    		.FranklinDmCp();
+    		color: @grey-secondary-dark;
+    		.FuturaBold();
 
     		@media (max-width: 768px) {
-				font-size: 30px;
+				font-size: 24px;
 			}
     	}
 
     	span.discreet {
-    		font-size: 16px;
+    		.HelveticaRegular();
+
+    		font-size: 18px;
+    		line-height: 32px;
 		    text-align: left;
 		    width: 100%;
 		    display: block;
-		    color: #282931;
+		    color: @grey-secondary-light;
 		    margin-left: 2px;
     	}
     }
@@ -1744,7 +1825,7 @@ body.frontend, body#tinymce {
     	}
 		
 		@media (min-width: 1200px) {
-			margin-left: -28%;
+			margin-left: 0px;
 		}
 
     }
@@ -1752,7 +1833,7 @@ body.frontend, body#tinymce {
     &.userrole-authenticated { 
     	#parent-fieldname-text blockquote {			
 			@media (min-width: 1200px) {
-				margin-left: -13%;
+				margin-left: 0;
 			}
     	}
     }
@@ -1768,7 +1849,7 @@ body.frontend, body#tinymce {
     div#parent-fieldname-text {
     	.documentLayout();
     	ul, ol {
-    		margin-top: 30px; /* same margin top as a paragraph */
+    		margin-top: 5px; /* same margin top as a paragraph */
     		margin-bottom: 30px;
     	}
 
@@ -1779,7 +1860,7 @@ body.frontend, body#tinymce {
 
     	ol li, ul li {
 	    	font-size: 18px;
-	    	line-height: 37px;
+	    	line-height: 44px;
 	    }
 
 	    &> h4:first-child {
@@ -1813,14 +1894,14 @@ body.frontend, body#tinymce {
 
 		@media (min-width: 1200px) {
 			.iframe-wrapper {
-				margin-left: -30%;
+				margin-left: 0px;
 				margin-right: 0px;
 				margin-bottom: 65px;
 			}
 
 			.img-wrapper {
 				min-width: 100%;
-				margin-left: -30%;
+				margin-left: 0px;
 				margin-right: 0px;
 				margin-bottom: 65px;
 			}
@@ -1836,13 +1917,13 @@ body.frontend, body#tinymce {
 	&.userrole-authenticated {
 		div#parent-fieldname-text .iframe-wrapper {
 			@media (min-width: 1200px) {
-				margin-left: -15%;
+				margin-left: 0;
 			}
 		}
 
 		div#parent-fieldname-text .img-wrapper {
 			@media (min-width: 1200px) {
-				margin-left: -15%;
+				margin-left: 0;
 			}
 		}
 	}
@@ -1950,7 +2031,7 @@ body.frontend, body#tinymce {
 			margin-top: 0px;
 			margin-bottom: 0px;
 			padding-top: 0px;
-			.FranklinDmCp();
+			.HelveticaBold();
 			font-size: 32px;
 			line-height: 40px;
 			color: @brand-primary-titles;
@@ -1973,11 +2054,11 @@ body.frontend, body#tinymce {
 			font-size: 15px;
 		    line-height: 35px;
 		    color: @brand-primary-titles;
-		    letter-spacing: 0.05em;
+		    letter-spacing: 0.01em;
 			margin-bottom: 0px;
 			margin-top: 14px;
 			text-transform: uppercase;
-			.FranklinMed();
+			.HelveticaMedium();
 
 			@media(max-width: 767px) {
 				margin-bottom: 0px;
@@ -2066,7 +2147,7 @@ body.frontend, body#tinymce {
 		box-shadow: none;
 		padding: 0;
 		margin-left: 0;
-		letter-spacing: 0.05em;
+		letter-spacing: 0.01em;
 		padding-bottom: 0px;
 	}
 
@@ -2137,9 +2218,9 @@ body.frontend, body#tinymce {
 		    font-size: 17px;
 		    line-height: 35px;
 		    color: @brand-primary-titles;
-		    letter-spacing: 0.05em;
+		    letter-spacing: 0.01em;
 		    text-transform: uppercase;
-		    .FranklinMed();
+		    .HelveticaMedium();
 
 		    @media (max-width: 991px) {
 		    	font-size: 17px;
@@ -2226,7 +2307,7 @@ body.frontend, body#tinymce {
 		h1 {
 			font-size: 45px;
 			color: @brand-primary-titles;
-			.FranklinDmCp();
+			.HelveticaBold();
 			text-align: center;
 			margin-top: 25px;
 			font-weight: 400;
@@ -2487,7 +2568,7 @@ body.frontend, body#tinymce {
 				margin-top: 25px;
 				font-weight: 400;
 				text-transform: none;
-				letter-spacing: 0.05em;
+				letter-spacing: 0.01em;
 				padding-bottom: 0px;
 
 				@media (max-width: 768px) {
@@ -3378,12 +3459,12 @@ footer {
 			margin-top: 0px;
 
 			a:not(.text-button) {
-				.FranklinMed();
+				.HelveticaMedium();
 				font-size: 15px;
 				text-transform: uppercase;
 				text-decoration: none;
 				color: @brand-primary-titles;
-				letter-spacing: 0.05em;
+				letter-spacing: 0.01em;
 				border-bottom: 0px;
 			}
 		}
@@ -3491,7 +3572,7 @@ footer {
 		}
 
 		p strong {
-			.FranklinBook();
+			.HelveticaRegular();
 			font-size: 24px;
 			color: #4b4b4b;
 		}
@@ -3884,7 +3965,7 @@ footer {
 	}
 
 	.portletTitle p {
-		.FranklinBook();
+		.HelveticaRegular();
 		font-size: 17px;
 		text-transform: uppercase;
 		text-decoration: none;
@@ -4061,7 +4142,7 @@ body.frontend.template-advancedsearch {
 	}
 
 	.main-container {
-		letter-spacing: 0.05em;
+		letter-spacing: 0.01em;
 	}
 
 	.lead-img {
@@ -4088,7 +4169,7 @@ body.frontend.template-advancedsearch {
 		font-size: 17px;
 	    line-height: 35px;
 	    color: rgba(0,0,0,0.6);
-	    letter-spacing: 0.05em;
+	    letter-spacing: 0.01em;
 		margin-bottom: 20px;
 		margin-top: 0px;
 	}
@@ -4540,7 +4621,7 @@ body.frontend.template-default_error_message {
 		font-size: 17px;
 	    line-height: 35px;
 	    color: rgba(0,0,0,0.6);
-	    letter-spacing: 0.05em;
+	    letter-spacing: 0.01em;
 		margin-bottom: 20px;
 		margin-top: 10px;
 	}
@@ -4763,7 +4844,7 @@ body.frontend.template-default_error_message {
 			color: @brand-primary-text;
 			text-transform: uppercase;
 			font-size: 18px;
-			.FranklinMed();
+			.HelveticaMedium();
 
 			&:hover {
 				color: @brand-primary-titles;
@@ -5398,14 +5479,14 @@ body.frontend.portaltype-folder {
 body.frontend, body#tinymce {
 	#content-core {
 		a {
-			border-bottom: 1px solid @brand-primary-text;
+			border-bottom: 1px solid @secondary-light;
 
 			&:hover,
 			&:active,
 			&:focus {
 				border-bottom: 0px;
-				color: @brand-primary;
-				border-bottom: 0px solid @brand-primary;
+				color: @secondary-light;
+				border-bottom: 0px solid @secondary-light;
  				text-decoration: none;
 			}
 		}
@@ -5426,12 +5507,12 @@ body.frontend {
 			display: inline-block;
 			font-size: 1.400em;
 		    color: @brand-primary-text;
-			.FranklinBook();
+			.HelveticaRegular();
 		    text-align: center;
 		    margin-top: 45px;
 		    font-weight: 400;
 		    text-transform: none;
-		    letter-spacing: 0.05em;
+		    letter-spacing: 0.01em;
 		}
 
 		h1.arrow-title {
@@ -5481,7 +5562,7 @@ body.frontend {
 			}
 
 			dt.portletHeader span {
-				letter-spacing: 0.05em;
+				letter-spacing: 0.01em;
 			}
 
 			.mailchimp-btn-text {
@@ -5661,7 +5742,7 @@ body.template-listing_view {
 
 .plone-navbar-nav li .submenu a {
 	color: @brand-primary-text;
-	.FranklinBook();
+	.HelveticaRegular();
 	letter-spacing: 0.1em;
 	padding: 4px;
 	padding-bottom: 6px;
@@ -5683,7 +5764,7 @@ body.template-listing_view {
 	color: @brand-primary-text;
 	font-size: 17px;
 	text-transform: uppercase;
-	.FranklinBook();
+	.HelveticaRegular();
 	letter-spacing: 0.1em;
 
 	&:hover,
@@ -5832,7 +5913,7 @@ body.plone-toolbar-left-expanded {
 }
 
 .navbar-default a.navbar-brand {
-	.FranklinBook();
+	.HelveticaRegular();
 	color: @brand-primary;
 	font-size: 30px;
 	padding-top: 22px;
@@ -5900,7 +5981,7 @@ body.plone-toolbar-left-expanded {
 }
 
 .navbar-default a.lang-btn {
-	.FranklinBook();
+	.HelveticaRegular();
 	&:hover,
 	&:focus,
 	&:active {
@@ -6888,7 +6969,7 @@ body.template-login_failed {
 	}
 
 	label {
-		letter-spacing: 0.05em;
+		letter-spacing: 0.01em;
 	}
 }
 
@@ -6907,7 +6988,7 @@ body.template-login_failed {
 	}
 
 	label {
-		letter-spacing: 0.05em;
+		letter-spacing: 0.01em;
 	}
 
 	.formControls {
@@ -7253,7 +7334,7 @@ body.frontend {
 	&:hover {
 		color: #ffffff;
 		text-decoration: none !important;
-		border-bottom: 1px solid @brand-primary !important;
+		/*border-bottom: 1px solid @brand-primary !important;*/
 	}
 
 	&:active,
@@ -7487,7 +7568,7 @@ body.frontend {
 
 			.breadcrumbs-wrapper {
 				a {
-					.FranklinBook();
+					.HelveticaRegular();
 					text-transform: uppercase;
 					letter-spacing: 0.1em;
 					font-size: 1.00em;
@@ -7509,7 +7590,7 @@ body.frontend {
 				}
 
 				li span:not(.fa) {
-					.FranklinBook();
+					.HelveticaRegular();
 					color: #808080;
 					text-transform: uppercase;
 					letter-spacing: 0.1em;
@@ -7754,7 +7835,7 @@ body.template-checkout {
 				font-size: 36px !important;
 			}	
 
-			.FranklinBook();
+			.HelveticaRegular();
 		}
 
 		@media (max-width: 991px) {
@@ -7809,7 +7890,7 @@ body.template-checkout {
 	div.tickets-breadcrumbs a.btn, 
 	a.btn.discount_coupon_button,
 	a.btn.cart_checkout_button {
-	    font-family: 'FranklinBook', Arial, sans-serif;
+	    font-family: 'HelveticaRegular', Arial, sans-serif;
 	    padding: 17px;
 	    border: 1px solid @brand-primary-text;
 	    border-radius: 0px;
@@ -7820,7 +7901,7 @@ body.template-checkout {
 	    width: auto;
 	    font-size: 17px;
 	    background-color: #ffffff;
-	    letter-spacing: 0.05em;
+	    letter-spacing: 0.01em;
 	    text-shadow: 0px 0px 0px #ffffff;
 	    font-weight: 400;
 	    padding-left: 28px;
@@ -7951,7 +8032,7 @@ body.template-checkout {
 
 	tr.cart-header th h4 {
 	    text-transform: uppercase;
-	    letter-spacing: 0.05em;
+	    letter-spacing: 0.01em;
 	    background-color: #ffffff !important;
 	    font-size: 1.000em !important;
 	}
@@ -8124,7 +8205,7 @@ body.template-checkout {
     	padding-left: 0.9em !important;
     	width: 15em;
     	height: 43px;
-    	.FranklinBook();
+    	.HelveticaRegular();
     	
     	/*.inputField();
     	width: 15em;*/
@@ -8136,7 +8217,7 @@ body.template-checkout {
 	    display: inline-block;
 	    max-width: 100%;
 	    margin-bottom: 15px;
-	    .FranklinBook();
+	    .HelveticaRegular();
 	}
 
 	h2 {
@@ -8150,8 +8231,8 @@ body.template-checkout {
 	    line-height: 36px;
 	    font-size: 1.350em !important;
 	    margin: 0 0;
-	    letter-spacing: 0.05em;
-	    .FranklinBook();
+	    letter-spacing: 0.01em;
+	    .HelveticaRegular();
 	}
 
 	#input-checkout-checkout_back,
@@ -8160,12 +8241,12 @@ body.template-checkout {
 	}
 
 	#cart_summary {
-		.FranklinBook();
+		.HelveticaRegular();
 		font-size: 18px;
 	}
 
 	.mode_display .field {
-		.FranklinBook();
+		.HelveticaRegular();
 		font-size: 16px;
 	}
 
@@ -8175,7 +8256,7 @@ body.template-checkout {
 		    padding-bottom: 20px !important;
 		    text-transform: uppercase;
 		    letter-spacing: 0.075em;
-			.FranklinBook();
+			.HelveticaRegular();
 		}
 
 		.cart_item td.quantity-col {
@@ -8185,7 +8266,7 @@ body.template-checkout {
 
 		tr.cart-header th h4 {
 			font-size: 1.125em !important;
-			.FranklinBook();
+			.HelveticaRegular();
 		}
 
 		.cart_item td {
@@ -8262,7 +8343,7 @@ body.template-checkout {
 	#input-checkout-next,
 	#input-checkout-confirm_back,
 	#input-checkout-finish {
-	    font-family: 'FranklinBook', Arial, sans-serif;
+	    font-family: 'HelveticaRegular', Arial, sans-serif;
 	    padding: 17px;
 	    border: 1px solid @brand-primary-text;
 	    border-radius: 0px;
@@ -8273,7 +8354,7 @@ body.template-checkout {
 	    width: auto;
 	    font-size: 17px;
 	    background-color: #ffffff;
-	    letter-spacing: 0.05em;
+	    letter-spacing: 0.01em;
 	    text-shadow: 0px 0px 0px #ffffff;
 	    font-weight: 400;
 	    padding-left: 28px;
@@ -8360,7 +8441,7 @@ body.template-etickets {
 	span {
     	font-size: 16px !important;
     	color: #666666 !important;
-    	.FranklinBook() !important;
+    	.HelveticaRegular() !important;
 	}
 
 	.info-div {
@@ -8564,7 +8645,7 @@ body.template-mollie_payment_success {
 		    text-transform: none;
 		    margin: 0 auto;
 		    display: block;
-		    .FranklinBook();
+		    .HelveticaRegular();
 
 		    @media (max-width: 991px) {
 				font-size: 36px !important;
@@ -8615,7 +8696,7 @@ body.template-mollie_payment_success {
 
 body.template-etickets {
 	p.logo-text {
-		.FranklinBook();
+		.HelveticaRegular();
 		font-size: 30px;
 		text-transform: uppercase;
 		color: #ffffff;
@@ -8889,7 +8970,7 @@ body.frontend ul.event.dates {
     box-shadow: none;
     padding: 0;
     margin-left: 0;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.01em;
     padding-bottom: 0px;
 }
 
@@ -9604,20 +9685,28 @@ body.frontend, body#tinymce {
 		cursor: pointer !important;
 
 		a {
-			color: #282931 !important;
+			color: #ffffff !important;
 			border-bottom: 0px !important;
 
 			padding-left: 28px !important;
 		    padding-right: 28px !important;
-		    padding-bottom: 12px !important;
-		    padding-top: 17px !important;
+		    padding-bottom: 11px !important;
+		    padding-top: 11px !important;
 		    display: block !important;
+		    line-height: 24px;
 
-			&:hover,
-			&:active,
+			&:active:focus,
 			&:focus,
-			&:focus:active {
-				color: #ffffff !important;
+			&:active {
+				background: @primary-dark !important;
+				color: @grey-light !important;
+				outline: none;
+			}
+
+			&:hover {
+				background: @primary-dark !important;
+				color: @grey-light !important;
+				box-shadow: none;
 			}
 		}
 
@@ -9676,7 +9765,7 @@ body.frontend #presentation {
 
 	    h3,h4 {
 
-	    	.FranklinBook();
+	    	.HelveticaRegular();
 
 	    	@media(min-width: 991px) {
 	    		font-size: 3vw;
@@ -10235,7 +10324,7 @@ html.ie body.frontend #presentation {
 
 	    h3,h4 {
 
-	    	.FranklinBook();
+	    	.HelveticaRegular();
 
 	    	@media(min-width: 991px) {
 	    		font-size: 3vw;
@@ -11067,7 +11156,7 @@ body.frontend #website-wrapper.presentation #content-core.presentation {
 	    p.share-story {
 	    	margin-bottom: 0px;
 		    text-transform: uppercase;
-		    .FranklinMed();
+		    .HelveticaMedium();
 		    color: @brand-primary-titles;
 		    font-size: 1.10em;
 		    letter-spacing: 0.03em;
@@ -11987,7 +12076,7 @@ body.frontend.portaltype-portlet-page.section-home-page {
 			h1 {
 				text-transform: uppercase;
 				font-size: 16px;
-				.FranklinMed();
+				.HelveticaMedium();
 				color: @brand-primary-titles;
 				letter-spacing: 0.03em;
 			}
@@ -12206,7 +12295,7 @@ body.frontend.portaltype-person {
 				h4.item-title {
     				font-size: 20px;
 				    line-height: 25px;
-				    .FranklinMed();
+				    .HelveticaMedium();
 				    color: #494A51;
 
 				    a {
@@ -12705,7 +12794,7 @@ body.portaltype-object .search-results-portlet-container {
 	.entries.masonry-grid:not(.overview) h4.item-title {
 		font-size: 15px !important;
 		line-height: 22px !important;
-		.FranklinBook() !important;
+		.HelveticaRegular() !important;
 	}
 
 	.plone-loader {
@@ -13089,11 +13178,11 @@ body.frontend #website-wrapper.presentation .extra-info-wrapper {
 			font-size: 15px;
 		    line-height: 35px;
 		    color: #282931;
-		    letter-spacing: 0.05em;
+		    letter-spacing: 0.01em;
 		    margin-bottom: 0px;
 		    margin-top: 14px;
 		    text-transform: uppercase;
-		    font-family: 'FranklinMed', Arial, sans-serif;
+		    font-family: 'HelveticaMedium', Arial, sans-serif;
 		    word-wrap: normal !important;
 		}
 
@@ -13101,7 +13190,7 @@ body.frontend #website-wrapper.presentation .extra-info-wrapper {
 			margin-top: 0px;
 		    margin-bottom: 0px;
 		    padding-top: 0px;
-		    font-family: 'FranklinDmCp', Arial, sans-serif;
+		    font-family: 'HelveticaBold', Arial, sans-serif;
 		    font-size: 32px;
 		    line-height: 40px;
 		    color: #282931;
@@ -13151,18 +13240,18 @@ body.frontend #website-wrapper.presentation .extra-info-wrapper {
     			    font-size: 15px;
 				    line-height: 35px;
 				    color: #282931;
-				    letter-spacing: 0.05em;
+				    letter-spacing: 0.01em;
 				    margin-bottom: 0px;
 				    margin-top: 14px;
 				    text-transform: uppercase;
-				    font-family: 'FranklinMed', Arial, sans-serif;
+				    font-family: 'HelveticaMedium', Arial, sans-serif;
     		}
 
     		h4.item-title {
     			margin-top: 0px;
 			    margin-bottom: 0px;
 			    padding-top: 0px;
-			    font-family: 'FranklinDmCp', Arial, sans-serif;
+			    font-family: 'HelveticaBold', Arial, sans-serif;
 			    font-size: 32px;
 			    line-height: 40px;
 			    color: #282931;
@@ -13507,7 +13596,7 @@ body.template-facetednavigation_view {
 	    font-size: 20px;
 	    font-weight: 400;
 	    letter-spacing: 0.01em;
-	    .FranklinDmCp();
+	    .HelveticaBold();
 
 	    border-bottom: 1px solid #e5e5e5;
 	}
@@ -13531,7 +13620,7 @@ body.portaltype-collection .div-advanced-search {
 		border-bottom: 1px solid #494a51;
 		text-decoration: none;
 		font-size: 16px;
-		letter-spacing: 0.05em;
+		letter-spacing: 0.01em;
 	}
 
 	a:hover,
@@ -13639,7 +13728,7 @@ body.template-facetednavigation_view {
 				    display: inline-block;
 				    float: left;
 				    border-bottom: 0px;
-				    font-family: 'FranklinBook', 'Helvetica Neue', Helvetica, sans-serif;
+				    font-family: 'HelveticaRegular', 'Helvetica Neue', Helvetica, sans-serif;
 				    font-size: 16px;
 				    color: #404040;
 				    line-height: 50px;

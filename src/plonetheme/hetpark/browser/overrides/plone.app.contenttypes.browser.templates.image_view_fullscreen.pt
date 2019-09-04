@@ -12,11 +12,11 @@
   <style type="text/css" media="screen">
 
     @font-face {
-      font-family: 'FranklinBook';
+      font-family: 'HelveticaRegular';
       font-display: swap;
-      src: url('++resource++plonetheme.hetpark/ITCFranklinGothicStd-Book.eot?#iefix'),
-           url('++resource++plonetheme.hetpark/ITCFranklinGothicStd-Book.woff') format('woff'),
-           url('++resource++plonetheme.hetpark/ITCFranklinGothicStd-Book.otf') format('opentype');
+      src: url('++resource++plonetheme.hetpark/HelveticaNeue-Regular.eot?#iefix'),
+           url('++resource++plonetheme.hetpark/HelveticaNeue-Regular.woff') format('woff'),
+           url('++resource++plonetheme.hetpark/HelveticaNeue-Regular.otf') format('opentype');
       font-weight: normal;
       font-style: normal;
     }
@@ -24,7 +24,7 @@
     body {
       background-color: white;
       color: black;
-      font-family: 'FranklinBook', Helvetica, Arial, sans-serif;
+      font-family: 'HelveticaRegular', Helvetica, Arial, sans-serif;
       font-size: 1.000m;
       padding:0;
       margin:0;
