@@ -37,11 +37,12 @@ xnugget info
 .cd-nav-trigger {
   position: fixed;
   z-index: 3;
-  right: 25px;
+  right: auto;
+  left: 32px;
   top: 25px;
   height: 50px;
   width: 50px;
-  background-color: #fbf9f2;
+  background-color: #ffffff;
   border-radius: 50%;
   /* image replacement */
   overflow: hidden;
@@ -51,13 +52,13 @@ xnugget info
   -moz-transition: -moz-transform 0.3s;
   transition: transform 0.3s;
 
-  @media (max-width: 768px) {
-    
+  @media (max-width: 991px) {
+    left: 17px;
   }
 }
 
 .plone-toolbar-expanded .cd-nav-trigger {
-
+  left: 152px;
 }
 
 .cd-nav-trigger .cd-nav-icon {
@@ -226,9 +227,13 @@ body:not(.navigation-is-open) .cd-nav-trigger:hover .cd-nav-icon::before {
   -moz-transition-timing-function: cubic-bezier(0.86, 0.01, 0.77, 0.78);
   transition-timing-function: cubic-bezier(0.86, 0.01, 0.77, 0.78);
 
-  @media(max-width: 992px) {
+  @media(max-width: 991px) {
     position: relative;
     background-color: #fbf9f2;
+  }
+
+  @media(min-width: 992px) {
+    width: 450px;
   }
 }
 
@@ -241,7 +246,8 @@ body:not(.navigation-is-open) .cd-nav-trigger:hover .cd-nav-icon::before {
   padding-top: 0px;
 
   @media(max-width: 992px) {
-    padding-top: 150px; 
+    padding-top: 80px; 
+    margin-top: 0px;
     padding-bottom: 80px;
   }
 
@@ -300,22 +306,22 @@ body:not(.navigation-is-open) .cd-nav-trigger:hover .cd-nav-icon::before {
   border-top: 0px solid @brand-primary-titles;
 }
 .cd-nav .cd-primary-nav a {
-  .HelveticaRegular();
+  .HelveticaMedium();
   font-size: 22px;
   letter-spacing: 0.00em;
   color: @brand-primary-titles;
   display: inline-block;
-  margin-top: 25px;
+  margin-top: 12px;
 
   @media(max-width: 992px) {
-    font-size: 18px;
+    
   }
 }
 .cd-nav .cd-primary-nav a.selected {
-  color: @brand-primary-titles;
+  color: @primary-dark;
 }
 .no-touch .cd-nav .cd-primary-nav a:hover {
-  color: @brand-primary-titles;
+  color: @primary-med;
   text-decoration: underline;
 }
 .cd-nav .cd-contact-info {
@@ -344,8 +350,9 @@ body:not(.navigation-is-open) .cd-nav-trigger:hover .cd-nav-icon::before {
   }
 
   .main-block {
-    padding-top: 150px;
-    margin-left: 320px;
+    padding-top: 115px;
+    padding-bottom: 50px;
+    margin-left: 0px;
     padding-right: 10px;
     height: auto;
     min-height: 100%;
@@ -372,9 +379,11 @@ body:not(.navigation-is-open) .cd-nav-trigger:hover .cd-nav-icon::before {
   }
 
   .cd-nav .cd-primary-nav a {
-    .HelveticaRegular();
-    font-size: 19px;
+    .HelveticaMedium();
+    font-size: 23px;
+    line-height: 35px;
     letter-spacing: 0.00em;
+    color: @grey-secondary-med;
   }
   .cd-nav .cd-contact-info {
     margin-top: 120px;
@@ -421,6 +430,14 @@ body:not(.template-online_experience) {
   -ms-transform: translateX(100%);
   -o-transform: translateX(100%);
   transform: translateX(100%);
+
+  @media(min-width: 991px) {
+    -webkit-transform: translateX(450px);
+    -moz-transform: translateX(450px);
+    -ms-transform: translateX(450px);
+    -o-transform: translateX(450px);
+    transform: translateX(450px);
+  }
 }
 
 .no-js .cd-nav {
@@ -447,7 +464,7 @@ body:not(.template-online_experience) {
 ul.cd-primary-nav {
   margin-left: -40px;
   @media(min-width: 991px) {
-    margin-left: 20px;
+    
     margin-bottom: 0px;
   }
 }
@@ -465,8 +482,8 @@ ul.cd-primary-nav {
 
 .cd-nav .cd-primary-nav .line-wrapper > li > a {
   .HelveticaBold();
-  font-size: 37px;
-  margin-bottom: 15px;
+  font-size: 28px;
+  margin-bottom: 12px;
   color: @brand-primary-titles;
 
   @media(max-width: 992px) {
@@ -474,13 +491,13 @@ ul.cd-primary-nav {
   }
 
   &:hover {
-    color: @brand-primary-titles;
+    color: @primary-med;
     text-decoration: none;
   }
 
   &:active,
   &:focus {
-    color: @brand-primary-titles;
+    color: @primary-med;
     text-decoration: none;
   }
 
@@ -492,20 +509,24 @@ ul.cd-primary-nav {
 
 .cd-nav .cd-primary-nav ul li {
   display: block;
+
+  &.menu-position-1 {
+    margin-top: 17px;
+  }
 }
 
 .cd-nav .cd-primary-nav ul li a {
   margin-top: 0px;
   margin-bottom: 10px;
-  color: @brand-primary-text;
+  color: @grey-secondary-med;
 
   &:hover {
-    color: @brand-primary-titles;
+    color: @primary-med;
   }
 
   &:active,
   &:focus {
-    color: @brand-primary-titles;
+    color: @primary-med;
   }
 }
 

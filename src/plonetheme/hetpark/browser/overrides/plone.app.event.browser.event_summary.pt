@@ -10,14 +10,10 @@
 
 <tal:def tal:define="data python:view.data; excludes view/excludes;
                      is_past python: context.restrictedTraverse('@@context_tools').isEventPast(context);">
-  
-  <ul class="event summary details is_past" tal:condition="is_past">
-    <li class="event-date is_past"><strong i18n:domain="plonetheme.hetpark" i18n:translate="event_past_text">Past Exhibition</strong></li>
-  </ul>
 
   <ul class="event summary details" summary="Event details" i18n:attributes="summary summary_event_details" tal:attributes="class python: 'event summary details' if not getattr(context, 'recurrence', None) else 'event summary details recurrence'">
-    <div id="twt-widget-container"></div>
-    <script type="text/javascript" src="https://hetpark.tst3.ticketworks.nl/widget/profileWidgetJs"></script>
+    <!--<div id="twt-widget-container"></div>
+    <script type="text/javascript" src="https://hetpark.tst3.ticketworks.nl/widget/profileWidgetJs"></script>-->
     
     <tal:cond condition="python:'title' not in excludes">
       <li class="event-title">
@@ -152,7 +148,12 @@
      </div>
 
      <div class="event-availability" tal:condition="context/performance_availability">
-        <tal:text content="structure python: context.performance_availability.output_relative_to(context)" tal:on-error="nothing"/>
+        <tal:renderifnotpast tal:condition="not:is_past">
+          <tal:text content="structure python: context.performance_availability.output_relative_to(context)" tal:on-error="nothing"/>
+        </tal:renderifnotpast>
+        <tal:fallbackifpast tal:condition="is_past">
+          <a target="_blank" class="btn btn-default" disabled="disabled">Geweest</a>
+        </tal:fallbackifpast>
      </div>
 
   </ul>

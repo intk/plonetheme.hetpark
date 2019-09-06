@@ -130,40 +130,7 @@
         <div id="parent-fieldname-text" tal:condition="data/text">
           <tal:text content="structure data/text" />
         </div>
-
-        <tal:check_text_fields 
-      tal:define="text_field python: getattr(context, 'text', '');
-                  notes_field python: getattr(context, 'notes', '');
-                  has_text_field python: True if text_field and text_field.raw else False;
-                  has_notes_field python: True if notes_field and notes_field.raw else False;
-                  is_past python: context_tools.isEventPast(context);">
-
-    <div id="exhibition-archive-fields" tal:condition="python: is_past" class="object-fieldset row" tal:attributes="class python: 'object-fieldset row no-text' if not has_text_field and not has_notes_field else 'object-fieldset row'">
-
-          <tal:exhibitionfields tal:define="fields python: context.restrictedTraverse('@@exhibition_archive').get_fields(); fieldvalues python: fields['fields']">
-            <tal:block repeat="field fieldvalues">
-                <tal:definefield 
-                  tal:define="fieldlabel python: field.get('label', ''); 
-                              fieldvalue python: field.get('value', '')">
-                  <tal:fieldlabel tal:content="structure fieldlabel"></tal:fieldlabel>
-                  <tal:fieldvalue tal:content="structure fieldvalue"></tal:fieldvalue>
-                </tal:definefield>
-            </tal:block>
-
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 object-label" tal:condition="python: getattr(context, 'language', 'nl') == 'nl'"><p>Vragen?</p></div>
-              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 object-value" tal:condition="python: getattr(context, 'language', 'nl') == 'nl'"><p>Ziet u een fout? Of heeft u extra informatie over dit tentoonstelling? <a href="" tal:attributes="href python: 'mailto:documentatie@hetpark.nl?subject=opmerking over tentoonstelling: %s' %(getattr(context, 'title', ''))">Laat het ons weten!</a></p></div>
-
-              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 object-label" tal:condition="python: getattr(context, 'language', 'nl') == 'en'"><p>Questions?</p></div>
-              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 object-value" tal:condition="python: getattr(context, 'language', 'nl') == 'en'"><p>Do you have a remark or extra information on this exhibition? <a href="" tal:attributes="href python: 'mailto:documentatie@hetpark.nl?subject=remark on this exhibition: %s' %(getattr(context, 'title', ''))">Please let us know!</a></p></div>
-
-          </tal:exhibitionfields> 
-        </div>
-    </tal:check_text_fields>
-
-
       </div>
-
-      
     </div>
 
   <tal:render_body tal:condition="not:is_presentation">              
@@ -184,41 +151,6 @@
     <div id="parent-fieldname-text" tal:condition="data/text">
       <tal:text content="structure data/text" />
     </div>
-
-    <tal:is_past_check tal:condition="python: is_past and context.show_notes">
-      <div id="parent-fieldname-text" tal:condition="context/notes">
-        <tal:text content="structure python: context.notes.output_relative_to(context)" />
-      </div>
-    </tal:is_past_check>
-
-    <tal:check_text_fields 
-      tal:define="text_field python: getattr(context, 'text', '');
-                  notes_field python: getattr(context, 'notes', '');
-                  has_text_field python: True if text_field and text_field.raw else False;
-                  has_notes_field python: True if notes_field and notes_field.raw else False;">
-
-    <div id="exhibition-archive-fields" tal:condition="python: is_past" class="object-fieldset row" tal:attributes="class python: 'object-fieldset row no-text' if not has_text_field and not has_notes_field else 'object-fieldset row'">
-
-          <tal:exhibitionfields tal:define="fields python: context.restrictedTraverse('@@exhibition_archive').get_fields(); fieldvalues python: fields['fields']">
-            <tal:block repeat="field fieldvalues">
-                <tal:definefield 
-                  tal:define="fieldlabel python: field.get('label', ''); 
-                              fieldvalue python: field.get('value', '')">
-                  <tal:fieldlabel tal:content="structure fieldlabel"></tal:fieldlabel>
-                  <tal:fieldvalue tal:content="structure fieldvalue"></tal:fieldvalue>
-                </tal:definefield>
-            </tal:block>
-
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 object-label" tal:condition="python: getattr(context, 'language', 'nl') == 'nl'"><p>Vragen?</p></div>
-              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 object-value" tal:condition="python: getattr(context, 'language', 'nl') == 'nl'"><p>Ziet u een fout? Of heeft u extra informatie over dit tentoonstelling? <a href="" tal:attributes="href python: 'mailto:documentatie@hetpark.nl?subject=opmerking over tentoonstelling: %s' %(getattr(context, 'title', ''))">Laat het ons weten!</a></p></div>
-
-              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 object-label" tal:condition="python: getattr(context, 'language', 'nl') == 'en'"><p>Questions?</p></div>
-              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 object-value" tal:condition="python: getattr(context, 'language', 'nl') == 'en'"><p>Do you have a remark or extra information on this exhibition? <a href="" tal:attributes="href python: 'mailto:documentatie@hetpark.nl?subject=remark on this exhibition: %s' %(getattr(context, 'title', ''))">Please let us know!</a></p></div>
-
-          </tal:exhibitionfields> 
-        </div>
-    </tal:check_text_fields>
-
   </div>
   </tal:render_body>
 
