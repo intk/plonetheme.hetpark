@@ -1073,11 +1073,31 @@ jQuery(document).ready(function($){
 });
 
 jQuery(document).ready(function($){
+
+	if (jQuery("ul.event.summary").length) {
+		var performance_box_wrapper = jQuery("#event-summary");
+		var performance_box = jQuery("ul.event.summary");
+		var sticky_position = performance_box.offset().top;	
+
+		function triggerStickyPerformanceBox() {
+		  if (document.getElementById('website-wrapper').scrollTop > sticky_position) {
+		    performance_box_wrapper.addClass("sticky");
+		  } else {
+		    performance_box_wrapper.removeClass("sticky");
+		  }
+		}
+
+		jQuery("#website-wrapper").on("scroll resize", function(){
+			triggerStickyPerformanceBox();
+		});
+	}
+
+
 	var animating = false;
 
 	//update arrows visibility and detect which section is visible in the viewport
 	setSlider();
-	$(window).on('scroll resize', function(){
+	$(window).on('scroll resize', function() {
 		(!window.requestAnimationFrame) ? setSlider() : window.requestAnimationFrame(setSlider);
 	});
 

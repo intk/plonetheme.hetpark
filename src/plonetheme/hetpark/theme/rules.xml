@@ -184,7 +184,7 @@
       />
 
       <replace
-        css:theme="#event-summary"
+        css:theme-children="#event-summary"
         css:content=".event.summary"
         method="raw"
       />

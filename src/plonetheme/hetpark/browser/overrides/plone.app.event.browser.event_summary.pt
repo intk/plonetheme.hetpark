@@ -11,7 +11,7 @@
 <tal:def tal:define="data python:view.data; excludes view/excludes;
                      is_past python: context.restrictedTraverse('@@context_tools').isEventPast(context);">
 
-  <ul class="event summary details" summary="Event details" i18n:attributes="summary summary_event_details" tal:attributes="class python: 'event summary details' if not getattr(context, 'recurrence', None) else 'event summary details recurrence'">
+  <ul class="event summary details" summary="Event details" i18n:attributes="summary summary_event_details" tal:attributes="class python: 'event summary details' if not getattr(context, 'recurrence', None) else 'event summary details recurrence';">
     <!--<div id="twt-widget-container"></div>
     <script type="text/javascript" src="https://hetpark.tst3.ticketworks.nl/widget/profileWidgetJs"></script>-->
     
@@ -157,7 +157,6 @@
      </div>
 
   </ul>
-
 
 
 </tal:def>
