@@ -29,6 +29,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 listing-item" tal:define="
                 item_url item/getURL;
                 item_id item/getId;
+                item_tags item/Subject|nothing;
                 item_title item/Title;
                 item_description python:context_tools.trimText(item.Description(), 160);
                 item_type item/PortalType;
@@ -73,6 +74,11 @@
                         <p class="item-description" tal:content="item_description"></p>
                         <metal:block metal:define-macro="document_byline"></metal:block>
                       </div>  
+
+                      <div id="event-categories">
+                        <strong i18n:translate="event_what">Wat</strong>
+                        <span itemprop="eventType" tal:repeat="item_tag item_tags" tal:content="item_tag" />
+                      </div>
                     </div>
 
                     <div class="dates-wrapper">

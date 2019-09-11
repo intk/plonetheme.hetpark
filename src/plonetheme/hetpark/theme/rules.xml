@@ -219,7 +219,13 @@
         css:if-content="#presentation"
         />
 
-      <drop css:theme="#slideshow-btn-wrapper" css:if-not-content="#presentation"/>
+      <replace
+        css:theme-children="#event-categories"
+        css:content-children=".event-category"
+        css:if-content="body.portaltype-event"
+        />
+
+      <drop css:theme="#event-categories" css:if-not-content="body.portaltype-event"/>
       
 
 

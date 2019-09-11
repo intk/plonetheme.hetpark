@@ -14839,6 +14839,46 @@ body.frontend.template-performance_overview {
 	}
 }
 
+#event-categories {
+	display: none !important;
+}
+
+body.frontend.portaltype-event,
+body.frontend.template-performance_overview {
+	#event-categories {
+		display: block !important;
+
+		strong {
+			display: none;
+		}
+	}
+}
+
+
+#event-categories {
+	margin-top: 15px;
+
+	strong {
+		display: none;
+	}
+
+	text-align: left;
+
+	span {
+		.HelveticaMedium();
+		background-color: #f6f6f6;
+	    padding: 5px 8px;
+	    margin: 2px;
+	    border-radius: 2px;
+	    font-size: 13px;
+	    letter-spacing: 0.00em;
+	}
+
+	span:nth-child(2) {
+		margin-left: 0px;
+	}
+}
+
 
 
 
