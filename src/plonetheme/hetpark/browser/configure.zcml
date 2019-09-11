@@ -85,6 +85,22 @@
         permission="zope2.View"
         />
 
+  <browser:page
+        name="performance_overview"
+        for="*"
+        template="templates/performance_overview.pt"
+        class=".views.PerformanceOverviewView"
+        permission="zope2.View"
+        />
+
+  <browser:menuItem
+        for="*"
+        menu="plone_displayviews"
+        title="Performance Overview"
+        action="@@performance_overview"
+        description="Shows the performace overview view"
+        />
+
   <browser:menuItem
         for="*"
         menu="plone_displayviews"

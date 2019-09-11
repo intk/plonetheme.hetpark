@@ -1211,6 +1211,9 @@ class FullScreenCollectionView(CollectionView):
 class InfiniteCollectionView(CollectionView):
     pass
 
+class PerformanceOverviewView(CollectionView):
+    pass
+
 
 
 class CustomEventEventListing(EventEventListing):
