@@ -1008,12 +1008,21 @@ jQuery(document).ready(function($){
     mainHeader.toggleClass('nav-open');
   });
 
+  jQuery("#website-wrapper").on('scroll', function(){
+    if( !scrolling ) {
+      scrolling = true;
+      (!window.requestAnimationFrame)
+        ? setTimeout(autoHideHeader, 250)
+        : requestAnimationFrame(autoHideHeader);
+    }
+  });
+
   jQuery(window).on('resize', function(){
     headerHeight = mainHeader.height();
   });
 
   function autoHideHeader() {
-    var currentTop = jQuery(window).scrollTop();
+    var currentTop = jQuery("#website-wrapper").scrollTop();
 
     ( belowNavHeroContent.length > 0 ) 
       ? checkStickyNavigation(currentTop) // secondary navigation below intro

@@ -227,8 +227,6 @@
 
       <drop css:theme="#event-categories" css:if-not-content="body.portaltype-event"/>
       
-
-
       <!-- Header -->
       <copy attributes="style" css:theme="header.intro-header" css:content="div.leadImageBackground"/>
       <drop css:content="div.leadImage"/>
@@ -245,8 +243,8 @@
       <!-- No breadcrumbs in this theme -->
       <drop css:content="#portal-breadcrumbs" />
 
-      <after css:theme-children="#website-nav" css:content="#portal-breadcrumbs-context" method="raw"/>
-      <drop css:content="#portal-breadcrumbs-context" />
+      <!--<after css:theme-children="#website-nav" css:content="#portal-breadcrumbs-context" method="raw"/>
+      <drop css:content="#portal-breadcrumbs-context" />-->
 
       <!-- Alert message -->
       <replace
