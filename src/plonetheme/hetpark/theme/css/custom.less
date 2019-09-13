@@ -2101,7 +2101,7 @@ body.frontend, body#tinymce {
 			margin-bottom: 0px;
 			margin-top: 14px;
 			text-transform: none;
-			.HelveticaMedium();
+			.HelveticaBold();
 
 			@media(max-width: 767px) {
 				margin-bottom: 0px;
@@ -9390,7 +9390,7 @@ body.template-listing_view {
 
 body:not(.frontend) {
 	#portal-logo {
-		margin-left: 0px;
+		
 	}
 }
 
@@ -14312,6 +14312,13 @@ body.frontend.portaltype-event {
 		}
 	}
 
+	#website-wrapper.empty-slideshow {
+		div.event-availability a.btn {
+			min-width: 275px;
+			max-width: 275px;
+		}
+	}
+
 	div.event-availability a.btn[disabled] {
 		background-color: @status-grey;
 		color: @status-text;
@@ -14633,6 +14640,13 @@ body.frontend.template-performance_overview {
 		}
 	}
 
+	.event-date-time {
+		.HelveticaMedium();
+		color: @grey-secondary-light;
+	    font-size: 14px;
+	    margin-top: 3px;
+	}
+
 
 	#content-wrapper {
 		.main-container, .page-container {
@@ -14941,6 +14955,13 @@ body.frontend.template-performance_overview {
 }
 
 body.navigation-is-open  {
+	.nav-trigger-wrapper {
+		border-bottom: 1px solid #e5e5e5;
+	}
+}
+
+#website-wrapper.empty-slideshow,
+body:not(.frontend) {
 	.nav-trigger-wrapper {
 		border-bottom: 1px solid #e5e5e5;
 	}

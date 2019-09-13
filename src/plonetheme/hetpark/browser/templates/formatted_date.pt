@@ -57,31 +57,7 @@
       </abbr>
     </tal:open_end>
 
-    <tal:notevent tal:condition="python: context.portal_type != 'Event'">
-      <tal:normal
-          condition="python:not (whole_day or open_end)"
-          i18n:translate="event_when_sameday">
-        <span class="datedisplay"
-            tal:content="date_dict/start_date"
-            i18n:name="date">Start Date</span>
-        from
-        
-        <abbr class="dtstart"
-            tal:attributes="title date_dict/start_iso"
-            i18n:name="starttime"
-            tal:content="date_dict/start_time">Start Time
-        </abbr>
-        to
-        <abbr class="dtend"
-            tal:attributes="title date_dict/end_iso"
-            i18n:name="endtime"
-            tal:content="date_dict/end_time">End Time
-        </abbr>
-        
-      </tal:normal>
-    </tal:notevent>
 
-    <tal:is_event tal:condition="python: context.portal_type == 'Event'">
       <tal:normal_date
           condition="python:not (whole_day or open_end)"
           i18n:translate="event_when_sameday_date">
@@ -110,7 +86,6 @@
 
       </tal:normal_time>
       </div>
-    </tal:is_event>
 
   </tal:sameday>
 

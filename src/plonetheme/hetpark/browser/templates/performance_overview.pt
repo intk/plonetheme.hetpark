@@ -86,7 +86,7 @@
                           tal:define="is_past python: context_tools.isEventPast(item)">
                           <div class="event-date-wrapper">
                             <p class="event-date" tal:attributes="class python: 'event-date past' if is_past else 'event-date'">
-                              <tal:date tal:replace="structure python:context_tools.formatted_date(item)" tal:condition="python:item_is_event"/>
+                              <tal:date tal:replace="structure python:context_tools.formatted_date_event(item)" tal:condition="python:item_is_event"/>
                             </p>
                           </div>
 
