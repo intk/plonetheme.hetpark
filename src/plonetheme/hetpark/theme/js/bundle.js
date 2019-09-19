@@ -936,6 +936,7 @@ jQuery(document).ready(function($) {
       jQuery(this).closest('.dropdown-menu').stop(true, true).show();
       jQuery(this).toggleClass("open");
   });
+
   
   if (isMobile.any()) {
     jQuery("body").addClass("mobile");
@@ -947,7 +948,7 @@ jQuery(document).ready(function($) {
       hover_limit = 1150;
     }
 
-    jQuery('ul.nav li.dropdown').hover(function() {
+    /*jQuery('ul.nav li.dropdown').hover(function() {
         if (window.innerWidth >= hover_limit) {
           jQuery(this).closest('.dropdown-menu').stop(true, true).show();
           jQuery(this).addClass('open');
@@ -957,7 +958,7 @@ jQuery(document).ready(function($) {
           jQuery(this).closest('.dropdown-menu').stop(true, true).hide();
           jQuery(this).removeClass('open');
         }
-    });
+    });*/
   }
   
   var isLateralNavAnimating = false;

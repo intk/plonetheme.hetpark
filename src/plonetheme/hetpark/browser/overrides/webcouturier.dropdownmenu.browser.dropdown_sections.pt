@@ -48,22 +48,24 @@
                               tal:condition="python: tid != 'index_html'">
               <li
                   tal:attributes="id string:portaltab-${tid};
-                                  class string:${class_position}${class_children}${class_selected}">
+                                  class string:${class_position}${class_children}${class_selected} dropdown">
                   
                   <a
                       tal:condition="subitems"
-                      tal:attributes="href href; title title; target target;"
+                      tal:attributes="title title; target target;"
                       class="dropdown-toggle"
                       role="button"
+                      href="#"
                       aria-haspopup="true"
-                      aria-expanded="false"><tal:text replace="tab/name"/> <span class="caret"></span></a>
+                      aria-expanded="false"
+                      data-toggle="dropdown"><tal:text replace="tab/name"/> <span class="fa fa-angle-down"></span></a>
                   <a
                       tal:condition="not:subitems"
                       tal:attributes="href href; title title; target target;"
                       tal:content="tab/name">Tab Name</a>
 
                   <tal:block tal:condition="subitems">
-                  <ul>
+                  <ul class="submenu dropdown-menu">
 
                   <tal:subitems tal:replace="structure subitems">
                     <tal:comment replace="nothing">Submenu</tal:comment>
