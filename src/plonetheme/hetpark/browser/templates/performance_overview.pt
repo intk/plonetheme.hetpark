@@ -77,7 +77,10 @@
 
                       <div id="event-categories">
                         <strong i18n:translate="event_what">Wat</strong>
-                        <span itemprop="eventType" tal:repeat="item_tag item_tags" tal:content="item_tag" />
+                        <tal:categories 
+                          tal:repeat="item_tag item_tags">
+                          <a tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/@@search?Subject%3Alist=${item_tag}"><span itemprop="eventType" tal:content="item_tag"></span></a>
+                        </tal:categories>
                       </div>
                     </div>
 

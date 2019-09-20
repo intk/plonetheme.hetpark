@@ -9,7 +9,8 @@
 <body tal:omit-tag="">
 
 <tal:def tal:define="data python:view.data; excludes view/excludes;
-                     is_past python: context.restrictedTraverse('@@context_tools').isEventPast(context);">
+                     is_past python: context.restrictedTraverse('@@context_tools').isEventPast(context);
+                     url_quote  nocall:modules/Products.PythonScripts.standard/url_quote;">
 
   <ul class="event summary details" summary="Event details" i18n:attributes="summary summary_event_details" tal:attributes="class python: 'event summary details' if not getattr(context, 'recurrence', None) else 'event summary details recurrence';">
     <!--<div id="twt-widget-container"></div>
@@ -26,7 +27,10 @@
     <tal:cond condition="data/subjects">
       <li class="event-category">
         <strong i18n:translate="event_what">Wat</strong>
-        <span itemprop="eventType" tal:repeat="item data/subjects" tal:content="item" />
+        <tal:categories 
+          tal:repeat="item data/subjects">
+          <a tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/@@search?Subject%3Alist=${item}"><span itemprop="eventType" tal:content="item"></span></a>
+        </tal:categories>
       </li>
     </tal:cond>
     </tal:cond>
