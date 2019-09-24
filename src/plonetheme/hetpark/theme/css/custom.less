@@ -5833,6 +5833,7 @@ body.template-listing_view {
 	@media (min-width: 768px) {
 		padding-left: 25px;
 		padding-right: 25px;
+		text-align: right;
 	}
 }
 
@@ -5953,8 +5954,8 @@ body:not(.plone-toolbar-left-expanded) {
 
 
 .nav > li > a.dropdown-toggle { 
-	padding-left: 22px;
-	padding-right: 22px;
+	padding-left: 24px;
+	padding-right: 24px;
 }
 
 .plone-navbar-nav li .submenu > li:last-child a {
@@ -14994,6 +14995,11 @@ a.dropdown-toggle span.fa.fa-angle-down {
     line-height: 22px;
 }
 
+#cd-nav a.dropdown-toggle span.fa.fa-angle-down {
+	float: right;
+    line-height: 37px;
+}
+
 body.frontend #event-categories a {
 	color: #000000;
 	border-bottom:0px !important;
@@ -15060,6 +15066,10 @@ body.frontend #event-categories a {
     	.dropdown-mobile {
     		display: none;
     	}
+    }
+
+    .twt-widget-source {
+    	display: none;
     }
 }
 
