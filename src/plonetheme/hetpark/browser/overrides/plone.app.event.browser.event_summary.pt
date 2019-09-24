@@ -13,8 +13,6 @@
                      url_quote  nocall:modules/Products.PythonScripts.standard/url_quote;">
 
   <ul class="event summary details" summary="Event details" i18n:attributes="summary summary_event_details" tal:attributes="class python: 'event summary details' if not getattr(context, 'recurrence', None) else 'event summary details recurrence';">
-    <!--<div id="twt-widget-container"></div>
-    <script type="text/javascript" src="https://hetpark.tst3.ticketworks.nl/widget/profileWidgetJs"></script>-->
     
     <tal:cond condition="python:'title' not in excludes">
       <li class="event-title">

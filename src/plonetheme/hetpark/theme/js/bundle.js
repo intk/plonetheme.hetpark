@@ -943,12 +943,12 @@ jQuery(document).ready(function($) {
   } else {
     jQuery("body").addClass("no-touch");
 
-    var hover_limit = 1050;
+    var hover_limit = 1080;
     if (jQuery("body").hasClass('plone-toolbar-left-expanded')) {
-      hover_limit = 1150;
+      hover_limit = 1080;
     }
 
-    /*jQuery('ul.nav li.dropdown').hover(function() {
+    jQuery('.top-my-account-wrapper li.dropdown').hover(function() {
         if (window.innerWidth >= hover_limit) {
           jQuery(this).closest('.dropdown-menu').stop(true, true).show();
           jQuery(this).addClass('open');
@@ -958,7 +958,7 @@ jQuery(document).ready(function($) {
           jQuery(this).closest('.dropdown-menu').stop(true, true).hide();
           jQuery(this).removeClass('open');
         }
-    });*/
+    });
   }
   
   var isLateralNavAnimating = false;
