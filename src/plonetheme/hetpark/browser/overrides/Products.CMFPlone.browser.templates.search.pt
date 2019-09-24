@@ -66,10 +66,6 @@
                 </span>
         </div>
         
-        <!--<div class="visualClear div-advanced-search">
-          <a class="advanced-search" tal:attributes="href python: '/%s/@@advancedsearch?%s' %(getattr(context,'language', 'nl'), advanced_query()) if advanced_query() else '/%s/@@advancedsearch' %(getattr(context, 'language', 'nl'))" i18n:translate="label_advanced_search">Advanced search</a>
-        </div>-->
-        
         <dl class="actionMenu"
             tal:attributes="class python:view.show_advanced_search() and 'actionMenu' or 'actionMenu'">
 
@@ -274,16 +270,7 @@
               <div id="search-results-bar">
                 
               </div>
-               <div class="clearfix extra-fields" i18n:domain="plonetheme.hetpark">
-                      <tal:define_extra
-                        tal:define="extra_filters python: extra_filters">
-                        <p tal:condition="extra_filters" tal:content="python: 'Verfijnen: ' if getattr(context, 'language', None) == 'nl' else 'Refine: '" class="filter-text"></p>
-                        <tal:items repeat="extra_filter extra_filters">
-                          <p i18n:translate=""><tal:hasparam tal:condition="python: extra_filter['param'] != ''"><span i18n:translate="" tal:content="python: extra_filter['param']"></span>: </tal:hasparam><span tal:content="python: extra_filter['value'] if 'path' not in extra_filter['param'] else extra_filter['value'].replace('/CM/', '/')" i18n:translate=""></span><span> <a tal:attributes="href python: extra_filter['link']" class="glyphicon glyphicon-remove extra-filter-remove"></a></span></p>
-                          <input type="hidden" tal:attributes="value python: extra_filter['value']; name python: extra_filter['param']"/>
-                        </tal:items>
-                      </tal:define_extra>
-                      </div>
+               
 
               <metal:searchresults define-macro="search_results">
                 <div class="autotabs">
@@ -316,53 +303,86 @@
                                                  use_view_action python:context.portal_registry.get('plone.types_use_view_action_in_listings', []);
                                                  allowAnonymousViewAbout python:context.portal_registry['plone.allow_anon_views_about'];
                                                  show_about python:not isAnon or allowAnonymousViewAbout;
-                                                 image_scale portal/@@image_scale;">
+                                                 image_scale portal/@@image_scale;
+                                                 context_tools python: context.restrictedTraverse('@@context_tools');">
                         <div class="searchResults">
                           
                           <tal:results repeat="item batch">
-                            
-                              <div class="search-item row"
+                              <div class="col-lg-12 col-md-12 col-sm-12 listing-item no-padding"
+                                        tal:define="leadmedia python: context_tools.getImageBrain(item)"
+                                        tal:attributes="class python: 'col-lg-12 col-md-12 col-sm-12 listing-item no-padding' if leadmedia else 'col-lg-12 col-md-12 col-sm-12 listing-item no-padding no-image'">
+                              <div class="search-item"
                                 tal:define="item_type item/PortalType;
-                                            leadmedia python: context.restrictedTraverse('@@context_tools').getImageBrain(item);
-                                            item_on_display item/object_on_display|nothing;
-                                            item_is_event python: item_type in ['Event', 'Exhibition'];">
+                                            
+                                            item_is_event python: item_type in ['Event', 'Exhibition'];
+                                            item_tags item/Subject|nothing;">
 
-                                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 no-padding-left">
+                                <div class="thumb-wrapper">
                                   <tal:leadmedia tal:condition="leadmedia">
-                                    <a href="#" tal:define="item_url item/getURL;item_type item/PortalType"
-                                     tal:attributes="href python:item_type in use_view_action and (item_url + '/view') or item_url;
-                                                     class string:state-${item/review_state}">
-                                    
-                                    <div class="on-display-wrapper" tal:condition="item_on_display" i18n:domain="plonetheme.hetpark">
-                                      <div i18n:translate="object_on_display" class="label_inner">Nu te zien</div>
-                                    </div>
-                                    <img class="lead-img" tal:replace="structure python:image_scale.tag(leadmedia, 'image', scale='large', css_class='lead-image')"/>
-                                    </a>
+                                    <a href="#" class="thumb-image" tal:define="item_url item/getURL;item_type item/PortalType" tal:attributes="href python:item_type in use_view_action and (item_url + '/view') or item_url;
+                                                     class string:state-${item/review_state} thumb-image">
+                                      <img class="lead-img" 
+                                      tal:replace="structure python:image_scale.tag(leadmedia, 'image', scale='large', css_class='lead-image')"/>
+                                    </a> 
                                   </tal:leadmedia>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 search-item-right">
-                                  
-                                  <a href="#" tal:define="item_url item/getURL;item_type item/PortalType"
-                                     tal:attributes="href python:item_type in use_view_action and (item_url + '/view') or item_url;
-                                                     class string:state-${item/review_state}">
-                                  <h4 class="item-title" 
-                                     tal:content="python:item.getDataOrigin().pretty_title_or_id()">Title</h4>
-                                   </a>
-                                  
-                                  
+                                <div class="entry-wrapper">
+                                  <div class="dates-wrapper-mobile">
                                     <tal:event condition="item_is_event"
-                                     tal:define="is_past python: context.restrictedTraverse('@@context_tools').isEventPast(item)">
-                                      <p class="post-meta event-date" tal:attributes="class python: 'post-meta event-date past' if is_past else 'post-meta event-date'">
-                                      <tal:date tal:replace="structure python:context.restrictedTraverse('@@context_tools').formatted_date(item)"/>
-                                      
-                                      </p>
+                                        tal:define="is_past python: context_tools.isEventPast(item)">
+                                        <p class="event-date" tal:attributes="class python: 'event-date past' if is_past else 'event-date'">
+                                          <tal:date tal:replace="structure python:context_tools.formatted_date(item)"/>
+                                        </p>
                                     </tal:event>
-                                 
-                                  <p class="item-description" tal:condition="item/CroppedDescription" tal:content="item/CroppedDescription">Subtitle</p>
-                                  
-                              </div>
+                                  </div>  
+
+                                  <h4 class="item-title">
+                                    <a href="#"
+                                     tal:define="item_url item/getURL;item_type item/PortalType"
+                                     tal:attributes="href python:item_type in use_view_action and (item_url + '/view') or item_url;
+                                                     class string:state-${item/review_state}"
+                                     tal:content="python:item.getDataOrigin().pretty_title_or_id()"
+                                     >
+                                    Title
+                                    </a>
+                                  </h4>
+
+                                  <div class="item-description-wrapper">
+                                    <p class="item-description" tal:condition="item/CroppedDescription" tal:content="item/CroppedDescription"></p>
+                                  </div>  
+
+                                  <div id="event-categories">
+                                    <strong i18n:translate="event_what">Wat</strong>
+
+                                    <tal:categories
+                                      tal:repeat="item_tag item_tags">
+                                      <a tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/@@search?Subject%3Alist=${item_tag}"><span itemprop="eventType" tal:content="item_tag"></span></a>
+                                    </tal:categories>
+                                  </div>
+                                </div>
+
+                                <div class="dates-wrapper">
+                                  <tal:event condition="item_is_event"
+                                      tal:define="is_past python: context_tools.isEventPast(item)">
+                                      <div class="event-date-wrapper">
+                                        <p class="event-date" tal:attributes="class python: 'event-date past' if is_past else 'event-date'">
+                                          <tal:date tal:replace="structure python:context_tools.formatted_date_event(item)" tal:condition="python:item_is_event"/>
+                                        </p>
+                                      </div>
+
+                                      <div class="event-availability">
+                                        <tal:renderifnotpast tal:condition="not:is_past">
+                                          <tal:text content="structure python: item.getObject().performance_availability.output_relative_to(context)" tal:on-error="nothing"/>
+                                        </tal:renderifnotpast>
+                                        <tal:fallbackifpast tal:condition="is_past">
+                                          <a target="_blank" class="btn btn-default" disabled="disabled">Geweest</a>
+                                        </tal:fallbackifpast>
+                                     </div>
+                                  </tal:event>
+                                </div>
                             </div>  
+                            </div>
                           </tal:results>
 
 

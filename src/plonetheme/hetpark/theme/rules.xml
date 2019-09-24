@@ -6,6 +6,7 @@
        xmlns:xi="http://www.w3.org/2001/XInclude">
 
     <theme href="backend.html" css:if-not-content="body.frontend"/>
+    <theme href="index.html" css:if-content="body.template-default_error_message"/>
     <theme href="index_presentation.html" css:if-content="#presentation"/>
     <theme href="index_empty.html" css:if-content="body.portaltype-formfolder"/>
     <theme href="index_empty.html" css:if-content="body.portaltype-formthankspage"/>

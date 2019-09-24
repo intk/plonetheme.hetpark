@@ -51,7 +51,7 @@
                         contact the <span i18n:name="site_admin">
                         <a href="#"
                            i18n:translate="label_site_admin"
-                           tal:attributes="href string:${context/portal_url}/${context/language|nl}/contact">Site Administration</a></span>.
+                           tal:attributes="href string:${context/portal_url}/contact-info">Site Administration</a></span>.
                     </p>
 
                     <p i18n:translate="description_site_error_thank_you">
@@ -110,11 +110,11 @@
                                 </div>
 
                                 <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
-                                    <a href="${url}"
+                                    
+                                       <h4 class="item-title"><a href="${url}"
                                        tal:define="item_wf_state_class string: state-${similar/review_state};"
-                                       >
-                                       <h4 class="item-title">${similar/pretty_title_or_id}</h4>
-                                    </a>
+                                       >${similar/pretty_title_or_id}</a></h4>
+                                    
 
                                     <p class="item-description"><span tal:content="python:plone_view.cropText(similar.Description or '', desc_length)"> Description </span></p>
                                 </div>
@@ -155,7 +155,7 @@
                     <span i18n:name="site_admin">
                     <a href="#"
                        i18n:translate="label_site_admin"
-                       tal:attributes="href string:${context/portal_url}/contact">Site Administration</a></span>,
+                       tal:attributes="href string:${context/portal_url}/contact-info">Site Administration</a></span>,
                     please include this entry number in your message.
                     </p>
 
@@ -179,7 +179,7 @@
                     contact the <span i18n:name="site_admin">
                     <a href="#"
                        i18n:translate="label_site_admin"
-                       tal:attributes="href string:${context/portal_url}/contact">Site Administration</a></span>.
+                       tal:attributes="href string:${context/portal_url}/contact-info">Site Administration</a></span>.
                     </p>
                 </tal:noentry>
             </div>
