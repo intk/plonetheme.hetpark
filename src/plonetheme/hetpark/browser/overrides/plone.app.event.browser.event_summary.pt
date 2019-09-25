@@ -27,7 +27,7 @@
         <strong i18n:translate="event_what">Wat</strong>
         <tal:categories 
           tal:repeat="item data/subjects">
-          <a tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/@@search?Subject%3Alist=${item}"><span itemprop="eventType" tal:content="item"></span></a>
+          <a tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/programma/#b_start=0&c4=${item}"><span itemprop="eventType" tal:content="item"></span></a>
         </tal:categories>
       </li>
     </tal:cond>

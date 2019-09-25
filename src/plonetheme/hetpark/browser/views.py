@@ -555,6 +555,45 @@ class ContextToolsView(BrowserView):
             else:
                 return provider(item)
 
+    def formatted_date_event_faceted(self, obj):
+        try:
+            item = obj.getObject()
+        except:
+            item = obj
+            pass
+
+        provider = getMultiAdapter(
+            (self.context, self.request, self),
+            IContentProvider, name='formatted_date'
+        )
+
+        rec = getattr(item, 'recurrence', None)
+        if rec:
+            if "FREQ=DAILY" in rec:
+                return self.context.translate(_("DAILY"))
+            elif "FREQ=MONDAYFRIDAY" in rec:
+                return self.context.translate(_("MONDAYFRIDAY"))
+            elif "FREQ=WEEKDAYS" in rec:
+                return self.context.translate(_("WEEKDAYS"))
+            elif "FREQ=WEEKLY" in rec:
+                return self.context.translate(_("WEEKLY"))
+            elif "FREQ=MONTHLY" in rec:
+                return self.context.translate(_("MONTHLY"))
+            elif "FREQ=YEARLY" in rec:
+                return self.context.translate(_("YEARLY"))
+            else:
+                return provider(item)
+        else:
+            end_date = getattr(item, 'end', None)
+            if end_date:
+                end = DateTime(end_date)
+                if end.year() > YEAR_LIMIT:
+                    return self.context.translate(_("permanent_collection"))
+                else:
+                    return provider(item)
+            else:
+                return provider(item)
+
     def render_belowcontent_portlets(self):
         portlet_manager = getMultiAdapter(
             (self.context, self.request, self.__parent__),
@@ -984,7 +1023,11 @@ class ContextToolsView(BrowserView):
 
 
     def formatted_date(self, obj):
-        item = obj.getObject()
+        try:
+            item = obj.getObject()
+        except:
+            item = obj
+
         provider = getMultiAdapter(
             (self.context, self.request, self),
             IContentProvider, name='formatted_date'

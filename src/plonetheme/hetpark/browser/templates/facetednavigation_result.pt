@@ -1,39 +1,81 @@
-<div class="search-item row"
+<div class="col-lg-12 col-md-12 col-sm-12 listing-item no-padding no-image"
   tal:define="portal python:context.restrictedTraverse('@@plone_portal_state').portal();
+              context_tools python:context.restrictedTraverse('@@context_tools');
               portal_type context/portal_type|string:;
               useViewTypes context/portal_properties/site_properties/typesUseViewActionInListings|python:[];
               useView python:portal_type in useViewTypes;
               description context/Description|string:;
               title context/pretty_title_or_id|string:;
               url context/absolute_url|string:#;
+              item_tags context/Subject|nothing;
               view_url python:(url and useView and url + '/view') or url;
               item_is_event python: portal_type in ['Event', 'Exhibition'];
-              leadmedia python: context.restrictedTraverse('@@context_tools').getImageBrainSearch(context);
+              leadmedia python: context_tools.getImageBrainSearch(context);
               image_scale portal/@@image_scale;
-              ">
+              "
+  tal:attributes="class python: 'col-lg-12 col-md-12 col-sm-12 listing-item no-padding' if leadmedia else 'col-lg-12 col-md-12 col-sm-12 listing-item no-padding no-image'">
 
-  <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 no-padding-left">
-
+<div class="search-item">
+  <div class="thumb-wrapper">
     <tal:leadmedia tal:condition="leadmedia">
-      <a href="#"
-       tal:attributes="href view_url;">
-      <img class="lead-img" tal:replace="structure python:image_scale.tag(leadmedia, 'image', scale='large', css_class='lead-image')" tal:on-error="nothing"/>
-      </a>
+      <a href="#" class="thumb-image" tal:attributes="href python:view_url;">
+        <img class="lead-img" 
+        tal:replace="structure python:image_scale.tag(leadmedia, 'image', scale='mini', css_class='lead-image')"/>
+      </a> 
     </tal:leadmedia>
   </div>
 
-  <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 search-item-right">
-    <a href="#" tal:attributes="href view_url;">
-      <h4 class="item-title" tal:content="title"></h4>
-    </a>
+  <div class="entry-wrapper">
+    <div class="dates-wrapper-mobile">
+      <tal:event condition="item_is_event"
+          tal:define="is_past python: context_tools.isEventPast(context)">
+          <p class="event-date" tal:attributes="class python: 'event-date past' if is_past else 'event-date'">
+            <tal:date tal:replace="structure python:context_tools.formatted_date_event_faceted(context)"/>
+          </p>
+      </tal:event>
+    </div>
 
-    <tal:event condition="item_is_event"
-        tal:define="is_past python: context.restrictedTraverse('@@context_tools').isEventPast(context)">
-      <p class="post-meta event-date" tal:attributes="class python: 'post-meta event-date past' if is_past else 'post-meta event-date'">
-      <tal:date tal:replace="structure python:context.restrictedTraverse('@@context_tools').formatted_date_search(context)"/>
-      </p>
-    </tal:event>
+    <h4 class="item-title">
+      <a href="#"
+       tal:attributes="href view_url"
+       tal:content="title"
+       >
+      Title
+      </a>
+    </h4>
 
-    <p class="item-description" tal:content="description"></p>
+    <div class="item-description-wrapper">
+      <p class="item-description" tal:content="description"></p>
+    </div>  
+
+    <div id="event-categories">
+      <strong i18n:translate="event_what">Wat</strong>
+
+      <tal:categories
+        tal:repeat="item_tag item_tags">
+        <a tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/programma/#b_start=0&c4=${item_tag}"><span itemprop="eventType" tal:content="item_tag"></span></a>
+      </tal:categories>
+    </div>
   </div>
+
+  <div class="dates-wrapper">
+    <tal:event condition="item_is_event"
+        tal:define="is_past python: context_tools.isEventPast(context)">
+        <div class="event-date-wrapper">
+          <p class="event-date" tal:attributes="class python: 'event-date past' if is_past else 'event-date'">
+            <tal:date tal:replace="structure python:context_tools.formatted_date_event(context)" tal:condition="python:item_is_event"/>
+          </p>
+        </div>
+
+        <div class="event-availability">
+          <tal:renderifnotpast tal:condition="not:is_past">
+            <tal:text content="structure python: context.performance_availability.output_relative_to(context)"/>
+          </tal:renderifnotpast>
+          <tal:fallbackifpast tal:condition="is_past">
+            <a target="_blank" class="btn btn-default" disabled="disabled">Geweest</a>
+          </tal:fallbackifpast>
+       </div>
+    </tal:event>
+  </div>
+</div>
 </div>

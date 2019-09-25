@@ -7,7 +7,6 @@
 <body tal:omit-tag="" tal:define="date_dict view/date_dict;
                                   whole_day date_dict/whole_day;
                                   open_end date_dict/open_end">
-
   <tal:differentday
       tal:condition="not:date_dict/same_day"
       i18n:translate="event_when_differentday">
