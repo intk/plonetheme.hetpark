@@ -87,7 +87,7 @@
             <metal:title define-slot="content-title">
                 <h1 class="documentFirstHeading"
                     tal:define="title_text context/Title|nothing;
-                                title python: context.restrictedTraverse('@@context_tools').getFixedLastWord(title_text);"
+                                title title_text;"
                     tal:condition="title"
                     tal:content="structure title">Title or id</h1>
             </metal:title>
