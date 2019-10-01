@@ -158,6 +158,12 @@
         </tal:fallbackifpast>
      </div>
 
+     <div class="sharing-wrapper">
+        <p>nodig je vrienden uit</p>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d931716383dface"></script>
+        <div class="addthis_inline_share_toolbox"></div>
+     </div>
+
   </ul>
 
 
