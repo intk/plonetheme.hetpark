@@ -403,7 +403,7 @@ body:not(.navigation-is-open) .cd-nav-trigger:hover .cd-nav-icon::before {
   z-index: 2;
   background: @grey-med;
   height: 100%;
-  overflow-y: auto;
+  overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   /* Force Hardware Acceleration in WebKit */
   -webkit-transition: -webkit-transform 0.4s;
@@ -415,13 +415,13 @@ body:not(.navigation-is-open) .cd-nav-trigger:hover .cd-nav-icon::before {
 }
 
 body:not(.template-online_experience) {
-  -webkit-transform: translateZ(0);
+  /*-webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
   -ms-transform: translateZ(0);
   -o-transform: translateZ(0);
   transform: translateZ(0);
   -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  backface-visibility: hidden;*/
 }
 
 .navigation-is-open #website-wrapper {
