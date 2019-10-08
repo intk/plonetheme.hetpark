@@ -12,7 +12,7 @@
     <header class="portletHeader">
         <span class="portletTopLeft"></span>
         <a tal:attributes="href python: collection_url() if not header_url() else header_url()" tal:omit-tag="python: not view.data.show_more and not view.data.link_header">
-            <h1 tal:content="view/data/header"></h1><h1 class="arrow-title"><span class="fa fa-chevron-right"></span></h1>
+            <h1 tal:content="view/data/header"></h1>
         </a>
         <a tal:attributes="href python: collection_url() if not header_url() else header_url()" tal:omit-tag="not:view/data/link_description">
           <h2 tal:content="collection_item/Description" tal:condition="python: collection_item.Description()"></h2>
@@ -75,7 +75,8 @@
                     item_is_news_item python:item_type in ['News Item'];
                     item_is_collection python: item_type in ['Collection'];
                     item_index repeat/obj/index;
-                    number repeat/obj/number;">
+                    number repeat/obj/number;
+                    item_tags obj/Subject|nothing;">
 
       <tal:not_collection tal:condition="not:item_is_collection">
         <div tal:attributes="class portlet_class" tal:condition="not:item_is_collection">
@@ -155,8 +156,19 @@
                 <a href="#" tal:attributes="href itemUrl;" tal:content="obj/Title">Title</a>
             </h4>
 
+
+
             <div class="portlet-item-description">
               <p class="item-description"><span tal:condition="python:view.data.show_collection_online" class="desc-mdash">&mdash;</span> <span tal:replace="python:context_tools.trimText(obj.Description(), 100)" ></span></p>
+            </div>
+
+            <div id="event-categories" tal:condition="item_is_event">
+              <strong i18n:translate="event_what">Wat</strong>
+              
+              <tal:categories
+                tal:repeat="item_tag item_tags">
+                <a tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/programma/#b_start=0&c4=${item_tag}"><span itemprop="eventType" tal:content="item_tag"></span></a>
+              </tal:categories>
             </div>
 
             <tal:authorssection 

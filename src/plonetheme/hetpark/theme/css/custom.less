@@ -2395,10 +2395,10 @@ body.frontend, body#tinymce {
 		}
 
 		h1 {
-			font-size: 45px;
+			font-size: 42px;
 			color: @brand-primary-titles;
-			.HelveticaBold();
-			text-align: center;
+			.FuturaBold();
+			text-align: left;
 			margin-top: 25px;
 			font-weight: 400;
 			text-transform: none;
@@ -2472,6 +2472,8 @@ body.frontend, body#tinymce {
 		}
 
 		.portletCollection {
+			padding-top: 50px;
+
 			.portletHeader {
 				margin-bottom: 30px;
 				background: none;
@@ -2485,10 +2487,20 @@ body.frontend, body#tinymce {
 					padding-left: 0px;
 					padding-right: 0px;
 				}
+
+
+				@media(max-width: 768px) {
+					margin-left: 15px;
+				}
+			}
+
+			@media(max-width: 768px) {
+				padding-top: 0px;
+
 			}
 
 			@media(min-width: 992px) {
-				padding-bottom: 75px;
+				padding-bottom: 0px;
 				padding-top: 50px;
 			}
 
@@ -2517,8 +2529,10 @@ body.frontend, body#tinymce {
 
 		@media (min-width: 769px) {
 			#row-items {
-				padding-left: 25px !important;
-				padding-right: 25px !important;
+				padding-left: 0px !important;
+				padding-right: 0px !important;
+				margin-left: -15px;
+				margin-right: -15px;
 			}
 		}
 
@@ -5822,6 +5836,10 @@ body.frontend {
 	}
 
 	#below-content .portletCollection {
+		div#event-categories {
+			margin-bottom: 30px;
+		}
+
 		@media (max-width: 768px) {
 			.tileImage {
 				margin-bottom: 14px;
@@ -5837,8 +5855,12 @@ body.frontend {
 			}
 
 			p.item-description {
-				margin-bottom: 50px;
+				margin-bottom: 0px;
 				margin-top: 0px;
+			}
+
+			div#event-categories {
+				margin-bottom: 30px;
 			}
 
 			#row-items .col-lg-6:nth-child(2) p.item-description {
@@ -5921,7 +5943,8 @@ body.template-listing_view {
     @media (min-width: 1080px) {
 	    padding-top: 20px;
 	    padding-bottom: 20px;
-	    margin-top: 1px;
+	    margin-top: 0px;
+	    border-top: 1px solid #f8f8f8;
 	}
 }
 
@@ -14714,18 +14737,18 @@ body:not(.frontend) #website-wrapper {
 	}
 
 	body.frontend.portaltype-event.plone-toolbar-left-expanded #website-wrapper:not(.empty-slideshow) #event-summary.sticky {
-		margin-left: -447px;
+		margin-left: -439px;
 	}
 }
 
 @media(min-width: 1480px) {
 	body.frontend.portaltype-event #website-wrapper:not(.empty-slideshow) #event-summary.sticky {
 	    width: 1200px;
-	    margin-left: -608px;
+	    margin-left: -600px;
 	}
 
 	body.frontend.portaltype-event.plone-toolbar-left-expanded #website-wrapper:not(.empty-slideshow) #event-summary.sticky {
-		margin-left: -547px;
+		margin-left: -540px;
 	}
 }
 
@@ -16033,8 +16056,8 @@ footer .portlet-static-bottom-links {
 	    width: 100%;
 
 	    @media(max-width: 991px) {
-	    	margin-left: 15px;
-	    	margin-right: 15px;
+	    	padding-left: 15px;
+	    	padding-right: 15px;
 	    }
 	}
 
@@ -16146,6 +16169,14 @@ footer .sponsors-wrapper {
 
 }
 
+
+body.frontend #below-content {
+	.portletCollection, .portlet-collection-uitgelicht {
+		@media(min-width: 769px) {
+			background-color: #f6f6f6;
+		}
+	}
+}
 
 
 
