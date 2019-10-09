@@ -57,7 +57,8 @@ xnugget info
   }
 }
 
-.plone-toolbar-expanded .cd-nav-trigger {
+.plone-toolbar-expanded .cd-nav-trigger,
+.plone-toolbar-left-default .cd-nav-trigger {
   left: 0px;
 }
 
@@ -403,7 +404,7 @@ body:not(.navigation-is-open) .cd-nav-trigger:hover .cd-nav-icon::before {
   z-index: 2;
   background: @grey-med;
   height: 100%;
-  overflow-y: hidden;
+  overflow-y: unset;
   -webkit-overflow-scrolling: touch;
   /* Force Hardware Acceleration in WebKit */
   -webkit-transition: -webkit-transform 0.4s;
@@ -557,6 +558,13 @@ ul.cd-primary-nav {
 .plone-toolbar-expanded .cd-navigation-wrapper {
   @media(min-width: 768px) {
     margin-left: 120px;
+    padding-right: 0px;
+  }
+}
+
+.plone-toolbar-left-default .cd-navigation-wrapper {
+  @media(min-width: 768px) {
+    margin-left: 60px;
     padding-right: 0px;
   }
 }

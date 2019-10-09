@@ -1093,14 +1093,22 @@ jQuery(document).ready(function($){
 
 jQuery(document).ready(function($){
 
-	if (jQuery("ul.event.summary").length) {
+	/*if (jQuery("ul.event.summary").length) {
 		var performance_box_wrapper = jQuery("#event-summary");
+		var main_container = jQuery(".main-container");
 		var performance_box = jQuery("ul.event.summary");
-		var sticky_position = performance_box.offset().top;	
+		var sticky_top_position = performance_box.offset().top;	
+		var sticky_bottom_position = performance_box.position().top + performance_box.offset().top + performance_box.outerHeight(true);
+		var main_container_bottom = main_container.position().top + main_container.offset().top + main_container.outerHeight(true);
+
 
 		function triggerStickyPerformanceBox() {
-		  if (jQuery(window).scrollTop() > sticky_position) {
+		  if (jQuery(window).scrollTop() > sticky_top_position) {
 		    performance_box_wrapper.addClass("sticky");
+
+		    if (sticky_bottom_position >= main_container_bottom) {
+
+		    }
 		  } else {
 		    performance_box_wrapper.removeClass("sticky");
 		  }
@@ -1109,8 +1117,7 @@ jQuery(document).ready(function($){
 		jQuery(window).on("scroll resize", function(){
 			triggerStickyPerformanceBox();
 		});
-	}
-
+	}*/
 
 	var animating = false;
 

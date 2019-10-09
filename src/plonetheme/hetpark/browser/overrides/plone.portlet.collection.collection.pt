@@ -81,7 +81,7 @@
       <tal:not_collection tal:condition="not:item_is_collection">
         <div tal:attributes="class portlet_class" tal:condition="not:item_is_collection">
 
-          <div class="thumb-wrapper" tal:define="item_images python:context_tools.getObjectImages(obj) if not view.data.show_news else []; item_images_total python: len(item_images)+1;" 
+          <div class="thumb-wrapper" tal:define="item_images python:context_tools.getObjectImages(obj) if not view.data.show_news else []; item_images_total python: 1;" 
             tal:attributes="data-imagescount python: item_images_total; class python: 'thumb-wrapper extra-images' if item_images_total > 0 else 'thumb-wrapper'">
 
             <tal:not_extra tal:condition="python: view.data.show_news">
