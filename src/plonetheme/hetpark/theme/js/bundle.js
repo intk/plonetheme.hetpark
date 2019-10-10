@@ -633,8 +633,8 @@ $(document).ready(function () {
   if (jQuery("body.template-facetednavigation_view").length > 0) {
   	if (jQuery("#c6-end-input").length > 0) {
   		setTimeout(function() {
-	  		jQuery("#c6-end-input").val('2029-01-01');
-	  		jQuery("#c6-end-input").attr('value', '2029-01-01');
+	  		jQuery("#c6-end-input").val('01/01/2029');
+	  		jQuery("#c6-end-input").attr('value', '01/01/2029');
   		}, 1000)
   	}
   }

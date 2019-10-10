@@ -270,7 +270,7 @@
           <xsl:variable name="central">
             <xsl:if test="//aside[@id='portal-column-one'] and //aside[@id='portal-column-two']">col-xs-12 col-sm-6</xsl:if>
             <xsl:if test="//aside[@id='portal-column-two'] and not(//aside[@id='portal-column-one'])">col-xs-12 col-sm-9</xsl:if>
-            <xsl:if test="//aside[@id='portal-column-one'] and not(//aside[@id='portal-column-two'])">col-xs-12 col-sm-9</xsl:if>
+            <xsl:if test="//aside[@id='portal-column-one'] and not(//aside[@id='portal-column-two'])">col-xs-12 col-sm-12</xsl:if>
             <xsl:if test="not(//aside[@id='portal-column-one']) and not(//aside[@id='portal-column-two'])">col-xs-12 col-sm-12</xsl:if>
           </xsl:variable>
 
@@ -288,7 +288,7 @@
       <!-- Left column -->
       <rules css:if-content="#portal-column-one">
         <replace css:theme="#column1-container">
-            <div class="col-xs-6 col-sm-3 sidebar-offcanvas">
+            <div class="left-section">
               <aside id="portal-column-one">
                  <xsl:copy-of css:select="#portal-column-one > *" />
               </aside>

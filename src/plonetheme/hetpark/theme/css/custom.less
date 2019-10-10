@@ -2390,8 +2390,8 @@ body.frontend, body#tinymce {
 		@media (max-width: 768px) {
 			.portletMailChimp,
 			.portlet-mailplus {
-				margin-left: -15px;
-				margin-right: -15px;
+				margin-left: 0px;
+				margin-right: 0px;
 			}
 		}
 
@@ -2470,10 +2470,13 @@ body.frontend, body#tinymce {
 
 		#content-core {
 			width: 100%;
+			max-width: 100%;
+			padding-left: 0px;
+			padding-right: 0px;
 		}
 
 		.portletCollection {
-			padding-top: 50px;
+			padding-top: 20px;
 
 			.portletHeader {
 				margin-bottom: 30px;
@@ -2496,13 +2499,13 @@ body.frontend, body#tinymce {
 			}
 
 			@media(max-width: 768px) {
-				padding-top: 0px;
+				padding-top: 20px;
 
 			}
 
 			@media(min-width: 992px) {
-				padding-bottom: 0px;
-				padding-top: 50px;
+				padding-bottom: 7px;
+				padding-top: 7px;
 			}
 
 			.portletFooter {
@@ -7290,9 +7293,13 @@ body.frontend {
 		}
 
 		.portletContent {
-			padding-top: 50px;
+			padding-top: 40px;
 			border: 0px;
 			padding-bottom: 40px;
+
+			@media(max-width: 768px) {
+				padding-bottom: 10px;
+			}
 		}
 
 		.portletFooter {
@@ -7304,13 +7311,12 @@ body.frontend {
 		}
 
 		input.searchField {
-			padding: 18px !important;
-			padding-bottom: 13px !important;
+			
 		}
 
 		@media (min-width: 992px) {
 			.LSBox {
-				width: 90%;
+				width: 100%;
 				margin: 0 auto;
 
 				input.searchField {
@@ -7562,22 +7568,9 @@ body.frontend #searchform .input-group input.searchPage.btn {
 }
 
 body.portaltype-formfolder .formid-contact #pfg-fieldwrapper {
-	padding-top: 40px;
+	padding-top: 0px;
 }
 
-body.frontend.portaltype-portlet-page #portletPageTopRow > div:nth-child(2) {
-	.portletCollection {
-		padding-top: 0px;
-
-		@media(max-width: 991px) {
-			margin-bottom: 0px;
-		}
-
-		.portletHeader {
-			padding-top: 10px;
-		}
-	}
-}
 
 body.frontend {
 	@media (min-width: 769px) {
@@ -11885,7 +11878,7 @@ body.frontend.portaltype-portlet-page.section-home-page {
 		}
 
 		#portal-logo {
-			display: none !important;
+			
 		}
 
 		#slickcarousel {
@@ -11894,7 +11887,7 @@ body.frontend.portaltype-portlet-page.section-home-page {
 		    margin-left: 0;
 
 		    .slideshow-wrapper {
-		    	margin-left: 300px;
+		    	
 		    }
 		}
 
@@ -11942,7 +11935,7 @@ body.frontend.portaltype-portlet-page.section-home-page {
 
 		#slickcarousel {
 		    .slideshow-wrapper {
-		    	margin-left: 410px;
+		    	
 		    }
 		}
 	}
@@ -11988,7 +11981,7 @@ body.frontend.portaltype-portlet-page.section-home-page {
 
 body.frontend.portaltype-portlet-page {
 	.portlet-item {
-		margin-bottom: 75px;
+		margin-bottom: 0px;
 	}
 	
 }
@@ -12860,8 +12853,15 @@ body:not(.frontend).template-folder_contents {
 body.frontend.portaltype-portlet-page.section-frontpage,
 body.frontend.portaltype-portlet-page.section-home-page {
 	#slickcarousel {
-		height: auto !important;
+		/*height: auto !important;
 		min-height: auto !important;
+		max-height: none !important;*/
+
+		@media(max-width: 768px) {
+			height: 400px !important;
+			min-height: 400px !important;
+			max-height: 400px !important;
+		}
 	}
 
 	#slickcarousel .carousel-wrapper {
@@ -16224,7 +16224,10 @@ body.frontend.portaltype-event .main-container {
 }
 
 body.frontend.portaltype-event .main-container-wrapper {
-
+	pointer-events: none;
+	#event-summary {
+		pointer-events: all;
+	}
 	@media(min-width: 1200px) {
 		position: absolute;
 	    top: 0;
@@ -16256,6 +16259,481 @@ body.frontend.portaltype-event .main-container-wrapper {
 	}
 }
 
+/* Front page */
 
+body.frontend.portaltype-portlet-page.section-frontpage,
+body.frontend.portaltype-portlet-page.section-home-page {
+
+	#content-wrapper {
+		@media(min-width: 1480px) {
+			max-width: 998px;
+			width: 100%;
+		}
+	}
+
+	.page-container {
+		background-color: #f6f6f6;
+	}
+
+	#top-alert-message {
+		padding-top: 7px;
+	}
+
+	.main-container .title-container {
+		display: none !important;
+	}
+
+	#website-wrapper:not(.empty-slideshow) .main-container .title-container {
+		display: none !important;
+	}
+
+	#portletPageTopRow {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	#portletPageColumns {
+		.portlet-item {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+		.portlet-item-wrapper {
+
+			.entry-wrapper:before {
+				display: block;
+			    content: "";
+			    width: 100%;
+			    padding-top: 56.26%;
+			}
+
+			.entry-wrapper {
+				position: relative;
+
+				border-radius: 2px;
+    			overflow: hidden;
+
+				.thumb-wrapper {
+					position: absolute;
+					top:0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					padding-bottom: 0px;
+
+					background-position: center center;
+				    background-size: cover;
+				    background-repeat: no-repeat;
+
+
+					a.thumb-image, img.tileImage {
+						position: absolute;
+						top:0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+					}
+
+					img.tileImage {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
+				}
+
+				h4.item-title {
+					position: absolute;
+				    bottom: 0;
+				    left: 0;
+				    padding: 10px 20px;
+				    font-size: 22px;
+
+				    a {
+				    	color: #ffffff;
+
+				    	&:hover,
+				    	&:focus,
+				    	&:active,
+				    	&:active:focus {
+				    		color: #ffffff !important;
+				    		border-bottom: 2px solid #ffffff !important;
+				    	}
+				    }
+				}
+			}
+
+		}
+	}
+
+	@media(min-width: 992px) {
+		#portletPageTopRow > div:nth-child(2) {
+			width: 70%;
+			padding-right: 7px;
+			float: left;
+
+			h4.item-title {
+				font-size: 29px !important;
+    			padding: 22px 28px !important;
+			}
+
+			.entry-wrapper:before {
+				min-height: 350px;
+				padding-top: 0;
+			}
+		}
+
+		#portletPageTopRow > div:nth-child(3) {
+			width: 30%;
+			float: right;
+			padding-left: 7px;
+
+			.entry-wrapper:before {
+				min-height: 168px;
+				padding-top: 0;
+			}
+		}
+
+		#portletPageTopRow > div:nth-child(4) {
+			width: 30%;
+			float: right;
+			padding-left: 7px;
+
+			.entry-wrapper:before {
+				min-height: 168px;
+				padding-top: 0;
+			}
+		}
+	}
+
+	.intro-header {
+		border-radius: 2px;
+    	overflow: hidden;
+    	background: #f6f6f6;
+
+    	
+    
+		#slickcarousel {
+
+			.slick-slide:focus {
+				outline: none;
+			}
+
+			div#event-categories {
+				display: block !important;
+			    position: absolute;
+			    top: 15px;
+			    right: 8px;
+			    margin-top: 0px;
+			    margin-right: 0px;
+			    pointer-events: all;
+
+			    span {
+			    	text-transform: uppercase;
+			    	.HelveticaBold();
+			    	background-color: #ffffff;
+				    padding: 10px 14px;
+				    margin: 2px;
+				    border-radius: 2px;
+				    font-size: 13px;
+				    letter-spacing: 0.00em;
+			    }
+
+			    a {
+			    	&:hover,
+			    	&:focus,
+			    	&:active,
+			    	&:active:focus {
+			    		color: #ffffff;
+			    		span {
+			    			background-color: @brand-primary;
+			    		}
+			    	}
+			    }
+			}
+
+
+			.title-description-carousel-wrapper {
+				pointer-events: all;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				padding: 18px 30px;
+
+				h3.carousel-title {
+					color: #ffffff;
+					font-size: 42px;
+					line-height: 48px;
+					margin-bottom: 0px;
+					margin-top: 0px;
+
+					@media(max-width: 991px) {
+						font-size: 30px;
+						line-height: 30px;
+					}
+
+					a {
+						color: #ffffff;
+						&:hover,
+						&:active,
+						&:focus,
+						&:active:focus {
+							color: #ffffff;
+							border-bottom: 2px solid #ffffff;
+							outline: none;
+						}
+					}
+				}
+
+				p.carousel-description {
+					color: #ffffff;
+					.HelveticaBold();
+					font-size: 20px;
+					margin-top: 0px;
+
+					@media(max-width: 991px) {
+						font-size: 17px;
+						line-height: 22px;
+					}
+
+				}
+
+				p.event-date {
+					.HelveticaBold();
+					color: #fff;
+				    text-transform: uppercase;
+				    font-size: 14px;
+				    visibility: hidden;
+				    margin-bottom: 0px;
+
+				    span.datedisplay {
+				    	visibility: visible;
+				    }
+				}
+			}
+		}
+	}
+
+}
+
+body.frontend.portaltype-portlet-page.section-home-page,
+body.frontend.portaltype-portlet-page.section-frontpage {
+
+	div.left-section {
+		padding-top: 100px;
+		width: 100%;
+		background-color: @brand-primary;
+	}
+
+	#content-wrapper {
+		padding-top: 20px;
+		clear: both;
+	}
+
+	.main-container {
+		padding-bottom: 0px;
+	}
+
+	footer, .logo-wrapper, .top-search-wrapper {
+		display: none;
+	}
+	.top-my-account-wrapper {
+		right: 0;
+	}
+
+
+
+	div.left-section {
+		#portal-column-one {
+			padding-left: 50px;
+    		padding-right: 50px;
+    		padding-top: 10px;
+    		padding-bottom: 0px;
+    		margin-bottom: 0px;
+
+    		@media(max-width: 1199px) {
+    			padding-bottom: 50px;
+    		}
+		}
+		.homepage-logo-wrapper {
+			text-align: center;
+
+			img {
+				width: 100%;
+				max-width: 365px;
+			}
+		}
+
+		.homepage-buttons-wrapper {
+			text-align: center;
+
+
+
+			span.text-button {
+				width: 100% !important;
+				max-width: 370px !important;
+				text-align: center;
+				border: 1px solid #ffffff;
+
+				&:hover,
+				&:focus,
+				&:active,
+				&:active:focus {
+					background: #ffffff;
+					border: 1px solid #ffffff;
+					color: @brand-primary;
+				}
+
+
+				a {
+					text-shadow: none;
+					&:hover,
+					&:focus,
+					&:active,
+					&:active:focus {
+						background: #ffffff !important;
+						color: @brand-primary !important;
+						text-shadow: none;
+					}
+				}
+				
+			}
+		}
+	}
+
+	section.portletSearch .LSBox {
+		width: 100%;
+		max-width: 370px;
+		margin: 0 auto;
+
+		input[type="text"].searchField {
+			width: 85% !important;
+		    float: left;
+		    display: inline-block !important;
+		    height: 50px !important;
+		    border: 1px solid #ffffff !important;
+		    border-top-right-radius: 0px !important;
+		    border-bottom-right-radius: 0px !important;
+		    font-size: 16px !important;
+		}
+		.searchButton {
+			width: 15%;
+			float: left;
+			display: inline-block;
+			height: 50px;
+			background: #000000;
+		    border: 1px solid #000000;
+		    border-top-left-radius: 0px;
+		    border-bottom-left-radius: 0px;
+		    padding-left: 10px;
+    		padding-right: 10px;
+
+    		&:hover,
+    		&:focus,
+    		&:active,
+    		&:active:focus {
+    			background: #8e1d15;
+    			border: 1px solid #8e1d15;
+    		}
+		}
+	}
+
+	@media(max-width: 768px) {
+		.intro-header {
+			margin-left: 15px;
+	    	margin-right: 15px;
+    	}
+    	div.left-section .homepage-buttons-wrapper {
+	    	span.text-button {
+				width: 100% !important;
+				max-width: 100% !important;
+			}
+		}
+
+		div.left-section {
+			#portal-column-one {
+				padding-left: 15px;
+				padding-right: 15px;
+				padding-bottom: 20px;
+			}
+		}
+
+		section.portletSearch .LSBox {
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+
+	@media(max-width: 991px) {
+		div.left-section .homepage-logo-wrapper {
+
+			img {
+				width: 100%;
+				max-width: 250px;
+			}
+		}
+	}
+
+	@media(min-width: 1200px) {
+		div.left-section {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 450px;
+
+			#portal-column-one {
+				padding-top: 85px;
+			}
+		}
+
+		#content-wrapper {
+		    margin-left: 0px;
+		    padding-left: 464px;
+		    margin-bottom: 0px;
+		    padding-bottom: 7px;
+		    margin-right: 0px;
+		    padding-right: 14px;
+		    margin-top: 0px;
+		    padding-top: 14px;
+		    min-height: 100vh;
+		    max-width: 100%;
+		}
+
+		.homepage-buttons-wrapper {
+			margin-top: 100px;
+		}
+
+		#website-nav {
+			width: 450px;
+			border-right: 1px solid #e5e5e5;
+
+			.top-search-wrapper, .logo-wrapper {
+				display: none;
+
+			}
+
+			.top-my-account-wrapper {
+				right: 0;
+			}
+		}
+
+		.intro-header {
+			#slickcarousel {
+				height: calc(~"100vh - 394px");
+				max-height: 100vh;
+				min-height: 350px !important;
+			}
+		}
+	}
+
+
+	@media(min-width: 1480px) {
+		#slickcarousel {
+			height: calc(~"100vh - 600px");
+			max-height: 100vh;
+		}
+	}
+
+
+}
 
 
