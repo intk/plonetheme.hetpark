@@ -90,6 +90,27 @@ class FormattedDateEventProvider(Explicit):
             return u""
         return self.template(self)
 
+class FormattedDateShortProvider(Explicit):
+    template = ViewPageTemplateFile(u'templates/formatted_date_short.pt')
+
+    def __init__(self, context, request, view):
+        self.__parent__ = view
+        self.context = context
+        self.request = request
+
+    def __call__(self, occ):
+        """Return a formatted date string.
+        :param occ: An event or occurrence.
+        :type occ: IEvent, IOccurrence or IEventAccessor based object
+        :returns: Formatted date string for display.
+        :rtype: string
+        """
+        self.date_dict = dates_for_display(occ)
+        if self.date_dict is None:
+            # Don't break for potential Events without start/end.
+            return u""
+        return self.template(self)
+
 
 class ExhibitionArchiveView(BrowserView):
 
@@ -564,7 +585,7 @@ class ContextToolsView(BrowserView):
 
         provider = getMultiAdapter(
             (self.context, self.request, self),
-            IContentProvider, name='formatted_date'
+            IContentProvider, name='formatted_date_short'
         )
 
         rec = getattr(item, 'recurrence', None)
@@ -1031,6 +1052,44 @@ class ContextToolsView(BrowserView):
         provider = getMultiAdapter(
             (self.context, self.request, self),
             IContentProvider, name='formatted_date'
+        )
+
+        rec = getattr(item, 'recurrence', None)
+        if rec:
+            if "FREQ=DAILY" in rec:
+                return self.context.translate(_("DAILY"))
+            elif "FREQ=MONDAYFRIDAY" in rec:
+                return self.context.translate(_("MONDAYFRIDAY"))
+            elif "FREQ=WEEKDAYS" in rec:
+                return self.context.translate(_("WEEKDAYS"))
+            elif "FREQ=WEEKLY" in rec:
+                return self.context.translate(_("WEEKLY"))
+            elif "FREQ=MONTHLY" in rec:
+                return self.context.translate(_("MONTHLY"))
+            elif "FREQ=YEARLY" in rec:
+                return self.context.translate(_("YEARLY"))
+            else:
+                return provider(item)
+        else:
+            end_date = getattr(item, 'end', None)
+            if end_date:
+                end = DateTime(end_date)
+                if end.year() > YEAR_LIMIT:
+                    return self.context.translate(_("permanent_collection"))
+                else:
+                    return provider(item)
+            else:
+                return provider(item)
+
+    def formatted_date_short(self, obj):
+        try:
+            item = obj.getObject()
+        except:
+            item = obj
+
+        provider = getMultiAdapter(
+            (self.context, self.request, self),
+            IContentProvider, name='formatted_date_short'
         )
 
         rec = getattr(item, 'recurrence', None)

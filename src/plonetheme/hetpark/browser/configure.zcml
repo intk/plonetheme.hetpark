@@ -154,6 +154,15 @@
         factory=".views.FormattedDateEventProvider"
         />
 
+    <adapter
+        name="formatted_date_short"
+        provides="zope.contentprovider.interfaces.IContentProvider"
+        for="zope.interface.Interface
+             zope.publisher.interfaces.browser.IBrowserRequest
+             zope.publisher.interfaces.browser.IBrowserView"
+        factory=".views.FormattedDateShortProvider"
+        />
+
   <subscriber
         for="plone.dexterity.interfaces.IDexterityContainer
         zope.lifecycleevent.interfaces.IObjectMovedEvent"

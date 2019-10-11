@@ -67,8 +67,8 @@
 
     <tal:backtosite tal:condition="request/HTTP_REFERER"
       tal:define="object_details python:context.restrictedTraverse('@@context_tools').getObjectDetails(context);
-                  rights python: object_details.get('rights', '');
-                  freeofcopyright python: object_details.get('freeofcopyright', None);">
+                  rights python: False;
+                  freeofcopyright python: False;">
       <a tal:attributes="href request/HTTP_REFERER"
           tal:condition="request/HTTP_REFERER"
         ><span i18n:translate="label_back_to_site">Back to site</span>

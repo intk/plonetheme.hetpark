@@ -38,7 +38,6 @@
   </tal:differentday>
 
   <tal:sameday tal:condition="date_dict/same_day">
-  
     <tal:wholeday condition="whole_day">
       <span tal:replace="date_dict/start_date" i18n:translate="" />
     </tal:wholeday>
@@ -55,29 +54,19 @@
           tal:content="date_dict/start_time">Start Time
       </abbr>
     </tal:open_end>
-
-
-      <tal:normal_date
-          condition="python:not (whole_day or open_end)"
-          i18n:translate="event_when_sameday_date">
-        <span class="datedisplay"
-            tal:content="date_dict/start_date"
-            i18n:name="date">Start Date</span>
-        from
-      </tal:normal_date>
-      
-      <div class="event-date-time">
-      <tal:normal_time 
-            condition="python:not (whole_day or open_end)"
-            i18n:translate="event_when_sameday_time_short">
-        <abbr class="dtstart"
-            tal:attributes="title date_dict/start_iso"
-            i18n:name="starttime"
-            tal:content="date_dict/start_time">Start Time
-        </abbr>
-      </tal:normal_time>
-      </div>
-
+    <tal:normal
+        condition="python:not (whole_day or open_end)"
+        i18n:translate="event_when_sameday_short">
+      <span class="datedisplay"
+          tal:content="date_dict/start_date"
+          i18n:name="date">Start Date</span>
+      from
+      <abbr class="dtstart"
+          tal:attributes="title date_dict/start_iso"
+          i18n:name="starttime"
+          tal:content="date_dict/start_time">Start Time
+      </abbr>
+    </tal:normal>
   </tal:sameday>
 
 </body>
