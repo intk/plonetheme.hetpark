@@ -161,7 +161,11 @@
      <div class="sharing-wrapper">
         <p>nodig je vrienden uit</p>
         <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d931716383dface"></script>
-        <div class="addthis_inline_share_toolbox"></div>
+        <div class="addthis_inline_share_toolbox" tal:attributes="data-title python: 'Ga je met me mee naar deze voorstelling op %s?' %(context.toLocalizedTime(context.start, long_format='share'))"></div>
+     </div>
+
+     <div class="conditions-wrapper">
+      <p>Ticketprijs is exclusief reserveringskosten à € 1,50 per kaart met een maximum van € 4,50. Bij verzending per post komt hier € 2,50 bij.</p>
      </div>
 
   </ul>

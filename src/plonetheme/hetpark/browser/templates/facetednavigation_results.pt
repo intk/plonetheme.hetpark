@@ -21,14 +21,8 @@
               items matching your search terms.
         </span>
         </div>-->
-
-      
         
-
         <div class="eea-preview-items" id="search-results-wrapper">
-
-          
-
           <tal:entries repeat="brain batch">
             <tal:entry tal:define="doc brain/getObject|nothing" tal:condition="python:doc is not None">
               <tal:preview tal:condition="exists:doc/@@facetednavigation-result" tal:replace="structure doc/@@facetednavigation-result"/>

@@ -81,7 +81,7 @@
       <tal:not_collection tal:condition="not:item_is_collection">
         <div tal:attributes="class portlet_class" tal:condition="not:item_is_collection">
 
-          <div class="thumb-wrapper" tal:define="item_images python:context_tools.getObjectImages(obj) if not view.data.show_news else []; item_images_total python: 1;" 
+          <div class="thumb-wrapper" tal:define="item_images python:[]; item_images_total python: 1;" 
             tal:attributes="data-imagescount python: item_images_total; class python: 'thumb-wrapper extra-images' if item_images_total > 0 else 'thumb-wrapper'">
 
             <tal:not_extra tal:condition="python: view.data.show_news">
@@ -133,20 +133,14 @@
             </a> 
             </tal:not_extra>
 
-            <tal:more_images tal:repeat="extra_image item_images" tal:condition="python: not view.data.show_news">
-              <div tal:define="extra_image_number repeat/extra_image/number;
-                               item_count python: '%s/%s' %(extra_image_number+1, item_images_total);
-                               item_img_description python: '%s' %(item_count) if not extra_image.get('description', '') else '%s - %s' %(item_count, extra_image.get('description', ''))">
-                <img tal:attributes="data-lazy python: extra_image.get('url', ''); data-caption item_img_description" class="tileImage lazy-img" />
-              </div>
-            </tal:more_images>
+            
           </div>
           
           <div class="entry-wrapper">
               <tal:event condition="python: item_is_event or item_is_news_item"
                tal:define="is_past python: context_tools.isEventPast(obj)">
                 <p class="event-date" tal:attributes="class python: 'event-date past' if is_past else 'event-date'">
-                  <tal:date tal:replace="structure python:context_tools.formatted_date(obj)" tal:condition="python:item_is_event"/>
+                  <tal:date tal:replace="structure python:context_tools.formatted_date_short(obj)" tal:condition="python:item_is_event"/>
                   <tal:news_item_date tal:replace="python:context_tools.get_pub_date(obj)" tal:condition="python:item_is_news_item"/>
                 </p>
               </tal:event>
@@ -215,7 +209,7 @@
                   col_item_type colitem/portal_type;
                   col_item_is_event python: col_item_type in ['Event'];
                   col_item_is_news_item python:col_item_type in ['News Item'];
-                  col_item_images python:context_tools.getObjectImages(colitem) if not view.data.show_news else [];
+                  col_item_images python:[];
                   col_extra_total python: len(col_item_images)+1;">
 
                   <div tal:attributes="class portlet_class" tal:condition="python:item_is_collection">
@@ -271,15 +265,7 @@
                         </a> 
                       </tal:not_extra>
 
-                      <tal:more_images tal:repeat="col_extra_image col_item_images" tal:condition="python: not view.data.show_news">
-                        <div tal:define="col_extra_image_number repeat/col_extra_image/number;
-                                         col_extra_item_count python: '%s/%s' %(col_extra_image_number+1, col_extra_total);
-                                         col_extra_item_description python: '%s' %(col_extra_item_count) if not col_extra_image.get('description', '') else '%s - %s' %(col_extra_item_count, col_extra_image.get('description', ''))">
-
-                          <img tal:attributes="data-lazy python: col_extra_image.get('url', '');data-caption col_extra_item_description" class="tileImage lazy-img"/>
-                        </div>
-                      </tal:more_images>
-
+                      
                     </div>
 
                     <div class="entry-wrapper">
@@ -287,7 +273,7 @@
                           <tal:event condition="python: col_item_is_event or col_item_is_news_item"
                            tal:define="col_is_past python: context_tools.isEventPast(colitem)">
                             <p class="event-date" tal:attributes="class python: 'event-date past' if col_is_past else 'event-date'">
-                              <tal:date tal:replace="structure python:context_tools.formatted_date(colitem)" tal:condition="python:col_item_is_event"/>
+                              <tal:date tal:replace="structure python:context_tools.formatted_date_short(colitem)" tal:condition="python:col_item_is_event"/>
                               <tal:news_item_date tal:replace="python:context_tools.get_pub_date(colitem)" tal:condition="python:col_item_is_news_item"/>
                             </p>
                           </tal:event>

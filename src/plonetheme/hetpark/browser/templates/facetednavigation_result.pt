@@ -12,6 +12,7 @@
               item_is_event python: portal_type in ['Event', 'Exhibition'];
               leadmedia python: context_tools.getImageBrainSearch(context);
               image_scale portal/@@image_scale;
+              wtool here/portal_workflow;
               "
   tal:attributes="class python: 'col-lg-12 col-md-12 col-sm-12 listing-item no-padding' if leadmedia else 'col-lg-12 col-md-12 col-sm-12 listing-item no-padding no-image'">
 
@@ -30,15 +31,17 @@
       <tal:event condition="item_is_event"
           tal:define="is_past python: context_tools.isEventPast(context)">
           <p class="event-date" tal:attributes="class python: 'event-date past' if is_past else 'event-date'">
-            <tal:date tal:replace="structure python:context_tools.formatted_date_event_faceted(context)"/>
+            <tal:date tal:replace="structure python:context_tools.formatted_date_short(context)"/>
           </p>
       </tal:event>
     </div>
 
     <h4 class="item-title">
       <a href="#"
-       tal:attributes="href view_url"
+       tal:attributes="href view_url;
+                       class python: 'state-%s' %(wtool.getInfoFor(context, 'review_state', ''))"
        tal:content="title"
+
        >
       Title
       </a>
