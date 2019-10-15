@@ -42,8 +42,6 @@
       <!-- Copy over the id/class attributes on the body tag.
            This is important for per-section styling -->
 
-      
-
       <copy attributes="*" css:content="body" css:theme="body" />
 
       <!-- toolbar -->
@@ -328,9 +326,9 @@
         </div>
       </replace>
 
-      <!--<xsl:template match="//script[contains(@src, 'hetpark-bundle')]">
+      <!--<xsl:template match="//link[contains(@href, 'hetpark-bundle-compiled.css')]">
         <xsl:copy>
-          <xsl:attribute name="async">true</xsl:attribute>
+          <xsl:attribute name="rel">preload</xsl:attribute>
           <xsl:copy-of select="@*" />
           <xsl:apply-templates />
         </xsl:copy>

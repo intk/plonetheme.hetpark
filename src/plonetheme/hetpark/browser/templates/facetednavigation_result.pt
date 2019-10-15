@@ -21,7 +21,8 @@
     <tal:leadmedia tal:condition="leadmedia">
       <a href="#" class="thumb-image" tal:attributes="href python:view_url;">
         <img class="lead-img" 
-        tal:replace="structure python:image_scale.tag(leadmedia, 'image', scale='mini', css_class='lead-image')"/>
+        tal:attributes="src python: '%s/@@images/image/mini' %(leadmedia.getURL())"
+        />
       </a> 
     </tal:leadmedia>
   </div>
