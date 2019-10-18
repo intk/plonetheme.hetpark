@@ -113,8 +113,6 @@
       <drop css:content=".documentDescription"/>
       <drop css:content=".documentFirstHeading"/>
       <drop css:theme=".nav-home-wrapper" css:if-content="body.site-ZM"/>
-
-      <drop css:theme="#website-nav .logo-wrapper" css:if-content="body.portaltype-portlet-page"/>
       
       
       <drop css:theme="#object-header" css:if-not-content="body.portaltype-object"/>

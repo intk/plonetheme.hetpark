@@ -2117,7 +2117,7 @@ body.frontend, body#tinymce {
 		h4.item-title {
 			margin-top: 0px;
 			margin-bottom: 0px;
-			padding-top: 0px;
+			padding-top: 20px;
 			.FuturaBold();
 			font-size: 26px;
 			line-height: 38px;
@@ -2192,12 +2192,19 @@ body.frontend, body#tinymce {
 
 		.thumb-wrapper {
 			width: 100%;
-			padding-bottom: 10px;
+			padding-bottom: 0px;
+			overflow: hidden;
+			
 
 			img:not(.lazy-img) {
+				transition: transform .2s;
 				width: 100%;
 				padding: 0px;
-				margin-bottom: 20px;
+				margin-bottom: 0px;
+			}
+
+			&:hover img {
+				transform: scale(1.1);
 			}
 		}
 
@@ -2227,6 +2234,13 @@ body.frontend, body#tinymce {
 		abbr {
 			cursor: initial;
 			border: 0px;
+		}
+	}
+
+
+	.portletCollection {
+		h4.item-title {
+			padding-top: 0px;
 		}
 	}
 
@@ -4452,6 +4466,10 @@ body.frontend.template-advancedsearch {
 	.search-input {
 		height: 52px;
 		width: 100% !important;
+
+		@media(max-width: 991px) {
+			margin-bottom: 15px !important;
+		}
 	}
 
 	.pagination {
@@ -6371,7 +6389,7 @@ body.frontend {
 					color: #ffffff;
 					border: 1px solid @brand-primary !important;
 					border-radius: 2px;
-					padding: 6px 12px;
+					padding: 6px 13px;
 					-webkit-box-shadow: none;
 					box-shadow: none;
 					&:hover,
@@ -15190,11 +15208,11 @@ body.frontend.template-facetednavigation_view #search-results-wrapper #event-cat
 	&:focus,
 	&:active,
 	&:active:focus {
-		color: @secondary-light;
+		color: #ffffff;
 		border-bottom:0px !important;
 		outline:none;
 		span {
-			background-color: @grey-dark;
+			background-color: @brand-primary;
 		}
 	}
 }
@@ -15269,7 +15287,7 @@ body.frontend.template-search {
 			text-align: left;
 
 			strong#search-term{
-				font-style: italic;
+				
 			}
 		}
 	}
@@ -15505,7 +15523,7 @@ body.frontend.template-search {
 				    padding-right: 20px;
 				    padding-top: 20px;
 				    padding-bottom: 20px;
-				    border-left: 1px solid #f6f6f6;
+				    border-left: 1px solid rgba(0,0,0,0.1);
 
 				
     				display: none;
@@ -15840,14 +15858,23 @@ body.frontend.template-facetednavigation_view {
 					a.thumb-image {
 						width: 100%;
 						height: 100%;
+						overflow: hidden;
+
 
 						img {
+							transition: transform 0.2s;
 							width: 100%;
 						    height: 100%;
 						    -o-object-fit: cover;
 						    object-fit: cover;
 						    -o-object-position: center center;
 						    object-position: center center;
+						}
+
+						&:hover {
+							img {
+								transform: scale(1.1);
+							}
 						}
 					}
 				}
@@ -15923,7 +15950,7 @@ body.frontend.template-facetednavigation_view {
 				    padding-right: 20px;
 				    padding-top: 20px;
 				    padding-bottom: 20px;
-				    border-left: 1px solid #f6f6f6;
+				    border-left: 1px solid rgba(0,0,0,0.1);
 
 				
     				display: none;
@@ -16202,6 +16229,14 @@ footer .sponsors-wrapper {
 
 body.frontend #below-content {
 	.portletCollection, .portlet-collection-uitgelicht {
+		@media(max-width: 768px) {
+			background-color: #f6f6f6;
+			margin-left: -15px;
+			margin-right: -15px;
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+
 		@media(min-width: 769px) {
 			background-color: #f6f6f6;
 		}
@@ -16316,6 +16351,10 @@ body.frontend.portaltype-portlet-page.section-home-page {
 
 				border-radius: 2px;
     			overflow: hidden;
+
+    			&:hover .thumb-wrapper img {
+    				transform: scale(1.1);
+    			}
 
 				.thumb-wrapper {
 					position: absolute;
@@ -16677,6 +16716,8 @@ body.frontend.portaltype-portlet-page.section-frontpage {
 		}
 	}
 
+
+
 	@media(min-width: 1200px) {
 		div.left-section {
 			position: absolute;
@@ -16713,7 +16754,6 @@ body.frontend.portaltype-portlet-page.section-frontpage {
 
 			.top-search-wrapper, .logo-wrapper {
 				display: none;
-
 			}
 
 			.top-my-account-wrapper {
@@ -16726,6 +16766,14 @@ body.frontend.portaltype-portlet-page.section-frontpage {
 				height: calc(~"100vh - 394px");
 				max-height: 100vh;
 				min-height: 350px !important;
+			}
+		}
+	}
+
+	@media(max-width: 1199px) {
+		#website-nav {
+			.logo-wrapper {
+				display: block !important;
 			}
 		}
 	}
@@ -16942,6 +16990,9 @@ body.frontend.template-facetednavigation_view {
 	
 }
 
+body:not(.frontend) .left-section {
+	display: none !important;
+}
 
 
 

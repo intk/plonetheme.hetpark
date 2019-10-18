@@ -233,9 +233,9 @@
                 i18n:translate=""
                 tal:condition="st">
               Search results for
-              <strong id="search-term" tal:content="st" i18n:name="term">
+              <span>&ldquo;</span><strong id="search-term" tal:content="st" i18n:name="term">
                 Search Term
-              </strong>
+              </strong><span>&rdquo;</span>
             </h1>
 
             <p id="rss-subscription" i18n:domain="plone"
@@ -362,7 +362,7 @@
                                   </div>
                                 </div>
 
-                                <div class="dates-wrapper">
+                                <div class="dates-wrapper" tal:condition="item_is_event">
                                   <tal:event condition="item_is_event"
                                       tal:define="is_past python: context_tools.isEventPast(item)">
                                       <div class="event-date-wrapper">
