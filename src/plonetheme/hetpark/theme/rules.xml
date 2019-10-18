@@ -54,6 +54,8 @@
 
       <replace css:theme-children=".brand-logo" css:content="#portal-logo"/>
 
+
+
       <!-- login link -->
       <!--<after
         css:theme-children="body"
@@ -111,6 +113,9 @@
       <drop css:content=".documentDescription"/>
       <drop css:content=".documentFirstHeading"/>
       <drop css:theme=".nav-home-wrapper" css:if-content="body.site-ZM"/>
+
+      <drop css:theme="#website-nav .logo-wrapper" css:if-content="body.portaltype-portlet-page"/>
+      
       
       <drop css:theme="#object-header" css:if-not-content="body.portaltype-object"/>
 
@@ -290,6 +295,7 @@
               <aside id="portal-column-one">
                  <xsl:copy-of css:select="#portal-column-one > *" />
               </aside>
+              <div class="background-wrapper"></div>
             </div>
         </replace>
       </rules>

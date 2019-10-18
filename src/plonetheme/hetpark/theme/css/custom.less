@@ -3234,6 +3234,10 @@ body.frontend, body#tinymce {
                 width: 180px !important;
                 margin: 0 auto;
                 padding-bottom: 10px;
+
+                @media(max-width: 768px) {
+                	height: 70px !important;
+                }
             }
 
             .rrssb-buttons.tiny-format {
@@ -5876,7 +5880,7 @@ body.frontend {
 
 	#below-content .sharing-buttons-wrapper {
 		@media (max-width: 768px) {
-			padding-bottom: 40px;
+			padding-bottom: 0px;
 		}
 	}
 }
@@ -16895,4 +16899,50 @@ body.frontend.template-facetednavigation_view {
 		color: #ffffff !important;
 	}
 }
+
+.dropdown-backdrop {
+	display: none;
+}
+
+#cd-nav .cd-primary-nav .line-wrapper > li.hasDropDown.open {
+	a.dropdown-toggle span.fa.fa-angle-down:before {
+		content: "\f106";
+	}
+}
+
+
+.background-wrapper {
+	position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 320px;
+    background: url('/++resource++plonetheme.hetpark/Element.svg');
+    background-size: cover;
+    z-index: 1;
+}
+
+@media(max-width: 1199px) {
+	div.left-section #portal-column-one {
+		background: url(/++resource++plonetheme.hetpark/Element.svg) no-repeat center bottom;
+    	background-size: 100%;
+	}
+
+	.background-wrapper {
+		display: none;
+	}
+}
+
+@media(min-width: 1200px) {
+	div.left-section #portal-column-one {
+		position: absolute;
+		z-index: 2;
+	}
+
+	
+}
+
+
+
+
 
