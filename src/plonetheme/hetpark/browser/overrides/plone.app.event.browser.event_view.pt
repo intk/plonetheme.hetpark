@@ -151,6 +151,12 @@
     <div id="parent-fieldname-text" tal:condition="data/text">
       <tal:text content="structure data/text" />
     </div>
+
+    <div class="event-arrangements" tal:condition="context/arrangements">
+        <tal:renderifnotpast tal:condition="not:is_past">
+          <tal:text content="structure python: context.arrangements.output_relative_to(context)" tal:on-error="nothing"/>
+        </tal:renderifnotpast>
+     </div>
   </div>
   </tal:render_body>
 

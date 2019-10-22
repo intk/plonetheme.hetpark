@@ -143,11 +143,14 @@
             <span i18n:translate="label_add_to_ical">iCal</span></a>
         </tal:span>
       </li>
+
     </tal:cond>
 
      <div class="event-prices" tal:condition="context/price">
         <tal:text content="structure python: context.price.output_relative_to(context)" tal:on-error="nothing"/>
      </div>
+
+     
 
      <div class="event-availability" tal:condition="context/performance_availability">
         <tal:renderifnotpast tal:condition="not:is_past">

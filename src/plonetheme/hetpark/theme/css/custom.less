@@ -16986,14 +16986,117 @@ body.frontend.template-facetednavigation_view {
 		position: absolute;
 		z-index: 2;
 	}
-
-	
 }
 
 body:not(.frontend) .left-section {
 	display: none !important;
 }
 
+
+body.frontend.portaltype-event {
+	div.event-arrangements {
+
+		h3 {
+			margin-bottom: 30px;
+		}
+		.arrangement-wrapper {
+			padding: 0px;
+		    background-color: #fff;
+		    margin-top: 15px;
+		    margin-bottom: 15px;
+		    display: -webkit-box;
+		    display: -ms-flexbox;
+		    display: flex;
+		    -webkit-box-direction: normal;
+		    min-height: 130px;
+		    border-radius: 2px;
+		    overflow: hidden;
+		}
+
+		.arrangement-image {
+			width: 30%;
+		    float: left;
+		    padding-right: 0px;
+		    padding-bottom: 0px;
+
+		    a {
+		    	width: 100%;
+			    height: 100%;
+			    overflow: hidden;
+			    display: block;
+			    position: relative;
+			    border-bottom: 0px !important;
+
+			    &:hover,
+			    &:focus,
+			    &:active,
+			    &:active:focus {
+			    	img {
+			    		transform: scale(1.1);
+			    	}
+			    }
+
+			    img {
+			    	max-width: 100%;
+			    	transition: transform 0.2s;
+				    width: 100% !important;
+				    height: 100% !important;
+				    -o-object-fit: cover;
+				    object-fit: cover;
+				    -o-object-position: center center;
+				    object-position: center center;
+			    }
+		    }
+		}
+
+		.arrangement-details {
+			width: 70%;
+		    float: left;
+		    padding-left: 24px;
+		    padding-right: 20px;
+		    padding-top: 20px;
+		    padding-bottom: 20px;
+
+		    h4 {
+		    	margin-top: 0px;
+			    margin-bottom: 0px;
+			    padding-top: 0px;
+			    font-family: 'FuturaBold', 'Futura', Arial, sans-serif;
+			    font-size: 26px;
+			    line-height: 38px;
+			    color: #000000;
+			    clear: both;
+
+			    @media(max-width: 768px) {
+			    	font-size: 20px;
+    				line-height: 26px;
+			    }
+
+			    a {
+			    	color: #000000;
+    				border-bottom: 0px !important;
+
+    				&:hover,
+				    &:focus,
+				    &:active,
+				    &:active:focus {
+				    	color: #000000 !important;
+    					border-bottom: 2px solid #000000 !important;
+				    }
+			    }
+		    }
+
+		    p.arrangement-description {
+		    	margin-top: 0px;
+			    line-height: 22px;
+			    margin-bottom: 5px;
+			    font-size: 17px;
+			    font-family: 'HelveticaMedium', Helvetica, Arial, sans-serif;
+			    color: #8a8a8a;
+		    }
+		}
+	}
+}
 
 
 
