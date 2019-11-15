@@ -65,6 +65,14 @@ require([
       $('#search-results').replaceWith($('#search-results', $html));
       $('#search-term').replaceWith($('#search-term', $html));
       $('#results-count').replaceWith($('#results-count', $html));
+
+      try {
+        if ($('#search-results-number').html() > 0) {
+          $("#search-results-bar-wrapper").attr("style", "display:block");
+        }
+      } catch(error) {
+      }
+
       $loader.hide();
     });
   };

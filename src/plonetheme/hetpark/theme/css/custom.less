@@ -14537,6 +14537,27 @@ body.frontend.portaltype-event {
 	div.event-availability {
 		margin-top: 20px;
 		margin-bottom: 15px;
+
+		div.waiting-list-link {
+			min-width: 275px;
+			max-width: 275px;
+			text-align: center;
+			margin-top: 5px;
+			margin-bottom: 10px;
+
+			a {
+				font-size: 13px;
+    			color: #8a8a8a;
+    			text-decoration: underline;
+
+    			&:hover,
+    			&:focus,
+    			&:active,
+    			&:focus:active {
+    				text-decoration: none;
+    			}
+			}
+		}
 	}
 
 	#website-wrapper.empty-slideshow {
@@ -16494,6 +16515,10 @@ body.frontend.portaltype-portlet-page.section-home-page {
 			    }
 			}
 
+			.carousel-image-wrapper a {
+				pointer-events: all;
+			}
+
 
 			.title-description-carousel-wrapper {
 				pointer-events: all;
@@ -16793,6 +16818,8 @@ body.frontend .conditions-wrapper p {
 	color: #8a8a8a;
     font-size: 10px;
     line-height: 15px;
+    min-width: 275px;
+    max-width: 275px;
 }
 
 

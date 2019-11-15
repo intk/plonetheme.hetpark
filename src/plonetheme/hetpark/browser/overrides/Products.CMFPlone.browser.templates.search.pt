@@ -262,9 +262,9 @@
                              normalizeString nocall:context/@@plone/normalizeString;">
               
               
-              <div id="search-results-bar-wrapper"><span i18n:translate="batch_x_items_matching_your_criteria" i18n:domain="plone" id="results-count">
-                <strong i18n:name="number" id="search-results-number"
-                        tal:content="batch/sequence_length|string:0">234</strong>
+              <div id="search-results-bar-wrapper" tal:define="batch_seq_length batch/sequence_length|string:0" tal:attributes="style python: 'display:none' if batch_seq_length == 0 else 'display:block'" ><span i18n:translate="batch_x_items_matching_your_criteria" i18n:domain="plone" id="results-count">
+                <strong i18n:name="number" id="search-results-number" 
+                        tal:content="batch_seq_length">234</strong>
                   items matching your search terms.
               </span></div>
               <div id="search-results-bar">
@@ -295,7 +295,7 @@
                      
 
                       <metal:noresults tal:condition="not: batch">
-                        <p i18n:domain="plone"><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
+                        <p i18n:domain="plone" tal:condition="python:request.get('SearchableText', '')"><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
                       </metal:noresults>
 
                       <metal:results tal:condition="batch"
