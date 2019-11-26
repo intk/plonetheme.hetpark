@@ -169,7 +169,7 @@
 
      <div class="sharing-wrapper">
         <p>nodig je vrienden uit</p>
-        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d931716383dface"></script>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d931716383dface" async="async"></script>
         <div class="addthis_inline_share_toolbox" tal:attributes="data-title python: 'Ga je met me mee naar deze voorstelling op %s?' %(context.toLocalizedTime(context.start, long_format='share'))"></div>
      </div>
 

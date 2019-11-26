@@ -165,29 +165,6 @@
               </tal:categories>
             </div>
 
-            <tal:authorssection 
-                            tal:condition="item_is_news_item" 
-                            tal:define="
-                                    creators python: context_tools.get_creators_data(obj.getObject());
-                                    authorinfo creators/info | nothing;
-                                    portrait creators/portrait | nothing;
-                                    username authorinfo/username | nothing;">
-                                <div class="authors-section-wrapper" tal:condition="authorinfo">
-                                  <div class="authors-section">
-                                    <div class="image-section">
-                                      <a class="author-avatar" tal:attributes="href string:/@@search?Creator=${username}&amp;sort_on=created&amp;sort_order=reverse; alt authorinfo/description | nothing; title authorinfo/description | nothing;">
-                                        <img tal:attributes="src portrait/absolute_url" tal:condition="portrait" class="avatar-image"/>
-                                      </a>
-                                    </div>
-                                    <div class="author-details-section">
-                                      <div class="author-name">
-                                        <a tal:attributes="href string:/@@search?Creator=${username}&amp;sort_on=created&amp;sort_order=reverse; alt authorinfo/description | nothing; title authorinfo/description | nothing;" tal:content="authorinfo/fullname | nothing"></a>
-                                      </div>
-                                    </div>  
-                                  </div>
-                                </div>
-                            </tal:authorssection>
-
             <div class="show-more-portlet-item" tal:condition="python:view.data.show_frontpage">
               <a tal:attributes="href itemUrl">
                 <input i18n:domain="plonetheme.hetpark" i18n:attributes="value more_url" type="submit" class="btn-default show-more" value="More&hellip;"/>

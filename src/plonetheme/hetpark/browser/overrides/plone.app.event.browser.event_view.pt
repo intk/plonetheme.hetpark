@@ -132,6 +132,7 @@
         </div>
       </div>
     </div>
+    
 
   <tal:render_body tal:condition="not:is_presentation">              
   <div class="event clearfix" itemscope itemtype="http://data-vocabulary.org/Event"
@@ -144,12 +145,14 @@
       <li itemprop="description" class="description" tal:content="data/description">description</li>
     </ul>
 
-    
-    
     <tal:eventsummary replace="structure context/@@event_summary"/>
 
     <div id="parent-fieldname-text" tal:condition="data/text">
       <tal:text content="structure data/text" />
+    </div>
+
+    <div class="event-reactions">
+      <tal:eventreactions replace="structure context/@@pgswidget"/>
     </div>
 
     <div class="event-arrangements" tal:condition="context/arrangements">
@@ -157,6 +160,9 @@
           <tal:text content="structure python: context.arrangements.output_relative_to(context)" tal:on-error="nothing"/>
         </tal:renderifnotpast>
      </div>
+
+    
+
   </div>
   </tal:render_body>
 
