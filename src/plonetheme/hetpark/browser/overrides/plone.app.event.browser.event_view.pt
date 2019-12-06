@@ -151,9 +151,9 @@
       <tal:text content="structure data/text" />
     </div>
 
-    <div class="event-reactions">
+    <!--<div class="event-reactions">
       <tal:eventreactions replace="structure context/@@pgswidget"/>
-    </div>
+    </div>-->
 
     <div class="event-arrangements" tal:condition="context/arrangements">
         <tal:renderifnotpast tal:condition="not:is_past">

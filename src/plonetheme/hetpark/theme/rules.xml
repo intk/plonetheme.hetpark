@@ -173,10 +173,11 @@
         method="raw"
         />
 
-      
+      <drop css:theme="#top-alert-message.alert-message" css:if-not-content="#column-collective-portletpage-toprow-portlet-alert-message"/>
       <drop css:content="#column-collective-portletpage-toprow-portlet-alert-message"/>
       <drop css:content=".top-alert-wrapper"/>
       <drop css:content=".top-left-header-portlets"/>
+      
       <drop css:content="#column-collective-portletpage-toprow-portlet-top-left-header"/>
       <drop css:content="#viewlet-below-content-body"/>
       <drop css:content="#viewlet-above-content-title"/>
@@ -334,7 +335,7 @@
       
 
     
-        <xsl:template match="//script[contains(@src, 'production')]">
+        <!--<xsl:template match="//script[contains(@src, 'production')]">
           <xsl:if test="not(/html/body[contains(@class, 'template-facetednavigation_view')])">
             <xsl:copy>
               <xsl:copy-of select="@*" />
@@ -358,6 +359,6 @@
           <xsl:attribute name="onload">this.onload=null;this.rel='stylesheet'</xsl:attribute>
           <xsl:apply-templates />
         </xsl:copy>
-      </xsl:template>
+      </xsl:template>-->
 
 </rules>

@@ -79,7 +79,7 @@
                         <strong i18n:translate="event_what">Wat</strong>
                         <tal:categories 
                           tal:repeat="item_tag item_tags">
-                          <a tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/programma/#b_start=0&c4=${item_tag}"><span itemprop="eventType" tal:content="item_tag"></span></a>
+                          <a tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/programma/#b_start=0&c4=${item_tag}" tal:condition="python: item_tag not in ['frontpage-slideshow']"><span itemprop="eventType" tal:content="item_tag"></span></a>
                         </tal:categories>
                       </div>
                     </div>

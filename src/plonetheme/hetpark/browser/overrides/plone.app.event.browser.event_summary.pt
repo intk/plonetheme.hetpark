@@ -27,7 +27,7 @@
         <strong i18n:translate="event_what">Wat</strong>
         <tal:categories 
           tal:repeat="item data/subjects">
-          <a tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/programma/#b_start=0&c4=${item}"><span itemprop="eventType" tal:content="item"></span></a>
+          <a tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/programma/#b_start=0&c4=${item}" tal:condition="python: item not in ['frontpage-slideshow']"><span itemprop="eventType" tal:content="item"></span></a>
         </tal:categories>
       </li>
     </tal:cond>
@@ -158,7 +158,7 @@
           <tal:text content="structure python: context.performance_availability.output_relative_to(context)" tal:on-error="nothing"/>
 
           <tal:renderwaitinglist tal:condition="python: getattr(context, 'performanceStatus', '') == 'SOLDOUT' and getattr(context, 'waiting_list' , True) == True">
-            <div class="waiting-list-link"><a tal:attributes="href python: '%s/%s' %('https://hetpark.tst3.ticketworks.nl/waitlist/add', getattr(context, 'performance_id', ''))" target="_blank">(Zet mij op de wachtlijst)</a></div>
+            <div class="waiting-list-link"><a tal:attributes="href python: '%s/%s' %('https://hetpark.podiumnederland.nl/waitlist/add', getattr(context, 'performance_id', ''))" target="_blank">(Zet mij op de wachtlijst)</a></div>
           </tal:renderwaitinglist> 
 
         </tal:renderifnotpast>
