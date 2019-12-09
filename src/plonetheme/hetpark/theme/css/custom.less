@@ -16216,11 +16216,11 @@ footer .sponsors-wrapper {
 	    margin-left: auto;
 	    margin-right: auto;
 	    width: 100%;
-	    max-width: 430px;
+	    max-width: 480px;
 	}
 
 	@media(min-width: 1480px) {
-		max-width: 430px;
+		max-width: 480px;
 		width: 90%;
 	}
 
@@ -16262,17 +16262,20 @@ footer .sponsors-wrapper {
 		    -ms-flex-pack: center;
 		    justify-content: center;
 		    font-size: 16px;
+
 		    img {
 		    	display: block;
-			    max-width: 85px;
+			    max-width: 150px;
 			    width: 100%;
 			    margin: 0 20px;
 			    opacity: 0.65;
+			    -webkit-filter: grayscale(100%); 
+			    filter: grayscale(100%);
 		    }
 
 
 		    &:nth-child(2) img {
-		    	max-width: 50px;
+		    	max-width: 75px;
 		    }
 
 		    a {
@@ -16282,10 +16285,11 @@ footer .sponsors-wrapper {
 		    	&:focus:active {
 		    		img {
 		    			opacity: 1;
+		    			-webkit-filter: grayscale(0); 
+			            filter: grayscale(0);
 		    		}
 		    	}
 		    }
-		    
 
 
 		    
