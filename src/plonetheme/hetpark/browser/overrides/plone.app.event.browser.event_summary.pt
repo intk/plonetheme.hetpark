@@ -27,7 +27,9 @@
         <strong i18n:translate="event_what">Wat</strong>
         <tal:categories 
           tal:repeat="item data/subjects">
-          <a tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/programma/#b_start=0&c4=${item}" tal:condition="python: item not in ['frontpage-slideshow']"><span itemprop="eventType" tal:content="item"></span></a>
+          <tal:tagdef tal:define="item_tag_final python: item.replace('&amp;', '%26')">
+            <a tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/programma/#b_start=0&c4=${item_tag_final}" tal:condition="python: item not in ['frontpage-slideshow']"><span itemprop="eventType" tal:content="item"></span></a>
+          </tal:tagdef>
         </tal:categories>
       </li>
     </tal:cond>

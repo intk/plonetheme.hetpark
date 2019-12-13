@@ -57,7 +57,9 @@
 
       <tal:categories
         tal:repeat="item_tag item_tags">
-        <a tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/programma/#b_start=0&c4=${item_tag}" tal:condition="python: item_tag not in ['frontpage-slideshow']"><span itemprop="eventType" tal:content="item_tag"></span></a>
+        <tal:tagdef tal:define="item_tag_final python: item_tag.replace('&amp;', '%26')">
+          <a tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/programma/#b_start=0&c4=${item_tag_final}" tal:condition="python: item_tag not in ['frontpage-slideshow']"><span itemprop="eventType" tal:content="item_tag"></span></a>
+        </tal:tagdef>
       </tal:categories>
     </div>
   </div>

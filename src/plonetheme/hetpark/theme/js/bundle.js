@@ -611,6 +611,8 @@ function do_ecommerce_transactions() {
 
 $(document).ready(function () {
 
+
+	/* User reviews */
 	
 
   /*var $search_form = jQuery('#searchform.search-form-faceted').submit(function(e) {
