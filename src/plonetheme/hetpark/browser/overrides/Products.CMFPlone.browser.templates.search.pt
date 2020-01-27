@@ -83,94 +83,59 @@
           <dd class="actionMenuContent">
             <div id="search-filter" i18n:domain="plone">
               <fieldset class="noborder">
-                <h3 i18n:translate="label_new_items_since" i18n:translate="narrow_search_options">Filter the results</h3>
+
                   
-                  
-                  <div class="field"
-                       tal:define="all_checked python: request.get('hasMedia', None) == True;
-                                   toggle_select_state python:all_checked and 'true' or 'false';" style="margin-bottom: 0px">
-                    
-                    <div class="onViewOptionsToggle">
-                      <input type="checkbox" onchange="" name="only_images_toggle" value="#" id="only_images_toggle" class="noborder" checked="checked"
-                             tal:attributes="checked python:all_checked and 'checked' or '';" />
-                      <label for="only_images_toggle" i18n:translate="search_only_images" i18n:domain="plonetheme.hetpark">Only images</label>
-                    </div>
-                    
-                    <div class="only-images-options" style="display: none !important;"
-                      tal:define="is_checked python:((request.get('hasMedia', None) == True)) and 'checked' or ''">
-                      <div>
-                        <input type="checkbox" name="hasMedia:boolean" value="False" class="noborder" checked="checked"
-                             tal:attributes="id python: 'hasMedia';
-                                             checked python:((request.get('hasMedia', None) == True)) and 'checked' or '';
-                                             value python: True if is_checked else False"/>
-
-                        <label for="only-images-options">Only images</label>
-                      </div>
-                    </div>
-                  </div>
-
-
                   <div class="field"
                        tal:define="portal_types portal/portal_types;
-                                   types_list view/types_list;
-                                   object_checked python: 'Object' in request.get('portal_type', []) and len(request.get('portal_type', [])) == 1;
-                                   all_but_object_checked python: 'Object' not in request.get('portal_type', []) and len(request.get('portal_type', [])) == len(types_list)-1;
-                                   " style="margin-bottom: 0px">
-                    
-                    <div class="optionsToggle">
-                      <input type="checkbox" onchange="" name="only_website_toggle" value="#" id="only_website_toggle" class="noborder" checked="checked"
-                             tal:attributes="checked python:all_but_object_checked and 'checked' or '';" />
-                      <label for="only_website_toggle" i18n:translate="only_in_the_website" i18n:domain="plonetheme.hetpark">Only in the website</label>
-                    </div>
-
-                    <div class="optionsToggle">
-                      <input type="checkbox" onchange="" name="pt_toggle" value="#" id="pt_toggle" class="noborder" checked="checked"
-                             tal:attributes="checked python:object_checked and 'checked' or '';" />
-                      <label for="pt_toggle" i18n:translate="label_toggle_search" i18n:domain="plonetheme.hetpark">Only in the collection</label>
-                    </div>
-
-                    
+                                   types_list view/types_list;" style="margin-bottom: 0px">
                     
                     <div class="search-type-options">
                       <div tal:repeat="type types_list">
                         
                           <input type="checkbox" name="portal_type:list" value="#" class="noborder" checked="checked"
                                  tal:attributes="value type;
-                                                 id string:portal_type_${repeat/type/number};
-                                                 checked python:((type in request.get('portal_type', []))) and 'checked' or ''"/>
-                            <label for="" i18n:translate=""
-                                   tal:attributes="for string:portal_type_${repeat/type/number}"
-                                   tal:content="python: portal_types.getTypeInfo(type).Title()" />
+                                                 id string:portal_type_${type};
+                                                 checked python:((type in request.get('portal_type', [])) or first_call) and 'checked' or '';
+                                                 type python: 'checkbox' if type in ['Event', 'Document'] else 'hidden'"/>
+                            
+                            <label for="" i18n:domain="plonetheme.hetpark" i18n:translate=""
+                                   tal:attributes="for string:portal_type_${type}"
+                                   tal:condition="python: type in ['Event', 'Document']"
+                                   tal:content="python: portal_types.getTypeInfo(type).Title() if type not in ['Event', 'Document'] else type" />
 
-                        
+
                       </div>
                     </div>
 
                   </div>
 
-
-                  <div class="field"
-                       tal:define="all_checked python: request.get('object_on_display', None) == True;
+                  <div
+                       tal:define="ever string:1970/01/02;
+                                   today python: DateTime().earliestTime();
+                                   display_filter_value python:request.get('start', []);
+                                   filter_query python:display_filter_value.get('query', '') if display_filter_value else [];
+                                   contains_query python: len(filter_query) > 0;
+                                   all_checked python:True if contains_query and filter_query[0] >= today else False;
                                    toggle_select_state python:all_checked and 'true' or 'false';" style="margin-bottom: 0px">
                     
-                    <div class="onViewOptionsToggle">
-                      <input type="checkbox" onchange="" name="on_view_toggle" value="#" id="on_view_toggle" class="noborder" checked="checked"
-                             tal:attributes="checked python:all_checked and 'checked' or '';" />
-                      <label for="on_view_toggle" i18n:translate="search_nu_te_zien" i18n:domain="plonetheme.hetpark">Now on view</label>
-                    </div>
-                    
-                    <div class="on-view-options" style="display: none !important;"
-                      tal:define="is_checked python:((request.get('object_on_display', None) == True)) and 'checked' or ''">
+                    <div class="display-past-events"
+                      tal:define="is_checked python: all_checked and 'checked' or ''">
                       <div>
-                        <input type="checkbox" name="object_on_display:boolean" value="False" class="noborder" checked="checked"
-                             tal:attributes="id python: 'object_on_display';
-                                             checked python:((request.get('object_on_display', None) == True)) and 'checked' or '';
-                                             value python: True if is_checked else False"/>
+                        <input type="checkbox" name="start.query:record:list:date" class="noborder" checked="checked" onchange=""
+                             tal:attributes="id python: 'display_past_events_toggle';
+                                             checked python:is_checked;
+                                             value python: today if is_checked else ever;
+                                             data-defaultdate python: today.Date();
+                                             data-defaultever python: ever;"/>
 
-                        <label for="on-view-options">Nu te zien</label>
+                        <label for="display_past_events_toggle">Alleen aankomende evenementen</label>
+                        <input type="hidden" name="start.range:record" value="min" id="display_past_events_range" tal:attributes="name python:'start.range:record' if is_checked else ''; value python: 'min' if is_checked else ''"/>
                       </div>
                     </div>
                   </div>
+
+                  
+
 
 
                 </fieldset>
@@ -209,9 +174,15 @@
                                                  checked python:checked==ever and 'checked' or '';" />
                           <label for="query-date-ever" i18n:translate="time_ever">Ever</label>
                         </div>
+
+                        
+
                       </tal:datetime>
                     </div>
+                    
                     <input type="hidden" name="created.range:record" value="min" />
+
+                    
                   </div>
                 </fieldset>
 
@@ -233,9 +204,9 @@
                 i18n:translate=""
                 tal:condition="st">
               Search results for
-              <span>&ldquo;</span><strong id="search-term" tal:content="st" i18n:name="term">
+             <strong id="search-term" tal:content="st" i18n:name="term">
                 Search Term
-              </strong><span>&rdquo;</span>
+              </strong>
             </h1>
 
             <p id="rss-subscription" i18n:domain="plone"

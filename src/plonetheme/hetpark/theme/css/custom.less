@@ -914,8 +914,8 @@ body:not(.frontend) {
     letter-spacing: 0.01em;
     text-shadow: 0px 0px 0px #ffffff;
     font-weight: 400;
-    padding-left: 28px;
-    padding-right: 28px;
+    padding-left: 24px;
+    padding-right: 24px;
     padding-top: 11px;
     padding-bottom: 11px;
     line-height: 24px;
@@ -4408,6 +4408,9 @@ body.frontend.template-advancedsearch {
 		display: block;*/
 		.buttonField();
 		width: auto;
+		padding-top: 9px;
+    	padding-bottom: 9px;
+    	font-size: 15px;
 	}
 
 	input.search-btn {
@@ -4428,22 +4431,26 @@ body.frontend.template-advancedsearch {
 	}
 
 	.searchPage .actionMenu dd {
-		display: none;
+		/*display: none;*/
 		border: 0px;
 		background: none;
-		top: 112px;
-		width: 255px;
+		top: 0px;
+		width: 100%;
 		
 		@media (max-width: 768px) {
 			left: 0;
-			width: auto;
-			top: 140px;
+			width: 100%;
+			top: 0px;
+		}
+
+		@media(max-width: 992px) {
+			padding-top: 15px;
 		}
 	}
 
 	.searchPage .actionMenu {
 		float: none;
-		margin-top: 30px;
+		margin-top: 10px;
 	}
 
 	#search-results-wrapper {
@@ -4737,7 +4744,7 @@ body.frontend.template-advancedsearch {
 
 	@media (min-width: 1140px) {
 		.actionMenuContent {
-			margin-right: -25%;
+			margin-right: 0px;
 		}
 	}
 
@@ -9396,7 +9403,7 @@ body:not(.frontend) #portal-logo {
 body.template-search {
 	dl.actionMenu {
 		.search-type-options {
-			display: none !important;
+			/*display: none !important;*/
 		}
 	}
 }
@@ -15247,7 +15254,7 @@ body:not(.frontend) {
 body.frontend.portaltype-event #event-summary {
 	@media(min-width: 1200px) {
 		li.event-date {
-			max-width: 130px;
+			max-width: 200px;
 			line-height: 28px;
 		}
 	}
@@ -15367,7 +15374,7 @@ body.frontend.template-search {
 	}
 
 	dl.actionMenu {
-		display: none;
+		/*display: none;*/
 	}
 
 	.autotabs {
@@ -15380,6 +15387,13 @@ body.frontend.template-search {
 		color: @grey-secondary-light;
 	    font-size: 14px;
 	    margin-top: 3px;
+	}
+
+
+	.searchPage .actionMenu dd {
+		position: initial;
+		display: block;
+		padding: 0px;
 	}
 
 
@@ -16387,6 +16401,17 @@ body.frontend.portaltype-portlet-page.section-home-page {
 
 	#top-alert-message {
 		padding-top: 7px;
+		a {
+			color: #ffffff !important;
+			border-bottom: 1px solid #ffffff !important;
+			&:hover,
+			&:focus,
+			&:active,
+			&:active:focus {
+				color: #ffffff !important;
+				border-bottom: 0px solid #ffffff !important;
+			}
+		}
 	}
 
 	.main-container .title-container {
@@ -17362,7 +17387,11 @@ a.doc-more-info[aria-expanded='true'] span.ariaexpanded {
 	display: block !important;
 }
 
-
+div.search-type-options {
+	@media(max-width: 992px) {
+		margin-top: 10px;
+	}
+}
 
 
 

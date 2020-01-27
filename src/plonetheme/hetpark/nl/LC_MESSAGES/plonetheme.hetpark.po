@@ -375,5 +375,11 @@ msgstr "Tentoonstelling is afgelopen"
 msgid "privacy_statement"
 msgstr "Privacyreglement"
 
+#: ../object.py
+msgid "Pagina"
+msgstr "Pagina"
 
+#: ../object.py
+msgid "Agenda-item"
+msgstr "Evenementen"
 

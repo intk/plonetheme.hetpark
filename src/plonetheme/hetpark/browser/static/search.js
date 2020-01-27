@@ -24,14 +24,19 @@ require([
   var $filterBtn = $('#search-filter-toggle', $filter);
   var $advSearchInput = $('#advanced-search-input');
   var $ctSelectAll = $('#pt_toggle');
+  
   var $ctOnView = $('#on_view_toggle');
   var $ctOnlyImages = $('#only_images_toggle');
   var $ctOnlyWebsite = $('#only_website_toggle');
+  var $ctDisplayArchive = $('#display_past_events_toggle');
+  var $ctDisplayArchiveRange = $("#display_past_events_range");
+  var $ctDisplayEvents = $("#portal_type_Event");
   
 
   var $selectAllContainer = $('.search-type-options');
   var $onViewContainer = $('.on-view-options');
   var $onlyImagesContainer = $('.only-images-options');
+  var $displayArchiveContainer = $('.display-archive-options');
 
   var $sortingContainer = $('#sorting-options');
 
@@ -76,6 +81,7 @@ require([
       $loader.hide();
     });
   };
+
   var searchDelayed = function(){
     clearTimeout(timeout);
     timeout = setTimeout(search, 200);
@@ -116,7 +122,6 @@ require([
     search();
   });
 
-
   /* filters */
   $filterBtn.click(function(e){
     e.preventDefault();
@@ -128,69 +133,44 @@ require([
     }
   });
 
-  $ctSelectAll.change(function(){
-    if($ctSelectAll[0].checked){
-      $("input[value='Object']", $selectAllContainer).each(function(){
-        this.checked = true;
-      });
+  var activate_display_archive = function(elem) {
+    elem.checked = true;
+    var defaultdate = $(elem).data('defaultdate');
+    $(elem).attr('value', defaultdate);
+    $ctDisplayArchiveRange.attr('name', 'start.range:record');
+    $ctDisplayArchiveRange.attr('value', 'min');
+  };
 
-      $("input:not([value='Object'])", $selectAllContainer).each(function(){
-        this.checked = false;
-      });
+  var deactivate_display_archive = function(elem) {
+    elem.checked = false;
+    var defaultever = $(elem).data('defaultever');
+    $(elem).attr('value', defaultever);
+    $ctDisplayArchiveRange.attr('name', '');
+    $ctDisplayArchiveRange.attr('value', '');
+  };
 
-      $ctOnlyWebsite[0].checked = false;
-    } else {
-      $("input[value='Object']", $selectAllContainer).each(function(){
-        this.checked = false;
-      });
-    }
-  });
+  var deactivate_display_events = function() {
+    $ctDisplayEvents[0].checked = false;
+  };
 
-  $ctOnlyWebsite.change(function(){
-    if($ctOnlyWebsite[0].checked){
-      $("input:not([value='Object'])", $selectAllContainer).each(function(){
-        this.checked = true;
-      });
+  var activate_display_events = function() {
+    $ctDisplayEvents[0].checked = true;
+  };
 
-      $("input[value='Object']", $selectAllContainer).each(function() {
-        this.checked = false;
-      });
-
-      $ctSelectAll[0].checked = false;
-
-    } else {
-      $("input:not([value='Object'])", $selectAllContainer).each(function(){
-        this.checked = false;
-      });
-    }
-  });
-
-  $ctOnView.change(function(){
-    if($ctOnView[0].checked){
-      $('input', $onViewContainer).each(function(){
-        this.checked = true;
-        $(this).attr('value', true);
-      });
+  $ctDisplayArchive.change(function(){
+    if($ctDisplayArchive[0].checked){
+      activate_display_archive(this);
+      activate_display_events();
     }else{
-      $('input', $onViewContainer).each(function(){
-        this.checked = false;
-        $(this).attr('value', false);
-      });
+      deactivate_display_archive(this);
     }
   });
 
-
-  $ctOnlyImages.change(function(){
-    if($ctOnlyImages[0].checked){
-      $('input', $onlyImagesContainer).each(function(){
-        this.checked = true;
-        $(this).attr('value', true);
-      });
-    }else{
-      $('input', $onlyImagesContainer).each(function(){
-        this.checked = false;
-        $(this).attr('value', false);
-      });
+  $ctDisplayEvents.change(function() {
+    if($ctDisplayEvents[0].checked){
+      /* do nothing */
+    } else {
+      deactivate_display_archive($ctDisplayArchive[0]);
     }
   });
 
