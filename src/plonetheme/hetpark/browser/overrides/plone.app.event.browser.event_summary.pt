@@ -13,7 +13,7 @@
                      url_quote  nocall:modules/Products.PythonScripts.standard/url_quote;">
 
   <ul class="event summary details" summary="Event details" i18n:attributes="summary summary_event_details" tal:attributes="class python: 'event summary details' if not getattr(context, 'recurrence', None) else 'event summary details recurrence';">
-    
+
     <tal:cond condition="python:'title' not in excludes">
       <li class="event-title">
         <strong i18n:translate="event_event">Event</strong>
@@ -25,7 +25,7 @@
     <tal:cond condition="data/subjects">
       <li class="event-category">
         <strong i18n:translate="event_what">Wat</strong>
-        <tal:categories 
+        <tal:categories
           tal:repeat="item data/subjects">
           <tal:tagdef tal:define="item_tag_final python: item.replace('&amp;', '%26')">
             <a tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/programma/#b_start=0&c4=${item_tag_final}" tal:condition="python: item not in ['frontpage-slideshow']"><span itemprop="eventType" tal:content="item"></span></a>
@@ -43,7 +43,7 @@
         <span tal:define="start_tzname data/timezone;
                       start_utcdelta python:data.start.tzinfo.utcoffset(data.start);
                       start_utcoffset python:(start_utcdelta.days*86400+start_utcdelta.seconds)*100/60/60;">
-          
+
           <tal:date replace="structure python:context.restrictedTraverse('@@context_tools').formatted_date_event(context)" />
           <span class="timezone"
               tal:condition="start_tzname">
@@ -152,16 +152,16 @@
         <tal:text content="structure python: context.price.output_relative_to(context)" tal:on-error="nothing"/>
      </div>
 
-     
+
 
      <div class="event-availability" tal:condition="context/performance_availability">
         <tal:renderifnotpast tal:condition="not:is_past">
-          
+
           <tal:text content="structure python: context.performance_availability.output_relative_to(context)" tal:on-error="nothing"/>
 
           <tal:renderwaitinglist tal:condition="python: getattr(context, 'performanceStatus', '') == 'SOLDOUT' and getattr(context, 'waiting_list' , True) == True">
             <div class="waiting-list-link"><a tal:attributes="href python: '%s/%s' %('https://hetpark.podiumnederland.nl/waitlist/add', getattr(context, 'performance_id', ''))" target="_blank">(Zet mij op de wachtlijst)</a></div>
-          </tal:renderwaitinglist> 
+          </tal:renderwaitinglist>
 
         </tal:renderifnotpast>
         <tal:fallbackifpast tal:condition="is_past">
@@ -176,7 +176,7 @@
      </div>
 
      <div class="conditions-wrapper">
-      <p>Ticketprijs is exclusief reserveringskosten à € 1,50 per kaart met een maximum van € 4,50. Bij verzending per post komt hier € 2,50 bij.</p>
+      <p>Ticketprijs is exclusief tijdelijke restauratietoeslag van € 0,50 per kaart én exclusief reserveringskosten á € 2,- per kaart met een maximum van € 7,50.</p>
      </div>
 
   </ul>
